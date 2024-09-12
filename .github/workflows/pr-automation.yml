@@ -1,0 +1,27 @@
+name: PR Automation
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+
+jobs:
+  automate-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install GitHub CLI
+        run: |
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /usr/share/keyrings/githubcli-archive-keyring.gpg > /dev/null
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install gh
+
+      - name: Add reviewers and assignees
+        run: |
+          gh pr edit ${{ github.event.pull_request.number }} --add-reviewer f-lab-jake
+          gh pr edit ${{ github.event.pull_request.number }} --add-assignee rarlala
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
