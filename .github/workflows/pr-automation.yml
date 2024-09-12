@@ -21,7 +21,7 @@ jobs:
 
       - name: Add reviewers and assignees
         run: |
-          gh pr edit ${{ github.event.pull_request.number }} --reviewer f-lab-jake
+          gh pr edit ${{ github.event.pull_request.number }} --add-reviewer f-lab-jake
           gh pr edit ${{ github.event.pull_request.number }} --add-assignee rarlala
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
