@@ -7,6 +7,11 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      md: '540px', // mobile
+      lg: '720px', // tablet
+      xl: '1200px', // pc
+    },
     extend: {
       fontFamily: {
         pretendard: ['var(--font-pretendard'],
