@@ -62,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${campton.variable} ${pretendard.variable}`}>
-      <body>
+      <body className="flex flex-col justify-between h-dvh">
         <Header />
         {children}
         <Footer />
