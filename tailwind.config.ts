@@ -14,8 +14,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        pretendard: ['var(--font-pretendard'],
-        campton: ['var(--font-campton'],
+        pretendard: ['var(--font-pretendard)'],
+        campton: ['var(--font-campton)'],
       },
       colors: {
         background: 'var(--background)',
