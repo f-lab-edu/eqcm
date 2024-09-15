@@ -5,7 +5,7 @@ import { FOOTER_SNS_LIST } from '@/constants/footer';
 
 const CsSection = memo(function CsSection() {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="hidden md:flex flex-col gap-2">
       <div className="font-pretendard">
         <p className="text-[15px] font-bold">고객센터 1644-0560</p>
         <p className="text-[12px]">

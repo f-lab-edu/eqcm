@@ -15,7 +15,7 @@ const Info = memo(function Info() {
           ))}
         </ul>
         <div className="text-[10px] text-[#5d5d5d]">
-          <div className="flex gap-[10px]">
+          <div className="flex flex-col md:flex-row md:gap-[10px]">
             {[
               '상호명 : 주식회사 무신사 (MUSINSA Co., Ltd.)',
               '사업장소재지 : 서울특별시 성동구 아차산로 13길 11, 1층 (성수동2가, 무신사캠퍼스 엔1)',
@@ -24,21 +24,19 @@ const Info = memo(function Info() {
               <span key={text}>{text}</span>
             ))}
           </div>
-          <div>
-            {[
-              '사업자등록번호 : 211-88-79575',
-              '통신판매업신고 : 2022-서울성동-01952',
-            ].map((text) => (
-              <span key={text}>{text}</span>
-            ))}
-            <button
-              type="button"
-              className="bg-[#a4a4a4] text-white px-[7px] h-5 ml-[10px]"
-            >
-              사업자정보확인
-            </button>
+          <div className="flex flex-col md:flex-row md:gap-[10px]">
+            <span>사업자등록번호 : 211-88-79575</span>
+            <div className="flex">
+              <span>통신판매업신고 : 2022-서울성동-01952</span>
+              <button
+                type="button"
+                className="bg-[#a4a4a4] text-white px-[7px] h-5 ml-[10px]"
+              >
+                사업자정보확인
+              </button>
+            </div>
           </div>
-          <div>
+          <div className="flex flex-col md:flex-row md:gap-[10px]">
             {[
               '전화번호 : 1644-0560',
               '이메일 : customer@29cm.co.kr',
@@ -56,7 +54,7 @@ const Info = memo(function Info() {
           </p>
         </div>
       </div>
-      <div className="absolute top-[42px] right-[30px] text-[11px] text-[#999]">
+      <div className="absolute top-[10px] right-[15px] md:top-[42px] md:right-[30px] text-[11px] text-[#999]">
         KG 에스크로
         <br />
         가입 사실 확인
