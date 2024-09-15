@@ -144,4 +144,20 @@ export const Icons = {
       </g>
     </svg>
   ),
+  footer_arrow: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 42 80"
+      width="100%"
+      height="100%"
+    >
+      <path
+        d="M1 0l40 40.083L1.166 80"
+        fill="none"
+        fillRule="evenodd"
+        stroke="rgb(160, 160, 160)"
+        strokeWidth="5"
+      ></path>
+    </svg>
+  ),
 };
