@@ -160,4 +160,206 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  home_off: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#818181"
+      strokeWidth="1.5"
+    >
+      <g>
+        <path
+          id="vector"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M3.5 4.75C3.5 4.05964 4.05964 3.5 4.75 3.5H11.5V11.5H3.5V4.75ZM12.5 3.5H19.25C19.9404 3.5 20.5 4.05964 20.5 4.75V11.5H12.5V3.5ZM3.5 12.5H11.5V20.5H4.75C4.05964 20.5 3.5 19.9404 3.5 19.25V12.5ZM12.5 12.5H20.5V19.25C20.5 19.9404 19.9404 20.5 19.25 20.5H12.5V12.5Z"
+          stroke="#818181"
+          fill="none"
+        />
+      </g>
+    </svg>
+  ),
+  home_on: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+    >
+      <g id="weight=bold">
+        <path
+          id="vector"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M3.5 4.75C3.5 4.05964 4.05964 3.5 4.75 3.5H11.5V11.5H3.5V4.75ZM12.5 3.5H19.25C19.9404 3.5 20.5 4.05964 20.5 4.75V11.5H12.5V3.5ZM3.5 12.5H11.5V20.5H4.75C4.05964 20.5 3.5 19.9404 3.5 19.25V12.5ZM12.5 12.5H20.5V19.25C20.5 19.9404 19.9404 20.5 19.25 20.5H12.5V12.5Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
+  shop_off: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      fill="none"
+      viewBox="0 0 18 18"
+    >
+      <g>
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M1 .5H.5V3h1V1.5h15V3h1V.5H1zm0 4H.5v13h17v-13H1zm.5 12v-11h15v11h-7v-6h-1v6h-7z"
+          clip-rule="evenodd"
+        ></path>
+      </g>
+    </svg>
+  ),
+  shop_on: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      fill="none"
+      viewBox="0 0 18 18"
+      stroke="#000"
+    >
+      <g>
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M1 .5H.5V3h1V1.5h15V3h1V.5H1zm0 4H.5v13h17v-13H1zm.5 12v-11h15v11h-7v-6h-1v6h-7z"
+          clip-rule="evenodd"
+        ></path>
+      </g>
+    </svg>
+  ),
+  search_off: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+    >
+      <g id="weight=light, fill=false">
+        <path
+          id="vector"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M10.9 4C7.08924 4 4 7.08924 4 10.9C4 14.7108 7.08924 17.8 10.9 17.8C12.8012 17.8 14.5219 17.0318 15.7705 15.7876C17.0247 14.5377 17.8 12.8099 17.8 10.9C17.8 7.08924 14.7108 4 10.9 4ZM3 10.9C3 6.53695 6.53695 3 10.9 3C15.2631 3 18.8 6.53695 18.8 10.9C18.8 12.9057 18.052 14.7375 16.8206 16.1305L20.8528 20.1457L20.1472 20.8543L16.1124 16.8365C14.7218 18.0584 12.8971 18.8 10.9 18.8C6.53695 18.8 3 15.2631 3 10.9Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
+  search_on: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+      stroke="#000"
+    >
+      <g id="weight=light, fill=false">
+        <path
+          id="vector"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M10.9 4C7.08924 4 4 7.08924 4 10.9C4 14.7108 7.08924 17.8 10.9 17.8C12.8012 17.8 14.5219 17.0318 15.7705 15.7876C17.0247 14.5377 17.8 12.8099 17.8 10.9C17.8 7.08924 14.7108 4 10.9 4ZM3 10.9C3 6.53695 6.53695 3 10.9 3C15.2631 3 18.8 6.53695 18.8 10.9C18.8 12.9057 18.052 14.7375 16.8206 16.1305L20.8528 20.1457L20.1472 20.8543L16.1124 16.8365C14.7218 18.0584 12.8971 18.8 10.9 18.8C6.53695 18.8 3 15.2631 3 10.9Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
+  magazine_off: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+    >
+      <g id="weight=light, fill=false">
+        <path
+          id="vector"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M4.5 4.5V19.5H19.5V4.5H15V12H14V4.5H10V12H9V4.5H4.5ZM3.5 4.25C3.5 3.83579 3.83579 3.5 4.25 3.5H19.75C20.1642 3.5 20.5 3.83579 20.5 4.25V19.75C20.5 20.1642 20.1642 20.5 19.75 20.5H4.25C3.83579 20.5 3.5 20.1642 3.5 19.75V4.25Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
+  magazine_on: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+      stroke="#000"
+    >
+      <g id="weight=light, fill=false">
+        <path
+          id="vector"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M4.5 4.5V19.5H19.5V4.5H15V12H14V4.5H10V12H9V4.5H4.5ZM3.5 4.25C3.5 3.83579 3.83579 3.5 4.25 3.5H19.75C20.1642 3.5 20.5 3.83579 20.5 4.25V19.75C20.5 20.1642 20.1642 20.5 19.75 20.5H4.25C3.83579 20.5 3.5 20.1642 3.5 19.75V4.25Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
+  my_off: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+    >
+      <g id="weight=light, fill=false">
+        <path
+          id="vector"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.5 3V2.5H11.5V3V8V8.5H12.5V8V3ZM4.5 17.1225V12H19.5V20.5V21H20.5V20.5V11.75C20.5 11.3358 20.1642 11 19.75 11H4.25C3.83796 11 3.5 11.3328 3.5 11.7492V20.5V21H4.5V20.5V17.1225Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
+  my_on: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+      stroke="#000"
+    >
+      <g id="weight=light, fill=false">
+        <path
+          id="vector"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.5 3V2.5H11.5V3V8V8.5H12.5V8V3ZM4.5 17.1225V12H19.5V20.5V21H20.5V20.5V11.75C20.5 11.3358 20.1642 11 19.75 11H4.25C3.83796 11 3.5 11.3328 3.5 11.7492V20.5V21H4.5V20.5V17.1225Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
 };
