@@ -1,7 +1,11 @@
 import React, { memo } from 'react';
 import { Icons } from '../icons';
 
-const CsButton = memo(function Button({ title }: { title: string }) {
+type Props = {
+  title: string;
+};
+
+const CsButton = memo(function Button({ title }: Props) {
   return (
     <button
       type="button"

@@ -6,10 +6,10 @@ const Info = memo(function Info() {
     <div className="relative flex">
       <div className="leading-6">
         <ul className="flex text-xs gap-[10px] mt-3 mb-1">
-          {INFO_MENU_LIST.map(({ title, link, style }) => (
-            <li key={title}>
+          {INFO_MENU_LIST.map(({ text, link, style }) => (
+            <li key={text}>
               <a href={link} className={style}>
-                {title}
+                {text}
               </a>
             </li>
           ))}
