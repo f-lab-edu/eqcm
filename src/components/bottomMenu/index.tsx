@@ -1,9 +1,9 @@
 'use client';
 
-import { memo } from 'react';
-import { BOTTOM_MENUS } from '@/constants/bottomMenu';
-import cn from 'classnames';
 import { usePathname } from 'next/navigation';
+import { memo } from 'react';
+import cn from 'classnames';
+import { BOTTOM_MENUS } from '@/constants/bottomMenu';
 
 const BottomMenu = memo(function BottomMenu() {
   const path = usePathname();

@@ -1,6 +1,7 @@
 import { Icons } from '@/components/icons';
+import { BottomMenuType } from '@/types/bottomMenu';
 
-export const BOTTOM_MENUS = [
+export const BOTTOM_MENUS: BottomMenuType[] = [
   {
     title: 'HOME',
     iconOn: <Icons.home_on />,
