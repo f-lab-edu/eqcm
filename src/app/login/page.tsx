@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import LoginButtons from '@/components/login/loginButtons';
-import LoginHelpMenu from '@/components/login/loginhelpMenu';
+import LoginHelpMenu from '@/components/login/loginHelpMenu';
 
 const Login = memo(function Login() {
   return (
