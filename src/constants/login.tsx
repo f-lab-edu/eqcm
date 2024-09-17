@@ -17,7 +17,7 @@ export const LOGIN_BUTTON_LIST: LoginButtonType[] = [
   {
     icon: <Icons.email />,
     text: '이메일로 계속하기',
-    link: '',
+    link: '/login/email',
     style: 'border border-[#000]',
   },
 ];

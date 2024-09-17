@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { memo } from 'react';
 import cn from 'classnames';
 import { LOGIN_BUTTON_LIST } from '@/constants/login';
@@ -6,7 +7,7 @@ const LoginButtons = memo(function LoginButtons() {
   return (
     <div className="flex flex-col gap-[8px] pt-[80px] pb-[30px] text-[14px] font-bold">
       {LOGIN_BUTTON_LIST.map(({ icon, text, link, style }) => (
-        <a
+        <Link
           key={text}
           href={link}
           className={cn(
@@ -16,7 +17,7 @@ const LoginButtons = memo(function LoginButtons() {
         >
           {icon}
           {text}
-        </a>
+        </Link>
       ))}
     </div>
   );
