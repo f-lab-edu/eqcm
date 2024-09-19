@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { memo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -48,12 +49,12 @@ const EmailLoginForm = memo(function LoginForm() {
           로그인
         </button>
 
-        <button
-          type="button"
+        <Link
+          href={'/join'}
           className="flex items-center justify-center gap-1 md:w-[400px] h-[52px] rounded border border-[#dcdfe6]"
         >
           이메일로 가입하기
-        </button>
+        </Link>
       </div>
     </form>
   );
