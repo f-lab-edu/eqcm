@@ -31,18 +31,13 @@ const campton = localFont({
       style: 'italic',
     },
     {
-      path: './fonts/campton/CamptonMedium.otf',
-      weight: '500',
-      style: 'normal',
-    },
-    {
       path: './fonts/campton/CamptonBook.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './fonts/campton/CamptonBold.otf',
-      weight: '700',
+      path: './fonts/campton/CamptonMedium.otf',
+      weight: '500',
       style: 'normal',
     },
     {
@@ -50,8 +45,13 @@ const campton = localFont({
       weight: '600',
       style: 'normal',
     },
+    {
+      path: './fonts/campton/CamptonBold.otf',
+      weight: '700',
+      style: 'normal',
+    },
   ],
-  variable: '--font-camton',
+  variable: '--font-campton',
   display: 'swap',
 });
 
@@ -62,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${campton.variable} ${pretendard.variable}`}>
-      <body>
+      <body className="flex flex-col justify-between h-dvh">
         <Header />
         {children}
         <Footer />

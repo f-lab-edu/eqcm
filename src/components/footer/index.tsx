@@ -1,7 +1,16 @@
-import React from 'react';
+import { memo } from 'react';
+import CsSection from './csSection';
+import Menus from './menus';
+import Info from './info';
 
-const Footer = () => {
-  return <footer>Footer</footer>;
-};
+const Footer = memo(function Footer() {
+  return (
+    <footer className="bg-[#e9e9e9] md:bg-white pt-[10px] px-[15px] pb-[70px] md:pt-0 md:px-[50px] md:pb-[50px] md:min-w-[900px]">
+      <CsSection />
+      <Menus />
+      <Info />
+    </footer>
+  );
+});
 
 export default Footer;
