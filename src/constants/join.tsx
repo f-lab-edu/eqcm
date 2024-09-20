@@ -83,3 +83,25 @@ export const PhoneJoinFormSchema = z.object({
   phone: PhoneFormSchema,
   validNumber: PhoneValidNumberFormSchema,
 });
+
+export const NameFormSchema = z
+  .string()
+  .min(2, { message: '이름을 입력하세요.' });
+
+export const BirthFormSchema = z
+  .string()
+  .refine((val) => !isNaN(Date.parse(val)), {
+    message: '유효한 날짜를 입력하세요.',
+  })
+  .transform((val) => new Date(val))
+  .refine((date) => date >= new Date('1900-01-01'), {
+    message: '1900년 이후로 입력해 주세요.',
+  })
+  .refine((date) => date < new Date(), {
+    message: '오늘 이후 날짜는 입력 불가능합니다.',
+  });
+
+export const PersonalInfoFormSchema = z.object({
+  name: NameFormSchema,
+  birth: BirthFormSchema,
+});

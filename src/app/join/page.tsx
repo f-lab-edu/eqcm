@@ -5,16 +5,21 @@ import TermsAgreement from '@/components/join/termsAgreement';
 import EmailJoinForm from '@/components/join/emailJoinForm';
 import PasswordJoinForm from '@/components/join/passwordJoinForm';
 import PhoneJoinForm from '@/components/join/phoneJoinForm';
+import PersonalInfoForm from '@/components/join/personalInfoForm';
+import JoinSuccess from '@/components/join/joinSuccess';
 import { StepType } from '@/types/join';
 
 const Join = memo(function Join() {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(4);
 
   const [userData, setUserData] = useState({
     term_marketing: false,
     term_ad: false,
     email: '',
     password: '',
+    phone: '',
+    name: '',
+    birth: '',
   });
 
   console.log('userData', userData);
@@ -67,6 +72,20 @@ const Join = memo(function Join() {
           onChangeData={handleUserData}
         />
       ),
+    },
+    4: {
+      title: '이름과 생년월일을\n입력해 주세요.',
+      component: (
+        <PersonalInfoForm
+          onClickNextBtn={handleStep}
+          onChangeData={handleUserData}
+        />
+      ),
+    },
+    5: {
+      title: '가입 완료!',
+      subtitle: '가입을 축하해요!',
+      component: <JoinSuccess />,
     },
   };
 

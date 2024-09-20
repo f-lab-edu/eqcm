@@ -3,6 +3,7 @@ import {
   AGREEMENT_CHECK_IDS,
   EmailJoinFormSchema,
   PasswordJoinFormSchema,
+  PersonalInfoFormSchema,
   PhoneJoinFormSchema,
 } from '@/constants/join';
 
@@ -24,3 +25,4 @@ export type TermsAgreementListType = {
 export type EmailJoinFormData = z.infer<typeof EmailJoinFormSchema>;
 export type PasswordJoinFormData = z.infer<typeof PasswordJoinFormSchema>;
 export type PhoneJoinFormData = z.infer<typeof PhoneJoinFormSchema>;
+export type PersonalInfoFormData = z.infer<typeof PersonalInfoFormSchema>;
