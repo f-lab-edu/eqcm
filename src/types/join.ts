@@ -1,5 +1,9 @@
 import { z } from 'zod';
-import { AGREEMENT_CHECK_IDS, EmailJoinFormSchema } from '@/constants/join';
+import {
+  AGREEMENT_CHECK_IDS,
+  EmailJoinFormSchema,
+  PasswordJoinFormSchema,
+} from '@/constants/join';
 
 export type StepType = {
   title: string;
@@ -16,4 +20,4 @@ export type TermsAgreementListType = {
 };
 
 export type EmailJoinFormData = z.infer<typeof EmailJoinFormSchema>;
-export type PasswordJoinFormData = z.infer<typeof EmailJoinFormSchema>;
+export type PasswordJoinFormData = z.infer<typeof PasswordJoinFormSchema>;

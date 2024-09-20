@@ -3,15 +3,17 @@
 import { memo, useCallback, useState } from 'react';
 import TermsAgreement from '@/components/join/termsAgreement';
 import EmailJoinForm from '@/components/join/emailJoinForm';
+import PasswordJoinForm from '@/components/join/passwordJoinForm';
 import { StepType } from '@/types/join';
 
 const Join = memo(function Join() {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(2);
 
   const [userData, setUserData] = useState({
     term_marketing: false,
     term_ad: false,
     email: '',
+    password: '',
   });
 
   console.log('userData', userData);
@@ -41,6 +43,15 @@ const Join = memo(function Join() {
       title: '로그인에 사용할\n아이디를 입력해 주세요.',
       component: (
         <EmailJoinForm
+          onClickNextBtn={handleStep}
+          onChangeData={handleUserData}
+        />
+      ),
+    },
+    2: {
+      title: '로그인에 사용할\n비밀번호를 입력해 주세요.',
+      component: (
+        <PasswordJoinForm
           onClickNextBtn={handleStep}
           onChangeData={handleUserData}
         />

@@ -1,6 +1,7 @@
 import { z } from 'zod';
-import { TermsAgreementListType } from '@/types/join';
-import { EmailFormSchema } from './common';
+import { PasswordJoinFormData, TermsAgreementListType } from '@/types/join';
+import { InputFieldType } from '@/types/common';
+import { EmailFormSchema, PasswordFormSchema } from './common';
 
 export const AGREEMENT_CHECK_IDS = {
   all: 'all',
@@ -45,3 +46,28 @@ export const TERMS_AGREEMENT_LIST: TermsAgreementListType[] = [
 export const EmailJoinFormSchema = z.object({
   email: EmailFormSchema,
 });
+
+export const PasswordJoinFieldList: InputFieldType<PasswordJoinFormData>[] = [
+  {
+    type: 'text',
+    name: 'password',
+    title: '이메일(아이디)',
+    placeholder: 'abc@email.com',
+  },
+  {
+    type: 'password',
+    name: 'rePassword',
+    title: '비밀번호',
+    placeholder: '8자 이상의 비밀번호',
+  },
+];
+
+export const PasswordJoinFormSchema = z
+  .object({
+    password: PasswordFormSchema,
+    rePassword: PasswordFormSchema,
+  })
+  .refine((data) => data.password === data.rePassword, {
+    message: '비밀번호가 일치하지 않습니다.',
+    path: ['rePassword'],
+  });

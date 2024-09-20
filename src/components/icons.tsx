@@ -402,18 +402,18 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  check: () => (
+  check: ({ color }: { color: string }) => (
     <svg
       width="14px"
       height="14px"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-[14px] h-[14px] text-[#dcdfe6] peer-checked:text-white"
+      className={`w-[14px] h-[14px] text-[${color ? color : '#dcdfe6'}] peer-checked:text-white`}
     >
       <path
         d="M20.6303 6.49266L10.6975 19.2009L3.43756 12.0235L4.56245 10.8856L10.5439 16.7991L19.3697 5.50735L20.6303 6.49266Z"
-        fill="#dcdfe6"
+        fill={color ? color : '#dcdfe6'}
       ></path>
     </svg>
   ),
