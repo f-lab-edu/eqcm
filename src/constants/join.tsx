@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { PasswordJoinFormData, TermsAgreementListType } from '@/types/join';
 import { InputFieldType } from '@/types/common';
-import { EmailFormSchema, PasswordFormSchema } from './common';
+import { EmailFormSchema, PasswordFormSchema, PhoneFormSchema } from './common';
 
 export const AGREEMENT_CHECK_IDS = {
   all: 'all',
@@ -71,3 +71,15 @@ export const PasswordJoinFormSchema = z
     message: '비밀번호가 일치하지 않습니다.',
     path: ['rePassword'],
   });
+
+export const PhoneValidNumberFormSchema = z
+  .string()
+  .min(6, { message: '인증번호를 입력하세요.' })
+  .refine((validNumber) => /^\d{6}$/.test(validNumber), {
+    message: '인증번호는 6자리 숫자입니다.',
+  });
+
+export const PhoneJoinFormSchema = z.object({
+  phone: PhoneFormSchema,
+  validNumber: PhoneValidNumberFormSchema,
+});

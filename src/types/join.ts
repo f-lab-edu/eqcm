@@ -3,10 +3,12 @@ import {
   AGREEMENT_CHECK_IDS,
   EmailJoinFormSchema,
   PasswordJoinFormSchema,
+  PhoneJoinFormSchema,
 } from '@/constants/join';
 
 export type StepType = {
   title: string;
+  subtitle?: string;
   component: JSX.Element;
 };
 
@@ -21,3 +23,4 @@ export type TermsAgreementListType = {
 
 export type EmailJoinFormData = z.infer<typeof EmailJoinFormSchema>;
 export type PasswordJoinFormData = z.infer<typeof PasswordJoinFormSchema>;
+export type PhoneJoinFormData = z.infer<typeof PhoneJoinFormSchema>;

@@ -9,3 +9,10 @@ export const PasswordFormSchema = z
   .string()
   .min(1, { message: '비밀번호를 입력해주세요.' })
   .min(8, { message: '비밀번호는 8자 이상이어야 합니다.' });
+
+export const PhoneFormSchema = z
+  .string()
+  .min(1, { message: '휴대폰 번호를 입력하세요.' })
+  .refine((phone) => /^\d{10,11}$/.test(phone), {
+    message: '유효한 휴대폰 번호를 입력하세요',
+  });

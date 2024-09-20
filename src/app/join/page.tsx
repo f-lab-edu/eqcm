@@ -4,10 +4,11 @@ import { memo, useCallback, useState } from 'react';
 import TermsAgreement from '@/components/join/termsAgreement';
 import EmailJoinForm from '@/components/join/emailJoinForm';
 import PasswordJoinForm from '@/components/join/passwordJoinForm';
+import PhoneJoinForm from '@/components/join/phoneJoinForm';
 import { StepType } from '@/types/join';
 
 const Join = memo(function Join() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
 
   const [userData, setUserData] = useState({
     term_marketing: false,
@@ -57,6 +58,16 @@ const Join = memo(function Join() {
         />
       ),
     },
+    3: {
+      title: '본인인증을\n진행해 주세요',
+      subtitle: '이미 가입한 계정이 있다면 알려드릴게요!',
+      component: (
+        <PhoneJoinForm
+          onClickNextBtn={handleStep}
+          onChangeData={handleUserData}
+        />
+      ),
+    },
   };
 
   return (
@@ -64,6 +75,7 @@ const Join = memo(function Join() {
       <p className="text-[30px] font-bold whitespace-pre-wrap">
         {StepData[step].title}
       </p>
+      {StepData[step].subtitle && <p>{StepData[step].subtitle}</p>}
       <div className="h-full">{StepData[step].component}</div>
     </div>
   );
