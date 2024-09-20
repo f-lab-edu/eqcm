@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import BottomMenu from '@/components/bottomMenu';
 
 import './globals.css';
 
@@ -62,10 +63,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${campton.variable} ${pretendard.variable}`}>
-      <body className="flex flex-col justify-between h-dvh">
+      <body className="relative flex flex-col justify-between h-dvh">
         <Header />
         {children}
         <Footer />
+        <BottomMenu />
       </body>
     </html>
   );
