@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { memo } from 'react';
 import NextButton from './nextButton';
-import Link from 'next/link';
 
 function JoinSuccess() {
   return (

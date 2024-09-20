@@ -10,7 +10,7 @@ import JoinSuccess from '@/components/join/joinSuccess';
 import { StepType } from '@/types/join';
 
 const Join = memo(function Join() {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(0);
 
   const [userData, setUserData] = useState({
     term_marketing: false,
@@ -24,12 +24,12 @@ const Join = memo(function Join() {
 
   console.log('userData', userData);
 
-  const handleUserData = (id: string, value: boolean | string) => {
+  const handleUserData = useCallback((id: string, value: boolean | string) => {
     setUserData((state) => ({
       ...state,
       [id]: value,
     }));
-  };
+  }, []);
 
   const handleStep = useCallback((step: number) => {
     setStep(step);

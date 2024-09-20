@@ -4,7 +4,7 @@ import { DEFAULT_MENU, USER_STATUS_MENU } from '@/constants/header';
 import MyMenuItem from './myMenuItem';
 
 const MyMenu = memo(function MyMenu() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   return (
     <ul className="flex gap-4 text-[10px] font-base">
       {DEFAULT_MENU.map((menu) => (

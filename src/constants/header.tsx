@@ -42,6 +42,6 @@ export const DEFAULT_MENU: MyMenuItemType[] = [
 ] as const;
 
 export const USER_STATUS_MENU: { [key: string]: MyMenuItemType } = {
-  LOGIN: { icon: <Icons.login />, title: 'LOGIN', link: '' },
+  LOGIN: { icon: <Icons.login />, title: 'LOGIN', link: '/login' },
   LOGOUT: { icon: <Icons.logout />, title: 'LOGOUT', link: '' },
 } as const;

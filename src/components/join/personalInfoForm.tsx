@@ -25,7 +25,6 @@ function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {
   const birthValue = watch('birth');
 
   const onSubmit: SubmitHandler<PersonalInfoFormData> = (data) => {
-    console.log('🚀 ~ PersonalInfoForm ~ data:', data);
     onChangeData('name', data.name);
     onChangeData('birth', data.birth.toString());
     onClickNextBtn(5);
