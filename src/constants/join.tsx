@@ -1,4 +1,6 @@
+import { z } from 'zod';
 import { TermsAgreementListType } from '@/types/join';
+import { EmailFormSchema } from './common';
 
 export const AGREEMENT_CHECK_IDS = {
   all: 'all',
@@ -39,3 +41,7 @@ export const TERMS_AGREEMENT_LIST: TermsAgreementListType[] = [
     text: '광고성 정보 수신 동의',
   },
 ];
+
+export const EmailJoinFormSchema = z.object({
+  email: EmailFormSchema,
+});

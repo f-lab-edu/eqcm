@@ -1,14 +1,16 @@
 'use client';
 
-import { useState } from 'react';
-import CheckBox from './checkbox';
+import { useCallback, useState } from 'react';
 import { AGREEMENT_CHECK_IDS, TERMS_AGREEMENT_LIST } from '@/constants/join';
+import CheckBox from './checkbox';
+import NextButton from './nextButton';
 
 type Props = {
   onClickNextBtn: (step: number) => void;
+  onChangeData: (id: string, value: boolean | string) => void;
 };
 
-const TermsAgreement = ({ onClickNextBtn }: Props) => {
+const TermsAgreement = ({ onClickNextBtn, onChangeData }: Props) => {
   const [checkStatus, setCheckStatus] = useState({
     all: false,
     age: false,
@@ -46,45 +48,38 @@ const TermsAgreement = ({ onClickNextBtn }: Props) => {
     });
   };
 
-  return (
-    <div className="flex flex-col size-full">
-      <p className="text-[30px] font-bold">
-        eqCM에 이용 약관에
-        <br />
-        동의해 주세요
-      </p>
+  const handleSubmit = useCallback(() => {
+    onChangeData('term_marketing', checkStatus.marketing);
+    onChangeData('term_ad', checkStatus.ad);
+    onClickNextBtn(1);
+  }, [checkStatus.marketing, checkStatus.ad, onChangeData, onClickNextBtn]);
 
-      <form className="flex flex-col mt-[60px] text-[13px] h-full">
-        <div className="flex flex-col gap-[9px] flex-grow">
+  return (
+    <form className="flex flex-col h-full pt-[60px] text-[13px]">
+      <div className="flex flex-col gap-[9px] flex-grow">
+        <CheckBox
+          id={AGREEMENT_CHECK_IDS.all}
+          text="전체 동의하기 (선택 정보를 포함합니다.)"
+          onClick={handleChecked}
+          check={checkStatus['all']}
+        />
+        <div className="my-[5px] h-[1px] bg-[#f4f4f4]" />
+        {TERMS_AGREEMENT_LIST.map(({ id, required, text, detail }) => (
           <CheckBox
-            id={AGREEMENT_CHECK_IDS.all}
-            text="전체 동의하기 (선택 정보를 포함합니다.)"
+            key={id}
+            id={id}
+            check={checkStatus[id]}
             onClick={handleChecked}
-            check={checkStatus['all']}
+            text={(required ? '[필수] ' : '[선택] ') + text}
+            detail={detail}
           />
-          <div className="my-[5px] h-[1px] bg-[#f4f4f4]" />
-          {TERMS_AGREEMENT_LIST.map(({ id, required, text, detail }) => (
-            <CheckBox
-              key={id}
-              id={id}
-              check={checkStatus[id]}
-              onClick={handleChecked}
-              text={(required ? '[필수] ' : '[선택] ') + text}
-              detail={detail}
-            />
-          ))}
-        </div>
-        <button
-          type="submit"
-          disabled={!isAllRequiredTermsChecked}
-          className="w-full mt-auto md:w-[400px] h-[52px] rounded bg-[#000] text-white disabled:bg-[#f4f4f4] disabled:text-[#c4c4c4]"
-          onClick={() => onClickNextBtn(1)}
-        >
-          {!isAllRequiredTermsChecked}
-          다음
-        </button>
-      </form>
-    </div>
+        ))}
+      </div>
+      <NextButton
+        disabled={!isAllRequiredTermsChecked}
+        onClick={handleSubmit}
+      />
+    </form>
   );
 };
 

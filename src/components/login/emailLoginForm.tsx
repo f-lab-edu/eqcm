@@ -6,7 +6,7 @@ import { EmailLoginFieldList, LoginFormSchema } from '@/constants/login';
 import { EmailLoginFormData } from '@/types/login';
 import Input from '../common/input';
 
-const EmailLoginForm = memo(function LoginForm() {
+const EmailLoginForm = memo(function EmailLoginForm() {
   const {
     register,
     handleSubmit,
