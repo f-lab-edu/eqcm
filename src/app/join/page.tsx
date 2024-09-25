@@ -20,6 +20,7 @@ const Join = memo(function Join() {
     password: null,
     phone: null,
     name: null,
+    gender: null,
     birth: null,
   });
 
@@ -66,7 +67,7 @@ const Join = memo(function Join() {
       ),
     },
     {
-      title: '이름과 생년월일을\n입력해 주세요.',
+      title: '이름과 성별, 생년월일을\n입력해 주세요.',
       component: (
         <PersonalInfoForm
           onClickNextBtn={setStep}

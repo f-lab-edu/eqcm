@@ -1,3 +1,4 @@
+import { GENDER } from './../constants/join';
 import { z } from 'zod';
 import {
   AGREEMENT_CHECK_IDS,
@@ -7,6 +8,8 @@ import {
   PhoneJoinFormSchema,
 } from '@/constants/join';
 
+export type GenderType = GENDER.male | GENDER.female;
+
 export type UserDataType = {
   term_marketing: boolean;
   term_ad: boolean;
@@ -14,6 +17,7 @@ export type UserDataType = {
   password: string | null;
   phone: string | null;
   name: string | null;
+  gender: GenderType | null;
   birth: string | null;
 };
 
