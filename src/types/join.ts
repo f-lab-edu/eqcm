@@ -7,6 +7,16 @@ import {
   PhoneJoinFormSchema,
 } from '@/constants/join';
 
+export type UserDataType = {
+  term_marketing: boolean;
+  term_ad: boolean;
+  email: string | null;
+  password: string | null;
+  phone: string | null;
+  name: string | null;
+  birth: string | null;
+};
+
 export type StepType = {
   title: string;
   subtitle?: string;

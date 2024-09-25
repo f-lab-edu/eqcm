@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { PersonalInfoFormData } from '@/types/join';
+import { PersonalInfoFormData, UserDataType } from '@/types/join';
 import { PersonalInfoFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
 
 type Props = {
   onClickNextBtn: (step: number) => void;
-  onChangeData: (id: string, value: boolean | string) => void;
+  onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
 function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {

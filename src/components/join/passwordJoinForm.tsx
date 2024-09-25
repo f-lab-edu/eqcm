@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { PasswordJoinFormData } from '@/types/join';
+import { PasswordJoinFormData, UserDataType } from '@/types/join';
 import Input from '../common/input';
 import { PasswordJoinFormSchema } from '@/constants/join';
 import NextButton from './nextButton';
@@ -9,7 +9,7 @@ import OptionCheck from './optionCheck';
 
 type Props = {
   onClickNextBtn: (step: number) => void;
-  onChangeData: (id: string, value: boolean | string) => void;
+  onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
 function PasswordJoinForm({ onClickNextBtn, onChangeData }: Props) {
