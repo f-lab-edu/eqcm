@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import BottomMenu from '@/components/bottomMenu';
-
+import AuthProvider from '@/lib/next-auth';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -64,10 +61,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${campton.variable} ${pretendard.variable}`}>
       <body className="relative flex flex-col justify-between h-dvh">
-        <Header />
-        {children}
-        <Footer />
-        <BottomMenu />
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

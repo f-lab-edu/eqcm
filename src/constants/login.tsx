@@ -1,27 +1,7 @@
-import { Icons } from '@/components/icons';
 import { z } from 'zod';
-import {
-  EmailLoginFormData,
-  LoginButtonType,
-  LoginMenuType,
-} from '@/types/login';
+import { EmailLoginFormData, LoginMenuType } from '@/types/login';
 import { InputFieldType } from '@/types/common';
 import { EmailFormSchema, PasswordFormSchema } from './common';
-
-export const LOGIN_BUTTON_LIST: LoginButtonType[] = [
-  {
-    icon: <Icons.naver />,
-    text: '네이버로 계속하기',
-    link: '',
-    style: 'bg-[#03c75a] text-white',
-  },
-  {
-    icon: <Icons.email />,
-    text: '이메일로 계속하기',
-    link: '/login/email',
-    style: 'border border-[#000]',
-  },
-];
 
 export const LOGIN_HELP_MENU_LIST: LoginMenuType[] = [
   {

@@ -8,7 +8,10 @@ type Props = {
 
 const MyMenuItem = memo(function MyMenuItem({ menu }: Props) {
   return (
-    <li className={`hidden md:block ${menu?.style}`}>
+    <li
+      className={`hidden md:block ${menu?.style}`}
+      onClick={() => menu.callback && menu.callback()}
+    >
       <Link href={menu.link} className="flex gap-1 items-center">
         {menu.icon}
         <span className="hidden xl:inline-block">{menu.title}</span>
