@@ -13,19 +13,23 @@ const handler = NextAuth({
   ],
   callbacks: {
     async signIn({ profile }) {
-      console.log('profile', profile);
+      if (!profile) {
+        throw new Error();
+      }
 
-      if (profile && profile.message !== 'success') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if ((profile as any).message !== 'success') {
         return false;
       }
 
       const {
         response: { id, gender, email, mobile, name, birthday, birthyear },
-      } = profile;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } = profile as any;
 
       const joinRequest = {
         email,
-        gender,
+        gender: gender === 'F' ? 'FEMALE' : 'MALE',
         name,
         birthday: `${birthyear}-${birthday}`,
         phoneNumber: mobile,
@@ -38,12 +42,8 @@ const handler = NextAuth({
       };
 
       try {
-        // TODO: socialId로 기존 유저인지 체크
-
-        // 1) 기존 유저라면 로그인 api 연동
+        // TODO: social login api 연동
         console.log('naver signIn', body);
-
-        // 2) 기존 유저 아니라면 추가 정보 받고나서 로그인이 필요함 (약관 동의)
         return true;
       } catch (error) {
         console.log('social login error', body);
