@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-prettier", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:9.1.0"],\
           ["eslint-plugin-prettier", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:5.2.1"],\
           ["eslint-plugin-unused-imports", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.1.4"],\
+          ["immer", "npm:10.1.1"],\
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["next-auth", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.24.7"],\
           ["postcss", "npm:8.4.45"],\
@@ -1611,6 +1612,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-prettier", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:9.1.0"],\
           ["eslint-plugin-prettier", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:5.2.1"],\
           ["eslint-plugin-unused-imports", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.1.4"],\
+          ["immer", "npm:10.1.1"],\
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["next-auth", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.24.7"],\
           ["postcss", "npm:8.4.45"],\
@@ -2778,6 +2780,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/ignore-npm-5.3.2-346d3ba017-10c0.zip/node_modules/ignore/",\
         "packageDependencies": [\
           ["ignore", "npm:5.3.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["immer", [\
+      ["npm:10.1.1", {\
+        "packageLocation": "../../../../.yarn/berry/cache/immer-npm-10.1.1-973ae10d09-10c0.zip/node_modules/immer/",\
+        "packageDependencies": [\
+          ["immer", "npm:10.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\

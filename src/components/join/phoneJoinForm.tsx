@@ -3,15 +3,15 @@
 import { memo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { PhoneJoinFormData } from '@/types/join';
+import { PhoneJoinFormData, UserDataType } from '@/types/join';
 import { PhoneJoinFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
 import { PhoneFormSchema } from '@/constants/common';
 
 type Props = {
-  onClickNextBtn: (step: number) => void;
-  onChangeData: (id: string, value: boolean | string) => void;
+  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
+  onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
 function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {

@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { PersonalInfoFormData } from '@/types/join';
-import { PersonalInfoFormSchema } from '@/constants/join';
+import { PersonalInfoFormData, UserDataType } from '@/types/join';
+import { GenderFieldList, PersonalInfoFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
 
 type Props = {
-  onClickNextBtn: (step: number) => void;
-  onChangeData: (id: string, value: boolean | string) => void;
+  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
+  onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
 function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {
@@ -22,10 +22,12 @@ function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {
   });
 
   const nameValue = watch('name');
+  const genderValue = watch('gender');
   const birthValue = watch('birth');
 
   const onSubmit: SubmitHandler<PersonalInfoFormData> = (data) => {
     onChangeData('name', data.name);
+    onChangeData('gender', data.gender);
     onChangeData('birth', data.birth.toString());
     onClickNextBtn(5);
   };
@@ -50,6 +52,31 @@ function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {
           </span>
         )}
 
+        <label className="mb-1 font-medium">성별</label>
+        <div className="flex items-center gap-2">
+          {GenderFieldList.map(({ title, value }) => (
+            <label
+              key={title}
+              htmlFor={value}
+              className="flex items-center gap-1"
+            >
+              <Input
+                id={value}
+                type="radio"
+                name="gender"
+                value={value}
+                register={register('gender')}
+              />
+              {title}
+            </label>
+          ))}
+        </div>
+        {errors && (
+          <span className="mt-1 text-[13px] text-[#ff4800]">
+            {errors['gender']?.message}
+          </span>
+        )}
+
         <label className="mb-1 font-medium">생일</label>
         <Input
           type="date"
@@ -69,6 +96,7 @@ function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {
       <NextButton
         disabled={
           !nameValue ||
+          !genderValue ||
           !birthValue ||
           Boolean(errors['name'] || errors['birth'])
         }

@@ -2,12 +2,13 @@
 
 import { useCallback, useState } from 'react';
 import { AGREEMENT_CHECK_IDS, TERMS_AGREEMENT_LIST } from '@/constants/join';
+import { UserDataType } from '@/types/join';
 import CheckBox from './checkbox';
 import NextButton from './nextButton';
 
 type Props = {
-  onClickNextBtn: (step: number) => void;
-  onChangeData: (id: string, value: boolean | string) => void;
+  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
+  onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
 const TermsAgreement = ({ onClickNextBtn, onChangeData }: Props) => {

@@ -1,5 +1,9 @@
 import { z } from 'zod';
-import { PasswordJoinFormData, TermsAgreementListType } from '@/types/join';
+import {
+  GenderType,
+  PasswordJoinFormData,
+  TermsAgreementListType,
+} from '@/types/join';
 import { InputFieldType } from '@/types/common';
 import { EmailFormSchema, PasswordFormSchema, PhoneFormSchema } from './common';
 
@@ -11,6 +15,11 @@ export const AGREEMENT_CHECK_IDS = {
   marketing: 'marketing',
   ad: 'ad',
 } as const;
+
+export enum GENDER {
+  male = 'MALE',
+  female = 'FEMALE',
+}
 
 export const TERMS_AGREEMENT_LIST: TermsAgreementListType[] = [
   {
@@ -62,6 +71,11 @@ export const PasswordJoinFieldList: InputFieldType<PasswordJoinFormData>[] = [
   },
 ];
 
+export const GenderFieldList: { title: string; value: GenderType }[] = [
+  { title: '여성', value: GENDER.female },
+  { title: '남성', value: GENDER.male },
+];
+
 export const PasswordJoinFormSchema = z
   .object({
     password: PasswordFormSchema,
@@ -88,6 +102,8 @@ export const NameFormSchema = z
   .string()
   .min(2, { message: '이름을 입력하세요.' });
 
+export const GenderFormSchema = z.enum(['MALE', 'FEMALE']);
+
 export const BirthFormSchema = z
   .string()
   .refine((val) => !isNaN(Date.parse(val)), {
@@ -103,5 +119,6 @@ export const BirthFormSchema = z
 
 export const PersonalInfoFormSchema = z.object({
   name: NameFormSchema,
+  gender: GenderFormSchema,
   birth: BirthFormSchema,
 });
