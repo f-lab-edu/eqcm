@@ -7,7 +7,7 @@ import CheckBox from './checkbox';
 import NextButton from './nextButton';
 
 type Props = {
-  onClickNextBtn: (step: number) => void;
+  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 

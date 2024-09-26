@@ -8,7 +8,7 @@ import NextButton from './nextButton';
 import OptionCheck from './optionCheck';
 
 type Props = {
-  onClickNextBtn: (step: number) => void;
+  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
