@@ -1,6 +1,8 @@
 'use client';
 
 import { memo, useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import axios, { AxiosResponse } from 'axios';
 import { produce } from 'immer';
 import TermsAgreement from '@/components/join/termsAgreement';
 import EmailJoinForm from '@/components/join/emailJoinForm';
@@ -9,6 +11,7 @@ import PhoneJoinForm from '@/components/join/phoneJoinForm';
 import PersonalInfoForm from '@/components/join/personalInfoForm';
 import JoinSuccess from '@/components/join/joinSuccess';
 import { StepType, UserDataType } from '@/types/join';
+import { BaseResponse } from '@/types/response';
 
 const Join = memo(function Join() {
   const [step, setStep] = useState(0);
@@ -25,6 +28,49 @@ const Join = memo(function Join() {
   });
 
   console.log('userData', userData);
+
+  const mutation = useMutation({
+    mutationFn: (): Promise<AxiosResponse<BaseResponse>> => {
+      return axios.post<BaseResponse>(
+        process.env.NEXT_PUBLIC_API_SERVER + '/join/email',
+        {
+          joinRequest: {
+            email: userData.email,
+            name: userData.name,
+            gender: userData.gender,
+            birthday: userData.birth,
+            phoneNumber: userData.phone,
+          },
+          termsAgreements: [
+            {
+              type: 'SERVICE',
+              agreeYn: 'Y',
+            },
+            {
+              type: 'PRIVACY',
+              agreeYn: 'Y',
+            },
+            {
+              type: 'MARKETING',
+              agreeYn: userData.term_marketing ? 'Y' : 'N',
+            },
+            {
+              type: 'ADVERTISING',
+              agreeYn: userData.term_ad ? 'Y' : 'N',
+            },
+          ],
+          password: userData.password,
+        },
+      );
+    },
+    onSuccess: () => {
+      console.log('join success');
+      setStep(5);
+    },
+    onError: (e) => {
+      console.error('join error', e);
+    },
+  });
 
   const handleUserData = (id: keyof UserDataType, value: boolean | string) => {
     setUserData(
@@ -70,8 +116,8 @@ const Join = memo(function Join() {
       title: '이름과 성별, 생년월일을\n입력해 주세요.',
       component: (
         <PersonalInfoForm
-          onClickNextBtn={setStep}
           onChangeData={handleUserData}
+          requestJoin={mutation}
         />
       ),
     },

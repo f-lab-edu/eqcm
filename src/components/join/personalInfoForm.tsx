@@ -5,13 +5,23 @@ import { PersonalInfoFormData, UserDataType } from '@/types/join';
 import { GenderFieldList, PersonalInfoFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
+import { UseMutationResult } from '@tanstack/react-query';
+import { AxiosResponse } from 'axios';
+import { BaseResponse } from '@/types/response';
+import { format } from 'date-fns';
 
 type Props = {
-  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
+  requestJoin: UseMutationResult<
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    AxiosResponse<BaseResponse, any>,
+    Error,
+    void,
+    unknown
+  >;
 };
 
-function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {
+function PersonalInfoForm({ onChangeData, requestJoin }: Props) {
   const {
     watch,
     register,
@@ -28,8 +38,8 @@ function PersonalInfoForm({ onClickNextBtn, onChangeData }: Props) {
   const onSubmit: SubmitHandler<PersonalInfoFormData> = (data) => {
     onChangeData('name', data.name);
     onChangeData('gender', data.gender);
-    onChangeData('birth', data.birth.toString());
-    onClickNextBtn(5);
+    onChangeData('birth', format(new Date(data.birth), 'yyyy-MM-dd'));
+    requestJoin.mutate();
   };
 
   return (
