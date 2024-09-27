@@ -1,22 +1,22 @@
 import { Icons } from '@/components/icons';
-import BoxBanner from '@/components/main/boxBanner';
+import Banner from '@/components/main/banner';
 
 export default function Home() {
   return (
     <div className="flex-1">
       <div className="flex">
         <section className="flex flex-col w-[44%] pr-[2%]">
-          <BoxBanner
+          <Banner
             imgSrc="/static/images/box-banner-sample-image01.webp"
             imgAlt="main banner"
             link="/login"
           />
-          <BoxBanner
+          <Banner
             imgSrc="/static/images/box-banner-sample-image02.webp"
             imgAlt="main banner"
             link="/login"
           />
-          <BoxBanner
+          <Banner
             imgSrc="/static/images/box-banner-sample-image03.webp"
             imgAlt="main banner"
             link="/login"
