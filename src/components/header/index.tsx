@@ -6,7 +6,7 @@ import Category from './category';
 
 const Header = memo(function Header() {
   return (
-    <header className="bg-white sticky w-full top-0 left-0 right-0 px-5 py-2 md:px-6 md:pb-4 md:pt-10 lg:px-12 lg:pb-5">
+    <header className="bg-white sticky z-10 w-full top-0 left-0 right-0 px-5 py-2 md:px-6 md:pb-4 md:pt-10 lg:px-12 lg:pb-5">
       <div className="flex justify-between md:mb-6 h-[18px]">
         <div className="h-4">
           <Image

@@ -402,4 +402,24 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  view_more_arrow: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="primary"
+    >
+      <g id="weight=bold, fill=false">
+        <path
+          id="vector"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12 17.4142L20.7071 8.70711L19.2929 7.2929L12 14.5858L4.70712 7.2929L3.29291 8.70711L12 17.4142Z"
+          fill="black"
+        ></path>
+      </g>
+    </svg>
+  ),
 };
