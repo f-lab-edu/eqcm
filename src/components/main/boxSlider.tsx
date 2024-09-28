@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import BoxSliderItem from './boxSliderItem';
 import { BoxSliderType } from '@/types/main';
 import { Icons } from '../icons';
@@ -20,7 +19,7 @@ const BoxSlider = ({ data }: Props) => {
 
   return (
     <div className="relative px-[32px] py-[24px]">
-      <div className="flex lg:flex-col items-start xl:flex-row xl:justify-between xl:items-end py-4">
+      <div className="flex flex-row justify-between lg:flex-col items-start xl:flex-row xl:justify-between xl:items-end py-4">
         <p className="font-bold text-[24px]">{data.title}</p>
         <div className="flex lg:ml-auto xl:ml-0 gap-1">
           <button
@@ -45,7 +44,6 @@ const BoxSlider = ({ data }: Props) => {
       <Swiper
         spaceBetween={10}
         slidesPerView={1.5}
-        pagination={{ clickable: true }}
         className="box-slider"
         onSwiper={setSwiper}
         onSlideChange={(swiper) => setIdx(swiper.realIndex + 1)}

@@ -8,7 +8,7 @@ type Props = {
 
 const Banner = ({ data }: Props) => {
   return (
-    <Link href={data.link} className="relative w-full h-auto border">
+    <Link href={data.link} className="relative w-full h-auto">
       <Image
         src={data.imgSrc}
         alt={data.imgAlt}

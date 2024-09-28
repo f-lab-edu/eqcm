@@ -14,8 +14,8 @@ import {
 
 const BoxSection = () => {
   return (
-    <section className="relative w-[56%]">
-      <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 720: 2 }}>
+    <section className="relative w-full md:w-[56%]">
+      <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 719: 2 }}>
         <Masonry>
           {MainBoxDummyData.map((data, idx) => {
             if (data.type === MainComponentsType.BANNER) {
@@ -28,7 +28,7 @@ const BoxSection = () => {
           })}
         </Masonry>
       </ResponsiveMasonry>
-      <div className="absolute w-[1px] h-full bg-[#ccc] top-0 right-[50%] hidden xl:block" />
+      <div className="absolute w-[1px] h-full bg-[#ccc] top-0 right-[50%] hidden lg:block" />
     </section>
   );
 };
