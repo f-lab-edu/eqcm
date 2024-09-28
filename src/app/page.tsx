@@ -1,6 +1,7 @@
 import { Icons } from '@/components/icons';
 import Banner from '@/components/main/banner';
 import BoxBanner from '@/components/main/boxBanner';
+import BoxSlider from '@/components/main/boxSlider';
 
 export default function Home() {
   return (
@@ -50,6 +51,7 @@ export default function Home() {
                   discountPercentage: 45,
                   productPrice: 32450,
                   likes: 764,
+                  likeStatus: true,
                 },
                 {
                   productId: '1',
@@ -59,6 +61,52 @@ export default function Home() {
                   discountPercentage: 35,
                   productPrice: 51350,
                   likes: 14001,
+                  likeStatus: false,
+                },
+              ]}
+            />
+            <BoxSlider
+              title="가을 피부를 완벽하게"
+              products={[
+                {
+                  productId: '0',
+                  productImageUrl:
+                    '/static/images/box-slider-sample-image01.webp',
+                  brand: '디오디너리',
+                  product:
+                    '[모든피부타입] 멀티-펩타이드 +  HA 세럼 30ml (전: 뷔페)',
+                  discountPercentage: 45,
+                  productPrice: 26300,
+                  likes: 5108,
+                  likeStatus: true,
+                  rate: 0,
+                  reviews: 1645,
+                },
+                {
+                  productId: '1',
+                  productImageUrl:
+                    '/static/images/box-slider-sample-image02.webp',
+                  brand: '쌍빠',
+                  product: '글로우 매직 에센스',
+                  discountPercentage: 20,
+                  productPrice: 15200,
+                  likes: 139,
+                  likeStatus: false,
+                  rate: 0,
+                  reviews: 31,
+                },
+                {
+                  productId: '1',
+                  productImageUrl:
+                    '/static/images/box-slider-sample-image03.webp',
+                  brand: '토니모리',
+                  product: '프리미엄 알엑스 제비집 에센스',
+                  discountPercentage: 71,
+                  productPrice: 18900,
+                  likes: 1,
+                  likeStatus: false,
+                  rate: 0,
+                  reviews: 2,
                 },
               ]}
             />

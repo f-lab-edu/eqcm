@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductType } from '@/types/main';
-import { formatLikesToK, formatToCurrency } from '@/utils/format';
+import { formatLikesToK, formatWithCommas } from '@/utils/format';
 import { Icons } from '../icons';
 
 type Props = {
@@ -27,14 +27,14 @@ const BoxBannerItem = ({ product }: Props) => {
         <p className="truncate">{product.product}</p>
         <p className="flex gap-[2px] font-bold">
           <span className="text-[#ff4800]">{product.discountPercentage}%</span>
-          {formatToCurrency(product.productPrice)}
+          {formatWithCommas(product.productPrice)}
         </p>
       </div>
       <div
         role="button"
         className="flex flex-col justify-center items-center min-w-[52px] text-[#a0a0a0]"
       >
-        <Icons.like_off />
+        {product.likeStatus ? <Icons.like_on /> : <Icons.like_off />}
         {formatLikesToK(product.likes)}
       </div>
     </Link>

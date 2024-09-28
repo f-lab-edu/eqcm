@@ -43,6 +43,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:18.3.1"],\
           ["react-hook-form", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:7.53.0"],\
+          ["swiper", "npm:11.1.14"],\
           ["tailwindcss", "npm:3.4.10"],\
           ["typescript", "patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"],\
           ["zod", "npm:3.23.8"]\
@@ -1588,6 +1589,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:18.3.1"],\
           ["react-hook-form", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:7.53.0"],\
+          ["swiper", "npm:11.1.14"],\
           ["tailwindcss", "npm:3.4.10"],\
           ["typescript", "patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"],\
           ["zod", "npm:3.23.8"]\
@@ -4803,6 +4805,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/supports-preserve-symlinks-flag-npm-1.0.0-f17c4d0028-10c0.zip/node_modules/supports-preserve-symlinks-flag/",\
         "packageDependencies": [\
           ["supports-preserve-symlinks-flag", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["swiper", [\
+      ["npm:11.1.14", {\
+        "packageLocation": "../../../../.yarn/berry/cache/swiper-npm-11.1.14-8126fa478a-10c0.zip/node_modules/swiper/",\
+        "packageDependencies": [\
+          ["swiper", "npm:11.1.14"]\
         ],\
         "linkType": "HARD"\
       }]\

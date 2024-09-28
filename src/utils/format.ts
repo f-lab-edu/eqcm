@@ -1,4 +1,4 @@
-export const formatToCurrency = (price: number) => {
+export const formatWithCommas = (price: number) => {
   return price.toLocaleString();
 };
 

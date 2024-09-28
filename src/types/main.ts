@@ -6,4 +6,7 @@ export type ProductType = {
   discountPercentage: number;
   productPrice: number;
   likes: number;
+  likeStatus: boolean;
+  rate?: number;
+  reviews?: number;
 };
