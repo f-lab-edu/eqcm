@@ -12,10 +12,3 @@ export type LoginButtonType = LoginMenuType & {
 };
 
 export type EmailLoginFormData = z.infer<typeof LoginFormSchema>;
-
-export type EmailLoginFieldType<T> = {
-  type: string;
-  name: keyof T;
-  title: string;
-  placeholder: string;
-};
