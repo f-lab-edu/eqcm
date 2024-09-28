@@ -3,4 +3,5 @@ export type MyMenuItemType = {
   title: string;
   link: string;
   style?: string;
+  callback?: () => void;
 };

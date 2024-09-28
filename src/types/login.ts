@@ -7,6 +7,7 @@ export type LoginMenuType = {
 };
 
 export type LoginButtonType = LoginMenuType & {
+  id: string;
   icon: JSX.Element;
   style: string;
 };
