@@ -18,7 +18,7 @@ const BoxBanner = ({ data }: Props) => {
           width={0}
           height={0}
           objectFit="contain"
-          className="w-[100%] h-[auto]"
+          className="w-[100%] h-[auto] rounded"
         />
         <p className="font-bold text-[22px]">{data.title}</p>
         <p className="text-[15px]">{data.subtitle}</p>

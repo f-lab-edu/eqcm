@@ -21,6 +21,7 @@ const BoxBannerItem = ({ product }: Props) => {
         width={54}
         height={54}
         objectFit="contain"
+        className="rounded"
       />
       <div className="flex-1 text-[12px] min-w-[240px] overflow-hidden">
         <p className="font-bold">{product.brand}</p>

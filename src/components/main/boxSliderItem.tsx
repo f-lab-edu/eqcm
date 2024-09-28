@@ -23,7 +23,7 @@ const BoxSliderItem = ({ product }: Props) => {
           sizes="100vw"
           width={0}
           height={0}
-          className="w-[100%] h-[auto]"
+          className="w-[100%] h-[auto] rounded"
         />
         <div
           role="button"

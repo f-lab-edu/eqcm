@@ -19,7 +19,13 @@ const BoxSection = () => {
         <Masonry>
           {MainBoxDummyData.map((data, idx) => {
             if (data.type === MainComponentsType.BANNER) {
-              return <Banner key={idx} data={data as BannerType} />;
+              return (
+                <Banner
+                  key={idx}
+                  data={data as BannerType}
+                  style="desktop-only"
+                />
+              );
             } else if (data.type === MainComponentsType.BOX_BANNER) {
               return <BoxBanner key={idx} data={data as BoxBannerType} />;
             } else if (data.type === MainComponentsType.BOX_SLIDER) {

@@ -1,14 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import cn from 'classnames';
 import { BannerType } from '@/types/main';
 
 type Props = {
   data: BannerType;
+  style?: string;
 };
 
-const Banner = ({ data }: Props) => {
+const Banner = ({ data, style }: Props) => {
   return (
-    <Link href={data.link} className="relative w-full h-auto">
+    <Link href={data.link} className={cn('relative w-full h-auto', style)}>
       <Image
         src={data.imgSrc}
         alt={data.imgAlt}
