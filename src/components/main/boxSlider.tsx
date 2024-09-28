@@ -7,23 +7,22 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import BoxSliderItem from './boxSliderItem';
-import { ProductType } from '@/types/main';
+import { BoxSliderType } from '@/types/main';
 import { Icons } from '../icons';
 
 type Props = {
-  title: string;
-  products: ProductType[];
+  data: BoxSliderType;
 };
 
-const BoxSlider = ({ title, products }: Props) => {
+const BoxSlider = ({ data }: Props) => {
   const [swiper, setSwiper] = useState<SwiperCore>();
   const [idx, setIdx] = useState<number>(1);
 
   return (
     <div className="relative px-[32px] py-[24px]">
-      <div className="flex justify-between items-end py-4">
-        <p className="font-bold text-[24px]">{title}</p>
-        <div className="flex gap-1">
+      <div className="flex lg:flex-col items-start xl:flex-row xl:justify-between xl:items-end py-4">
+        <p className="font-bold text-[24px]">{data.title}</p>
+        <div className="flex lg:ml-auto xl:ml-0 gap-1">
           <button
             type="button"
             onClick={() => swiper?.slidePrev()}
@@ -35,7 +34,7 @@ const BoxSlider = ({ title, products }: Props) => {
           <button
             type="button"
             onClick={() => swiper?.slideNext()}
-            disabled={swiper?.realIndex === products.length - 1}
+            disabled={swiper?.realIndex === data.products.length - 1}
             className="flex justify-center items-center size-9 bg-[#f4f4f4] rounded-full disabled:opacity-[0.5]"
           >
             <Icons.slide_right_arrow />
@@ -51,7 +50,7 @@ const BoxSlider = ({ title, products }: Props) => {
         onSwiper={setSwiper}
         onSlideChange={(swiper) => setIdx(swiper.realIndex + 1)}
       >
-        {products.map((product) => (
+        {data.products.map((product) => (
           <SwiperSlide key={product.productId}>
             <BoxSliderItem product={product} />
           </SwiperSlide>
@@ -60,10 +59,10 @@ const BoxSlider = ({ title, products }: Props) => {
       </Swiper>
 
       {swiper && (
-        <div className="absolute right-0 bottom-0 text-[34px]">
-          <span>{idx}</span>{' '}
+        <div className="absolute right-5 bottom-6 text-[34px]">
+          <span>{idx}</span>
           <span className="relative bottom-[-10px] text-[#a0a0a0]">
-            / {products.length}
+            /{data.products.length}
           </span>
         </div>
       )}

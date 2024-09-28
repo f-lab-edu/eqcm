@@ -1,28 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ProductType } from '@/types/main';
 import BoxBannerItem from './boxBannerItem';
+import { BoxBannerType, ProductType } from '@/types/main';
 
 type Props = {
-  bannerImageUrl: string;
-  link: string;
-  title: string;
-  subtitle: string;
-  products?: ProductType[];
+  data: BoxBannerType;
 };
 
-const BoxBanner = ({
-  bannerImageUrl,
-  link,
-  title,
-  subtitle,
-  products,
-}: Props) => {
+const BoxBanner = ({ data }: Props) => {
   return (
     <div className="relative flex flex-col gap-3 px-[32px] py-[24px]">
-      <Link href={link} className="flex flex-col gap-3">
+      <Link href={data.link} className="flex flex-col gap-3">
         <Image
-          src={bannerImageUrl}
+          src={data.bannerImageUrl}
           alt=""
           sizes="100vw"
           width={0}
@@ -30,11 +20,11 @@ const BoxBanner = ({
           objectFit="contain"
           className="w-[100%] h-[auto]"
         />
-        <p className="font-bold text-[22px]">{title}</p>
-        <p className="text-[15px]">{subtitle}</p>
+        <p className="font-bold text-[22px]">{data.title}</p>
+        <p className="text-[15px]">{data.subtitle}</p>
       </Link>
-      {products &&
-        products.map((product) => (
+      {data.products &&
+        data.products.map((product: ProductType) => (
           <BoxBannerItem key={product.productId} product={product} />
         ))}
     </div>

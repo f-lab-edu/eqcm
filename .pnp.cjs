@@ -29,8 +29,10 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@hookform/resolvers", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:3.9.0"],\
           ["@types/node", "npm:20.16.5"],\
+          ["@types/prop-types", "npm:15.7.13"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
+          ["@types/react-responsive-masonry", "npm:2.1.3"],\
           ["classnames", "npm:2.5.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
@@ -40,9 +42,11 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["postcss", "npm:8.4.45"],\
           ["prettier", "npm:3.3.3"],\
+          ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:18.3.1"],\
           ["react-hook-form", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:7.53.0"],\
+          ["react-responsive-masonry", "npm:2.3.0"],\
           ["swiper", "npm:11.1.14"],\
           ["tailwindcss", "npm:3.4.10"],\
           ["typescript", "patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"],\
@@ -500,6 +504,13 @@ const RAW_RUNTIME_STATE =
           ["@types/prop-types", "npm:15.7.12"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:15.7.13", {\
+        "packageLocation": "../../../../.yarn/berry/cache/@types-prop-types-npm-15.7.13-ac81cbe352-10c0.zip/node_modules/@types/prop-types/",\
+        "packageDependencies": [\
+          ["@types/prop-types", "npm:15.7.13"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/react", [\
@@ -518,6 +529,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/@types-react-dom-npm-18.3.0-111444d3eb-10c0.zip/node_modules/@types/react-dom/",\
         "packageDependencies": [\
           ["@types/react-dom", "npm:18.3.0"],\
+          ["@types/react", "npm:18.3.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/react-responsive-masonry", [\
+      ["npm:2.1.3", {\
+        "packageLocation": "../../../../.yarn/berry/cache/@types-react-responsive-masonry-npm-2.1.3-ae80e41b96-10c0.zip/node_modules/@types/react-responsive-masonry/",\
+        "packageDependencies": [\
+          ["@types/react-responsive-masonry", "npm:2.1.3"],\
           ["@types/react", "npm:18.3.5"]\
         ],\
         "linkType": "HARD"\
@@ -1575,8 +1596,10 @@ const RAW_RUNTIME_STATE =
           ["eqcm", "workspace:."],\
           ["@hookform/resolvers", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:3.9.0"],\
           ["@types/node", "npm:20.16.5"],\
+          ["@types/prop-types", "npm:15.7.13"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
+          ["@types/react-responsive-masonry", "npm:2.1.3"],\
           ["classnames", "npm:2.5.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
@@ -1586,9 +1609,11 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["postcss", "npm:8.4.45"],\
           ["prettier", "npm:3.3.3"],\
+          ["prop-types", "npm:15.8.1"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:18.3.1"],\
           ["react-hook-form", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:7.53.0"],\
+          ["react-responsive-masonry", "npm:2.3.0"],\
           ["swiper", "npm:11.1.14"],\
           ["tailwindcss", "npm:3.4.10"],\
           ["typescript", "patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"],\
@@ -4257,6 +4282,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/react-is-npm-16.13.1-a9b9382b4f-10c0.zip/node_modules/react-is/",\
         "packageDependencies": [\
           ["react-is", "npm:16.13.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-responsive-masonry", [\
+      ["npm:2.3.0", {\
+        "packageLocation": "../../../../.yarn/berry/cache/react-responsive-masonry-npm-2.3.0-1570d955de-10c0.zip/node_modules/react-responsive-masonry/",\
+        "packageDependencies": [\
+          ["react-responsive-masonry", "npm:2.3.0"]\
         ],\
         "linkType": "HARD"\
       }]\

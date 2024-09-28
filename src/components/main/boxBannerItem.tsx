@@ -13,16 +13,16 @@ const BoxBannerItem = ({ product }: Props) => {
     <Link
       href={`/products/${product.productId}`}
       key={product.productId}
-      className="flex justify-between items-center py-[10px] h-[76px] gap-2 border-t-[1px] border-[#ccc]"
+      className="flex justify-between items-center py-[10px] h-[76px] gap-2 border-t-[1px] border-[#ccc] overflow-hidden"
     >
       <Image
         src={product.productImageUrl}
-        alt=""
+        alt={product.product}
         width={54}
         height={54}
         objectFit="contain"
       />
-      <div className="flex-1 text-[12px] overflow-hidden">
+      <div className="flex-1 text-[12px] min-w-[240px] overflow-hidden">
         <p className="font-bold">{product.brand}</p>
         <p className="truncate">{product.product}</p>
         <p className="flex gap-[2px] font-bold">

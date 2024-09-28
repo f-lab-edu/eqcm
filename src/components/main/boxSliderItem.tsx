@@ -43,12 +43,12 @@ const BoxSliderItem = ({ product }: Props) => {
           <span className="text-[#ff4800]">{product.discountPercentage}%</span>
           {formatWithCommas(product.productPrice)}
         </p>
-        <div className="flex gap-1 text-[10px] text-[#a0a0a0]">
-          <span>♥</span>
-          <span>{formatWithCommas(product.likes)}</span>
-          <span>★ </span>
-          <span>
-            {product.rate} (
+        <div className="flex gap-1 text-[10px] text-[#a0a0a0] break-words flex-wrap">
+          <span className="whitespace-nowrap">
+            ♥ {formatWithCommas(product.likes)}
+          </span>
+          <span className="whitespace-nowrap">
+            ★ {product.rate} (
             {product.reviews && formatWithCommas(product.reviews)})
           </span>
         </div>

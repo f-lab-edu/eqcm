@@ -1,19 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import { BannerType } from '@/types/main';
 
 type Props = {
-  imgSrc: string;
-  imgAlt: string;
-  link: string;
+  data: BannerType;
 };
 
-const Banner = ({ imgSrc, imgAlt, link }: Props) => {
+const Banner = ({ data }: Props) => {
   return (
-    <Link href={link} className="relative size-full">
+    <Link href={data.link} className="relative w-full h-auto border">
       <Image
-        src={imgSrc}
-        alt={imgAlt}
+        src={data.imgSrc}
+        alt={data.imgAlt}
         sizes="100vw"
         width={0}
         height={0}
