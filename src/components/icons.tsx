@@ -78,7 +78,7 @@ export const Icons = {
           id="vector"
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M8 10H19.25C19.6642 10 20 10.3358 20 10.75V21.25C20 21.6642 19.6642 22 19.25 22H4.75C4.33579 22 4 21.6642 4 21.25V10.75C4 10.3358 4.33579 10 4.75 10H6V8C6 4.68629 8.68629 2 12 2C13.9985 2 15.7688 2.97712 16.8593 4.47969L15.307 5.749C14.5869 4.69318 13.3744 4 12 4C9.79086 4 8 5.79086 8 8V10ZM12 12.5C12.5523 12.5 13 12.9477 13 13.5V15.5C13 16.0523 12.5523 16.5 12 16.5C11.4477 16.5 11 16.0523 11 15.5V13.5C11 12.9477 11.4477 12.5 12 12.5Z"
+          d="M12 2C8.68629 2 6 4.68629 6 8V10H4.75C4.33579 10 4 10.3358 4 10.75V21.25C4 21.6642 4.33579 22 4.75 22H19.25C19.6642 22 20 21.6642 20 21.25V10.75C20 10.3358 19.6642 10 19.25 10H18V8C18 4.68629 15.3137 2 12 2ZM16 10V8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8V10H16ZM13 13.5C13 12.9477 12.5523 12.5 12 12.5C11.4477 12.5 11 12.9477 11 13.5V15.5C11 16.0523 11.4477 16.5 12 16.5C12.5523 16.5 13 16.0523 13 15.5V13.5Z"
           fill="black"
         ></path>
       </g>
@@ -213,9 +213,9 @@ export const Icons = {
       <g>
         <path
           fill="currentColor"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M1 .5H.5V3h1V1.5h15V3h1V.5H1zm0 4H.5v13h17v-13H1zm.5 12v-11h15v11h-7v-6h-1v6h-7z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         ></path>
       </g>
     </svg>
@@ -232,9 +232,9 @@ export const Icons = {
       <g>
         <path
           fill="currentColor"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M1 .5H.5V3h1V1.5h15V3h1V.5H1zm0 4H.5v13h17v-13H1zm.5 12v-11h15v11h-7v-6h-1v6h-7z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         ></path>
       </g>
     </svg>
@@ -251,8 +251,8 @@ export const Icons = {
       <g id="weight=light, fill=false">
         <path
           id="vector"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.9 4C7.08924 4 4 7.08924 4 10.9C4 14.7108 7.08924 17.8 10.9 17.8C12.8012 17.8 14.5219 17.0318 15.7705 15.7876C17.0247 14.5377 17.8 12.8099 17.8 10.9C17.8 7.08924 14.7108 4 10.9 4ZM3 10.9C3 6.53695 6.53695 3 10.9 3C15.2631 3 18.8 6.53695 18.8 10.9C18.8 12.9057 18.052 14.7375 16.8206 16.1305L20.8528 20.1457L20.1472 20.8543L16.1124 16.8365C14.7218 18.0584 12.8971 18.8 10.9 18.8C6.53695 18.8 3 15.2631 3 10.9Z"
           fill="black"
         ></path>
@@ -272,8 +272,8 @@ export const Icons = {
       <g id="weight=light, fill=false">
         <path
           id="vector"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.9 4C7.08924 4 4 7.08924 4 10.9C4 14.7108 7.08924 17.8 10.9 17.8C12.8012 17.8 14.5219 17.0318 15.7705 15.7876C17.0247 14.5377 17.8 12.8099 17.8 10.9C17.8 7.08924 14.7108 4 10.9 4ZM3 10.9C3 6.53695 6.53695 3 10.9 3C15.2631 3 18.8 6.53695 18.8 10.9C18.8 12.9057 18.052 14.7375 16.8206 16.1305L20.8528 20.1457L20.1472 20.8543L16.1124 16.8365C14.7218 18.0584 12.8971 18.8 10.9 18.8C6.53695 18.8 3 15.2631 3 10.9Z"
           fill="black"
         ></path>
@@ -292,8 +292,8 @@ export const Icons = {
       <g id="weight=light, fill=false">
         <path
           id="vector"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4.5 4.5V19.5H19.5V4.5H15V12H14V4.5H10V12H9V4.5H4.5ZM3.5 4.25C3.5 3.83579 3.83579 3.5 4.25 3.5H19.75C20.1642 3.5 20.5 3.83579 20.5 4.25V19.75C20.5 20.1642 20.1642 20.5 19.75 20.5H4.25C3.83579 20.5 3.5 20.1642 3.5 19.75V4.25Z"
           fill="black"
         ></path>
@@ -313,8 +313,8 @@ export const Icons = {
       <g id="weight=light, fill=false">
         <path
           id="vector"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4.5 4.5V19.5H19.5V4.5H15V12H14V4.5H10V12H9V4.5H4.5ZM3.5 4.25C3.5 3.83579 3.83579 3.5 4.25 3.5H19.75C20.1642 3.5 20.5 3.83579 20.5 4.25V19.75C20.5 20.1642 20.1642 20.5 19.75 20.5H4.25C3.83579 20.5 3.5 20.1642 3.5 19.75V4.25Z"
           fill="black"
         ></path>
@@ -333,8 +333,8 @@ export const Icons = {
       <g id="weight=light, fill=false">
         <path
           id="vector"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M12.5 3V2.5H11.5V3V8V8.5H12.5V8V3ZM4.5 17.1225V12H19.5V20.5V21H20.5V20.5V11.75C20.5 11.3358 20.1642 11 19.75 11H4.25C3.83796 11 3.5 11.3328 3.5 11.7492V20.5V21H4.5V20.5V17.1225Z"
           fill="black"
         ></path>
@@ -354,8 +354,8 @@ export const Icons = {
       <g id="weight=light, fill=false">
         <path
           id="vector"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M12.5 3V2.5H11.5V3V8V8.5H12.5V8V3ZM4.5 17.1225V12H19.5V20.5V21H20.5V20.5V11.75C20.5 11.3358 20.1642 11 19.75 11H4.25C3.83796 11 3.5 11.3328 3.5 11.7492V20.5V21H4.5V20.5V17.1225Z"
           fill="black"
         ></path>
@@ -488,6 +488,21 @@ export const Icons = {
         d="M7.82054 20.7313C8.21107 21.1218 8.84423 21.1218 9.23476 20.7313L15.8792 14.0868C17.0505 12.9155 17.0508 11.0167 15.88 9.84497L9.3097 3.26958C8.91918 2.87905 8.28601 2.87905 7.89549 3.26958C7.50497 3.6601 7.50497 4.29327 7.89549 4.68379L14.4675 11.2558C14.8581 11.6464 14.8581 12.2795 14.4675 12.67L7.82054 19.317C7.43002 19.7076 7.43002 20.3407 7.82054 20.7313Z"
         fill={fillWhite ? '#fff' : '#0F0F0F'}
       />
+    </svg>
+  ),
+  check: ({ color }: { color?: string }) => (
+    <svg
+      width="14px"
+      height="14px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`w-[14px] h-[14px] text-[${color ? color : '#dcdfe6'}] peer-checked:text-white`}
+    >
+      <path
+        d="M20.6303 6.49266L10.6975 19.2009L3.43756 12.0235L4.56245 10.8856L10.5439 16.7991L19.3697 5.50735L20.6303 6.49266Z"
+        fill={color ? color : '#dcdfe6'}
+      ></path>
     </svg>
   ),
 };
