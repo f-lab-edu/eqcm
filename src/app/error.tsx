@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-const Error = ({ error }: { error: Error }) => {
+const ErrorPage = ({ error }: { error: Error }) => {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -15,4 +15,4 @@ const Error = ({ error }: { error: Error }) => {
   );
 };
 
-export default Error;
+export default ErrorPage;
