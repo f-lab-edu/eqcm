@@ -15,21 +15,25 @@ const BoxBannerItem = ({ product }: Props) => {
       key={product.productId}
       className="flex justify-between items-center py-[10px] h-[76px] gap-2 border-t-[1px] border-[#ccc] overflow-hidden"
     >
-      <Image
-        src={product.productImageUrl}
-        alt={product.product}
-        width={54}
-        height={54}
-        objectFit="contain"
-        className="rounded"
-      />
-      <div className="flex-1 text-[12px] min-w-[240px] overflow-hidden">
-        <p className="font-bold">{product.brand}</p>
-        <p className="truncate">{product.product}</p>
-        <p className="flex gap-[2px] font-bold">
-          <span className="text-[#ff4800]">{product.discountPercentage}%</span>
-          {formatWithCommas(product.productPrice)}
-        </p>
+      <div className="flex gap-2 min-w-[294px]">
+        <Image
+          src={product.productImageUrl}
+          alt={product.product}
+          width={54}
+          height={54}
+          objectFit="contain"
+          className="rounded"
+        />
+        <div className="text-[12px] min-w-[200px]">
+          <p className="font-bold">{product.brand}</p>
+          <p className="truncate">{product.product}</p>
+          <p className="flex gap-[2px] font-bold">
+            <span className="text-[#ff4800]">
+              {product.discountPercentage}%
+            </span>
+            {formatWithCommas(product.productPrice)}
+          </p>
+        </div>
       </div>
       <div
         role="button"

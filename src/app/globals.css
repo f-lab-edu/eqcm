@@ -24,6 +24,10 @@ body {
   @apply hidden md:block;
 }
 
+.desktop-only-flex { 
+  @apply hidden md:flex;
+}
+
 .mobile-only {
   @apply block md:hidden;
 }
@@ -34,7 +38,11 @@ input {
 
 /* swiper */
 .box-slider .swiper-slide-next {
-  @apply scale-50 opacity-[0.3] ml-[-15%] mt-[-22.5%] transition-all ease-in-out duration-300 !important;
+  @apply md:scale-50 md:opacity-[0.3] md:ml-[-15%] md:mt-[-22.5%] transition-all ease-in-out duration-300 !important;
+}
+
+.box-slider .swiper-slide:last-child {
+  @apply hidden md:block !important; 
 }
 
 .mobile-banner-slider .swiper-pagination-progressbar {

@@ -18,10 +18,12 @@ const BoxSlider = ({ data }: Props) => {
   const [idx, setIdx] = useState<number>(1);
 
   return (
-    <div className="relative px-[32px] py-[24px]">
+    <div className="relative pl-[20px] md:px-[32px] py-[24px]">
       <div className="flex flex-row justify-between lg:flex-col items-start xl:flex-row xl:justify-between xl:items-end py-4">
-        <p className="font-bold text-[24px]">{data.title}</p>
-        <div className="flex lg:ml-auto xl:ml-0 gap-1">
+        <p className="font-bold text-[20px] md:pl-0 md:text-[24px]">
+          {data.title}
+        </p>
+        <div className="desktop-only-flex ml-auto xl:ml-0 gap-1">
           <button
             type="button"
             onClick={() => swiper?.slidePrev()}
@@ -43,6 +45,18 @@ const BoxSlider = ({ data }: Props) => {
 
       <Swiper
         spaceBetween={10}
+        breakpoints={{
+          300: {
+            slidesPerView: 3.5,
+            spaceBetween: 6,
+          },
+          540: {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+          },
+        }}
+        draggable={true}
+        onScrollbarDragMove={setSwiper}
         slidesPerView={1.5}
         className="box-slider"
         onSwiper={setSwiper}
@@ -57,7 +71,7 @@ const BoxSlider = ({ data }: Props) => {
       </Swiper>
 
       {swiper && (
-        <div className="absolute right-5 bottom-6 text-[34px]">
+        <div className="absolute right-5 bottom-6 text-[34px] desktop-only">
           <span>{idx}</span>
           <span className="relative bottom-[-10px] text-[#a0a0a0]">
             /{data.products.length}
