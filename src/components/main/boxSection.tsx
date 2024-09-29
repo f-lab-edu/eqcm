@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import Banner from './banner';
 import BoxBanner from './boxBanner';
@@ -13,27 +14,37 @@ import {
 } from '@/types/main';
 
 const BoxSection = () => {
+  const [boxes, setBoxes] = useState<
+    (BannerType | BoxBannerType | BoxSliderType)[] | null
+  >(null);
+
+  useEffect(() => {
+    setBoxes(MainBoxDummyData);
+  }, []);
+
   return (
     <section className="relative w-full md:w-[56%]">
-      <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 719: 2 }}>
-        <Masonry>
-          {MainBoxDummyData.map((data, idx) => {
-            if (data.type === MainComponentsType.BANNER) {
-              return (
-                <Banner
-                  key={idx}
-                  data={data as BannerType}
-                  style="desktop-only"
-                />
-              );
-            } else if (data.type === MainComponentsType.BOX_BANNER) {
-              return <BoxBanner key={idx} data={data as BoxBannerType} />;
-            } else if (data.type === MainComponentsType.BOX_SLIDER) {
-              return <BoxSlider key={idx} data={data as BoxSliderType} />;
-            }
-          })}
-        </Masonry>
-      </ResponsiveMasonry>
+      {boxes && (
+        <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 719: 2 }}>
+          <Masonry>
+            {boxes?.map((box, idx) => {
+              if (box.type === MainComponentsType.BANNER) {
+                return (
+                  <Banner
+                    key={idx}
+                    data={box as BannerType}
+                    style="desktop-only"
+                  />
+                );
+              } else if (box.type === MainComponentsType.BOX_BANNER) {
+                return <BoxBanner key={idx} data={box as BoxBannerType} />;
+              } else if (box.type === MainComponentsType.BOX_SLIDER) {
+                return <BoxSlider key={idx} data={box as BoxSliderType} />;
+              }
+            })}
+          </Masonry>
+        </ResponsiveMasonry>
+      )}
       <div className="absolute w-[1px] h-full bg-[#ccc] top-0 right-[50%] hidden lg:block" />
     </section>
   );
