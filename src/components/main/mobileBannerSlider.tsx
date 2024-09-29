@@ -12,12 +12,16 @@ import Banner from './banner';
 import { Icons } from '../icons';
 
 type Props = {
-  data: BannerType[];
+  data: BannerType[] | undefined;
 };
 
 const MobileBannerSlider = ({ data }: Props) => {
   const [swiper, setSwiper] = useState<SwiperCore>();
   const [idx, setIdx] = useState<number>(1);
+
+  if (data === undefined) {
+    return null;
+  }
 
   return (
     <div className="relative my-2">

@@ -7,8 +7,11 @@ export enum MainComponentsType {
 export type BannerType = {
   type: MainComponentsType;
   imgSrc: string;
-  imgAlt: string;
+  // mobileImgSrc: string; // mobile 배너 이미지는 글자 별도
+  imgAlt: string; // title 존재하면 불필요함
   link: string;
+  // title: string;
+  // subtitle: string;
 };
 
 export type BoxBannerType = {
