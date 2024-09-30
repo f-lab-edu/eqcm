@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import cn from 'classnames';
+import Skeleton from '../common/skeleton';
 import { BannerType } from '@/types/main';
 
 type Props = {
@@ -9,6 +10,10 @@ type Props = {
 };
 
 const Banner = ({ data, style }: Props) => {
+  if (!data) {
+    return null;
+  }
+
   return (
     <Link href={data.link} className={cn('relative w-full h-auto', style)}>
       <Image
@@ -22,6 +27,10 @@ const Banner = ({ data, style }: Props) => {
       />
     </Link>
   );
+};
+
+export const BannerSkeleton = () => {
+  return <Skeleton style="w-full aspect-[5/9] desktop-only" />;
 };
 
 export default Banner;

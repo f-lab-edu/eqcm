@@ -7,8 +7,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
-import { BannerType } from '@/types/main';
 import Banner from './banner';
+import Skeleton from '../common/skeleton';
+import { BannerType } from '@/types/main';
 import { Icons } from '../icons';
 
 type Props = {
@@ -71,6 +72,14 @@ const MobileBannerSlider = ({ data }: Props) => {
           </span>
         </div>
       )}
+    </div>
+  );
+};
+
+export const MobileBannerSliderSkeleton = () => {
+  return (
+    <div className="my-2">
+      <Skeleton style="relative left-[5vw] w-[90vw] aspect-[5/6] rounded-lg" />
     </div>
   );
 };

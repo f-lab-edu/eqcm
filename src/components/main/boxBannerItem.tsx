@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ProductType } from '@/types/main';
 import { formatLikesToK, formatWithCommas } from '@/utils/format';
+import Skeleton from '../common/skeleton';
 import { Icons } from '../icons';
 
 type Props = {
@@ -43,6 +44,22 @@ const BoxBannerItem = ({ product }: Props) => {
         {formatLikesToK(product.likes)}
       </div>
     </Link>
+  );
+};
+
+export const BoxBannerItemSkeleton = () => {
+  return (
+    <div className="flex justify-between items-center py-[10px] h-[76px] gap-2 border-t-[1px] border-[#ccc] overflow-hidden">
+      <div className="flex gap-2 min-w-[294px]">
+        <Skeleton style="w-[54px] h-[54px]" />
+
+        <div className="min-w-[200px] flex flex-col gap-2">
+          <Skeleton style="h-[12px]" />
+          <Skeleton style="h-[12px]" />
+          <Skeleton style="h-[10px]" />
+        </div>
+      </div>
+    </div>
   );
 };
 

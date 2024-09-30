@@ -4,6 +4,11 @@ export enum MainComponentsType {
   BOX_SLIDER = 'BOX_SLIDER',
 }
 
+export type MainDataType = {
+  banners: BannerType[];
+  boxes: (BannerType | BoxBannerType | BoxSliderType)[] | undefined;
+};
+
 export type BannerType = {
   type: MainComponentsType;
   imgSrc: string;
