@@ -1,6 +1,7 @@
 'use client';
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import BoxRenderer from './boxRenderer';
 import Banner, { BannerSkeleton } from './banner';
 import BoxBanner, { BoxBannerSkeleton } from './boxBanner';
 import BoxSlider from './boxSlider';
@@ -24,21 +25,23 @@ const BoxSection = ({ data }: Props) => {
     <section className="relative w-full md:w-[56%]">
       <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 719: 2 }}>
         <Masonry>
-          {data.map((box, idx) => {
-            if (box.type === MainComponentsType.BANNER) {
-              return (
+          {data.map((box, idx) => (
+            <BoxRenderer key={idx}>
+              {box.type === MainComponentsType.BANNER && (
                 <Banner
                   key={idx}
                   data={box as BannerType}
                   style="desktop-only"
                 />
-              );
-            } else if (box.type === MainComponentsType.BOX_BANNER) {
-              return <BoxBanner key={idx} data={box as BoxBannerType} />;
-            } else if (box.type === MainComponentsType.BOX_SLIDER) {
-              return <BoxSlider key={idx} data={box as BoxSliderType} />;
-            }
-          })}
+              )}
+              {box.type === MainComponentsType.BOX_BANNER && (
+                <BoxBanner key={idx} data={box as BoxBannerType} />
+              )}
+              {box.type === MainComponentsType.BOX_SLIDER && (
+                <BoxSlider key={idx} data={box as BoxSliderType} />
+              )}
+            </BoxRenderer>
+          ))}
         </Masonry>
       </ResponsiveMasonry>
       <div className="absolute w-[1px] h-full bg-[#ccc] top-0 right-[50%] hidden lg:block" />
