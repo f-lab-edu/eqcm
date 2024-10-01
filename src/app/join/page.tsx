@@ -34,7 +34,7 @@ const Join = memo(function Join() {
       return axios.post<BaseResponse>(
         process.env.NEXT_PUBLIC_API_SERVER + '/join/email',
         {
-          joinRequest: {
+          joinInfo: {
             email: userData.email,
             name: userData.name,
             gender: userData.gender,
