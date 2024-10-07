@@ -7,7 +7,6 @@ import BannerSection, {
 import BoxSection, { BoxSectionSkeleton } from '@/components/main/boxSection';
 import ViewMoreButton from '@/components/main/viewMoreButton';
 import { fetchMainData } from '@/fetch/main';
-import { MainDataType } from '@/types/main';
 import { Suspense } from 'react';
 
 export default function Home() {
@@ -30,7 +29,7 @@ function LoadingSkeletons() {
 }
 
 function MainContent() {
-  const { data } = useSuspenseQuery<MainDataType>({
+  const { data } = useSuspenseQuery({
     queryKey: ['main'],
     queryFn: fetchMainData,
     staleTime: 60000,
