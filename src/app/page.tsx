@@ -1,38 +1,40 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { useQuery } from '@tanstack/react-query';
-import { BannerSectionSkeleton } from '@/components/main/bannerSection';
-import { BoxSectionSkeleton } from '@/components/main/boxSection';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import BannerSection, {
+  BannerSectionSkeleton,
+} from '@/components/main/bannerSection';
+import BoxSection, { BoxSectionSkeleton } from '@/components/main/boxSection';
 import ViewMoreButton from '@/components/main/viewMoreButton';
 import { fetchMainData } from '@/fetch/main';
 import { MainDataType } from '@/types/main';
-
-const BannerSection = dynamic(() => import('@/components/main/bannerSection'), {
-  loading: () => <BannerSectionSkeleton />,
-  ssr: false,
-});
-
-const BoxSection = dynamic(() => import('@/components/main/boxSection'), {
-  loading: () => <BoxSectionSkeleton />,
-  ssr: false,
-});
+import { Suspense } from 'react';
 
 export default function Home() {
-  const { data } = useQuery<MainDataType>({
+  return (
+    <Suspense fallback={<LoadingSkeletons />}>
+      <MainContent />
+    </Suspense>
+  );
+}
+
+function LoadingSkeletons() {
+  return (
+    <div className="flex-1 font-pretendard">
+      <div className="flex flex-col md:flex-row">
+        <BannerSectionSkeleton />
+        <BoxSectionSkeleton />
+      </div>
+    </div>
+  );
+}
+
+function MainContent() {
+  const { data } = useSuspenseQuery<MainDataType>({
     queryKey: ['main'],
     queryFn: fetchMainData,
     staleTime: 60000,
   });
-
-  if (!data) {
-    return (
-      <div>
-        <BannerSectionSkeleton />
-        <BoxSectionSkeleton />
-      </div>
-    );
-  }
 
   return (
     <div className="flex-1 font-pretendard">
