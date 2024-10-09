@@ -16,3 +16,7 @@ export const PhoneFormSchema = z
   .refine((phone) => /^\d{10,11}$/.test(phone), {
     message: '유효한 휴대폰 번호를 입력하세요',
   });
+
+export const SOCIAL_PROVIDER = {
+  NAVER: 'NAVER',
+};
