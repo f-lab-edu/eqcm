@@ -18,11 +18,7 @@ const EmailLoginForm = memo(function EmailLoginForm() {
 
   const onSubmit: SubmitHandler<EmailLoginFormData> = (data) => {
     const { email, password } = data;
-    signIn('credentials', {
-      email,
-      password,
-      callbackUrl: '/',
-    });
+    signIn('credentials', { email, password, callbackUrl: '/' });
   };
 
   return (

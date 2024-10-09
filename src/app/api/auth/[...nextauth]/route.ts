@@ -1,65 +1,13 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import NaverProvider, { NaverProfile } from 'next-auth/providers/naver';
-import axios from 'axios';
 import { SOCIAL_PROVIDER } from '@/constants/common';
-import { EmailLoginType, JoinBodyType, SocialLoginType } from '@/types/join';
-import { LoginResponse } from '@/types/response';
-
-async function fetchNaverAgreement(accessToken: string) {
-  try {
-    const instance = axios.create({
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-    const agreementResponse = await instance.get(
-      'https://openapi.naver.com/v1/nid/agreement',
-    );
-    return agreementResponse.data.agreementInfos;
-  } catch (error) {
-    throw new Error('Failed to fetch agreement info');
-  }
-}
-
-async function fetchSocialJoin(body: JoinBodyType) {
-  try {
-    const response = await axios.post<LoginResponse>(
-      process.env.NEXT_PUBLIC_API_SERVER + '/join/social',
-      body,
-    );
-    console.log('fetchJoinSocial', response.data);
-    return response.data;
-  } catch (error) {
-    throw new Error('Failed to fetch social join');
-  }
-}
-
-async function fetchSocialLogin(body: SocialLoginType) {
-  try {
-    const response = await axios.post<LoginResponse>(
-      process.env.NEXT_PUBLIC_API_SERVER + '/login/social',
-      body,
-    );
-    console.log('fetchLoginSocial', response.data);
-    return response.data;
-  } catch (error) {
-    throw new Error('Failed to fetch social login');
-  }
-}
-
-async function fetchEmailLogin(body: EmailLoginType) {
-  try {
-    const response = await axios.post<LoginResponse>(
-      process.env.NEXT_PUBLIC_API_SERVER + '/login/email',
-      body,
-    );
-    console.log('fetchEmailLogin', response.data);
-    return response.data;
-  } catch (error) {
-    throw new Error('Failed to fetch email login');
-  }
-}
+import {
+  fetchEmailLogin,
+  fetchNaverAgreement,
+  fetchSocialJoin,
+  fetchSocialLogin,
+} from '@/fetch/auth';
 
 declare module 'next-auth' {
   interface User {
@@ -108,7 +56,6 @@ const handler = NextAuth({
             accessToken: data.data.accessToken,
             refreshToken: data.data.refreshToken,
           };
-          console.log('credential user', user);
           return user;
         } catch (error) {
           console.error('Error in authorize function', error);
@@ -157,18 +104,15 @@ const handler = NextAuth({
 
       try {
         const agreementInfos = await fetchNaverAgreement(account?.access_token);
-
         const termsAgreements = agreementInfos.map(
           (agreement: { termCode: string }) => ({
             type: agreement.termCode.toUpperCase(),
             agreeYn: 'Y',
           }),
         );
-
         body.termsAgreements = termsAgreements;
 
         let data = await fetchSocialJoin(body);
-
         if (data.code === '403') {
           if (!email) {
             return false;
@@ -185,7 +129,6 @@ const handler = NextAuth({
         user.refreshToken = data.data.refreshToken;
         return true;
       } catch (error) {
-        console.log('social login error', error);
         return false;
       }
     },
