@@ -55,6 +55,11 @@ export type SocialLoginType = {
   socialId: string;
 };
 
+export type EmailLoginType = {
+  email: string;
+  password: string;
+};
+
 export type EmailJoinFormData = z.infer<typeof EmailJoinFormSchema>;
 export type PasswordJoinFormData = z.infer<typeof PasswordJoinFormSchema>;
 export type PhoneJoinFormData = z.infer<typeof PhoneJoinFormSchema>;
