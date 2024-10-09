@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { memo } from 'react';
-import { Icons } from '../icons';
 import { signIn } from 'next-auth/react';
+import { Icons } from '../icons';
 
 const LoginButtons = memo(function LoginButtons() {
   return (

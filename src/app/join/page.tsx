@@ -27,8 +27,6 @@ const Join = memo(function Join() {
     birth: null,
   });
 
-  console.log('userData', userData);
-
   const mutation = useMutation({
     mutationFn: (): Promise<AxiosResponse<BaseResponse>> => {
       return axios.post<BaseResponse>(
