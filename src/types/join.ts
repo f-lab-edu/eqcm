@@ -36,6 +36,25 @@ export type TermsAgreementListType = {
   detail?: string;
 };
 
+export type JoinBodyType = {
+  joinInfo: {
+    email: string | undefined;
+    gender: string;
+    name: string | undefined;
+    birthday: string;
+    phoneNumber: string | undefined;
+  };
+  socialProviderType: string;
+  socialId: string;
+  termsAgreements: never[];
+};
+
+export type SocialLoginType = {
+  email: string;
+  socialProviderType: string;
+  socialId: string;
+};
+
 export type EmailJoinFormData = z.infer<typeof EmailJoinFormSchema>;
 export type PasswordJoinFormData = z.infer<typeof PasswordJoinFormSchema>;
 export type PhoneJoinFormData = z.infer<typeof PhoneJoinFormSchema>;
