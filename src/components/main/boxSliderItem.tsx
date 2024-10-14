@@ -11,7 +11,7 @@ type Props = {
 const BoxSliderItem = ({ product }: Props) => {
   return (
     <Link
-      href={`/products/${product.productId}`}
+      href={`/product/${product.productId}`}
       key={product.productId}
       className="flex flex-col gap-2 overflow-hidden"
     >

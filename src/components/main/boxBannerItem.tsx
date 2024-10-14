@@ -12,7 +12,7 @@ type Props = {
 const BoxBannerItem = ({ product }: Props) => {
   return (
     <Link
-      href={`/products/${product.productId}`}
+      href={`/product/${product.productId}`}
       key={product.productId}
       className="flex justify-between items-center py-[10px] h-[76px] gap-2 border-t-[1px] border-[#ccc] overflow-hidden"
     >
