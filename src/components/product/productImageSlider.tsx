@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import Image from 'next/image';
+import Skeleton from '../common/skeleton';
 
 type Props = {
   imgSrc: string;
@@ -19,5 +20,11 @@ const ProductImageSlider = ({ imgSrc }: Props) => {
     </div>
   );
 };
+
+export const ProductImageSliderSkeleton = () => (
+  <div className="relative w-full max-w-[564px]">
+    <Skeleton style="aspect-[1/1]" />
+  </div>
+);
 
 export default memo(ProductImageSlider);

@@ -1,16 +1,53 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { fetchProductData } from '@/fetch/main';
-import BrandInfo from '@/components/product/brandInfo';
-import ProductImageSlider from '@/components/product/productImageSlider';
-import Categories from '@/components/product/categories';
-import ProductOptions from '@/components/product/productOptions';
-import ProductInfo from '@/components/product/productInfo';
-import ProductButtons from '@/components/product/productButtons';
+import BrandInfo, { BrandInfoSkeleton } from '@/components/product/brandInfo';
+import ProductImageSlider, {
+  ProductImageSliderSkeleton,
+} from '@/components/product/productImageSlider';
+import Categories, {
+  CategoriesSkeleton,
+} from '@/components/product/categories';
+import ProductOptions, {
+  ProductOptionsSkeleton,
+} from '@/components/product/productOptions';
+import ProductInfo, {
+  ProductInfoSkeleton,
+} from '@/components/product/productInfo';
+import ProductButtons, {
+  ProductButtonsSkeleton,
+} from '@/components/product/productButtons';
 
-const Product = () => {
+export default function Product() {
+  return (
+    <Suspense fallback={<LoadingSkeletons />}>
+      <MainContent />
+    </Suspense>
+  );
+}
+
+const LoadingSkeletons = () => {
+  return (
+    <div className="w-full">
+      <CategoriesSkeleton />
+      <div className="max-w-[1300px] m-auto pt-10 px-[50px]">
+        <BrandInfoSkeleton />
+        <div className="flex gap-[45px]">
+          <ProductImageSliderSkeleton />
+          <div className="flex flex-col w-full">
+            <ProductInfoSkeleton />
+            <ProductOptionsSkeleton />
+            <ProductButtonsSkeleton />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MainContent = () => {
   const { data } = useSuspenseQuery({
     queryKey: [`product`],
     queryFn: fetchProductData,
@@ -40,5 +77,3 @@ const Product = () => {
     </div>
   );
 };
-
-export default Product;

@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Skeleton from '../common/skeleton';
 
 type Props = {
   brandId: number;
@@ -30,5 +31,16 @@ const BrandInfo = ({ brandId, name, subCopy }: Props) => {
     </div>
   );
 };
+
+export const BrandInfoSkeleton = () => (
+  <div className="flex mb-4 pr-[80px]">
+    <Skeleton style="size-[74px]" />
+    <div className="flex flex-col gap-4 pl-[14px]">
+      {[...Array(3)].map((_, index) => (
+        <Skeleton key={index} style="w-[100px] h-[10px]" />
+      ))}
+    </div>
+  </div>
+);
 
 export default memo(BrandInfo);

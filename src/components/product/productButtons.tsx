@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import Skeleton from '../common/skeleton';
 
 const ProductButtons = () => {
   return (
@@ -12,6 +13,15 @@ const ProductButtons = () => {
       >
         바로 구매하기
       </button>
+    </div>
+  );
+};
+
+export const ProductButtonsSkeleton = () => {
+  return (
+    <div className="flex justify-between">
+      <Skeleton style="flex-1 h-[50px]" />
+      <Skeleton style="flex-1 h-[50px]" />
     </div>
   );
 };

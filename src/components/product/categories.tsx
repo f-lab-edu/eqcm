@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import CategoryDropdown from './categoryDropdown';
+import Skeleton from '../common/skeleton';
 
 const Categories = () => {
   // TODO: category 데이터 형태
@@ -19,5 +20,15 @@ const Categories = () => {
     </div>
   );
 };
+
+export const CategoriesSkeleton = () => (
+  <div className="flex gap-3 mt-[35px] mb-[5px] justify-center items-center">
+    <Skeleton style="w-[100px] h-[20px]" />
+    <span className="text-gray-400 text-[20px] font-light">/</span>
+    <Skeleton style="w-[100px] h-[20px]" />
+    <span className="text-gray-400 text-[20px] font-light">/</span>
+    <Skeleton style="w-[100px] h-[20px]" />
+  </div>
+);
 
 export default memo(Categories);

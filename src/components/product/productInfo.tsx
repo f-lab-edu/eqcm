@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import RateStars from './rateStars';
+import Skeleton from '../common/skeleton';
 import { ProductDataType } from '@/types/product';
 import { formatWithCommas } from '@/utils/format';
 import { Icons } from '../icons';
@@ -15,7 +16,7 @@ const ProductInfo = ({ data }: Props) => {
         <p className="text-[20px] font-bold py-6 pr-[34px]">
           {data.productInfo.itemName}
         </p>
-        <p className="flex justify-center items-center w-[85px] border-l-[1px] border-[#dcdfe6]">
+        <div className="flex justify-center items-center w-[85px] border-l-[1px] border-[#dcdfe6]">
           <div className="size-[26px] cursor-pointer">
             {data.productInfo.isLiked ? (
               <Icons.detail_like_on />
@@ -23,7 +24,7 @@ const ProductInfo = ({ data }: Props) => {
               <Icons.detail_like_off />
             )}
           </div>
-        </p>
+        </div>
       </div>
       <div className="mb-6 flex items-center gap-2">
         <RateStars rate={data.productInfo.avgReviewPoint} />
@@ -65,7 +66,7 @@ const ProductInfo = ({ data }: Props) => {
           <span>
             {formatWithCommas(data.productInfo.saleInfo.totalSalePrice)}원
           </span>
-          <span>{/* <Icons.view_more_arrow /> */}</span>
+          {/* <Icons.view_more_arrow /> */}
         </div>
       </div>
       <ul className="flex flex-col gap-y-4 my-5 text-[13px]">
@@ -88,5 +89,45 @@ const ProductInfo = ({ data }: Props) => {
     </div>
   );
 };
+
+export const ProductInfoSkeleton = () => (
+  <div className="w-full border-t-2 border-black">
+    <div className="flex justify-between">
+      <Skeleton style="w-full h-[24px] my-6 mr-[34px]" />
+      <div className="flex justify-center items-center w-[85px] border-l-[1px] border-[#dcdfe6]">
+        <div className="size-[26px]">
+          <Icons.detail_like_off />
+        </div>
+      </div>
+    </div>
+    <div className="mb-6 flex items-center gap-2">
+      <Skeleton style="w-[100px] h-[20px]" />
+    </div>
+    <div className="flex justify-between mb-4">
+      <div>
+        <div className="flex items-center mb-1">
+          <Skeleton style="w-[100px] h-[20px]" />
+          <Skeleton style="w-[100px] h-[20px]" />
+        </div>
+        <Skeleton style="w-[100px] h-[14px]" />
+      </div>
+      <Skeleton style="w-[94px] h-8" />
+    </div>
+    <div className="flex justify-between items-center border-y-[1px] border-[#dcdfe6] h-[60px]">
+      <Skeleton style="w-[100px] h-[20px]" />
+      <Skeleton style="w-[100px] h-[20px]" />
+    </div>
+    <ul className="flex flex-col gap-y-4 my-5">
+      <li className="flex gap-2">
+        <Skeleton style="w-[100px] h-[20px]" />
+        <Skeleton style="w-[100px] h-[20px]" />
+      </li>
+      <li className="flex gap-2">
+        <Skeleton style="w-[100px] h-[20px]" />
+        <Skeleton style="w-[100px] h-[20px]" />
+      </li>
+    </ul>
+  </div>
+);
 
 export default memo(ProductInfo);

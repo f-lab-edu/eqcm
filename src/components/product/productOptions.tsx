@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import OptionDropdown from './optionDropdown';
 import OptionStepper from './optionStepper';
+import Skeleton from '../common/skeleton';
 import { formatWithCommas } from '@/utils/format';
 import { ProductDataType } from '@/types/product';
 import { Icons } from '../icons';
@@ -42,5 +43,11 @@ const ProductOptions = ({ options }: Props) => {
     </div>
   );
 };
+
+export const ProductOptionsSkeleton = () => (
+  <div className="my-5">
+    <Skeleton style="w-full h-[36px]" />
+  </div>
+);
 
 export default memo(ProductOptions);

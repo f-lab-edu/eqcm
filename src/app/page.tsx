@@ -19,7 +19,7 @@ export default function Home() {
 
 function LoadingSkeletons() {
   return (
-    <div className="flex-1 font-pretendard">
+    <div className="flex-1">
       <div className="flex flex-col md:flex-row">
         <BannerSectionSkeleton />
         <BoxSectionSkeleton />
