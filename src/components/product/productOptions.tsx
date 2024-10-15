@@ -1,4 +1,5 @@
 import React, { memo, useReducer } from 'react';
+import cn from 'classnames';
 import OptionDropdown from './optionDropdown';
 import OptionStepper from './optionStepper';
 import Skeleton from '../common/skeleton';
@@ -73,6 +74,34 @@ const ProductOptions = ({ price, options }: Props) => {
           return {
             ...state,
             currentOption: updatedCurrentOption,
+          };
+        }
+
+        const existingOptionIndex = state.selectedOptions.findIndex(
+          (option: ProductOptionType) => {
+            return Object.keys(updatedCurrentOption).every(
+              (key) => updatedCurrentOption[key] === option[key],
+            );
+          },
+        );
+
+        if (existingOptionIndex !== -1) {
+          const updatedOptions = state.selectedOptions.map(
+            (option: ProductOptionType, index: number) => {
+              if (
+                index === existingOptionIndex &&
+                typeof option.count === 'number'
+              ) {
+                return { ...option, count: option.count + 1 };
+              }
+              return option;
+            },
+          );
+
+          return {
+            ...state,
+            selectedOptions: updatedOptions,
+            totalPrice: updateTotalPrice(updatedOptions),
           };
         }
 
@@ -182,7 +211,14 @@ const ProductOptions = ({ price, options }: Props) => {
                 option: { [key: string]: string | number | null },
                 index: number,
               ) => (
-                <li key={index} className="flex justify-between items-center">
+                <li
+                  key={index}
+                  className={cn(
+                    'flex justify-between items-center py-1',
+                    index !== state.selectedOptions.length - 1 &&
+                      'border-b border-[#dcdfe6]',
+                  )}
+                >
                   <p className="font-semibold">{makeOptionName(option)}</p>
                   <div className="flex items-center">
                     <OptionStepper
