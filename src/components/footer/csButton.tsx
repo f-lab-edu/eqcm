@@ -13,7 +13,7 @@ const CsButton = memo(function Button({ title }: Props) {
     >
       {title}
       <span className="w-1 h-2">
-        <Icons.footer_arrow />
+        <Icons.FooterArrow />
       </span>
     </button>
   );

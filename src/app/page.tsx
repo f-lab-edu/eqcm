@@ -6,7 +6,7 @@ import BannerSection, {
 } from '@/components/main/bannerSection';
 import BoxSection, { BoxSectionSkeleton } from '@/components/main/boxSection';
 import ViewMoreButton from '@/components/main/viewMoreButton';
-import { fetchMainData } from '@/fetch/main';
+import { fetchMainData } from '@/fetch';
 import { Suspense } from 'react';
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
 
 function LoadingSkeletons() {
   return (
-    <div className="flex-1 font-pretendard">
+    <div className="flex-1">
       <div className="flex flex-col md:flex-row">
         <BannerSectionSkeleton />
         <BoxSectionSkeleton />

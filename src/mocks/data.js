@@ -106,3 +106,33 @@ export const MainData = {
     },
   ],
 };
+
+export const ProductData = {
+  category: {},
+  brandInfo: {
+    name: '드로우핏 우먼',
+    subCopy:
+      '드로우핏 우먼은 클래식을 현대적 감각으로 재해석하여 완성도 있는 뉴 컨템포러리 웨어를 추구합니다.',
+    brandId: 26590,
+  },
+  productInfo: {
+    itemId: 2734746,
+    itemName: '헤어리 알파카 울 칼라리스 자켓 [BEIGE]',
+    isLiked: true,
+    avgReviewPoint: 3.5,
+    reviewCount: 3,
+    saleInfo: {
+      consumerPrice: 248000,
+      totalSalePercent: 40,
+      totalSalePrice: 170624,
+    },
+    options: {
+      size: ['S', 'M'],
+      color: ['white', 'yellow', 'pink'],
+    },
+  },
+  deliveryInfo: {
+    estimatedDeliveryTime: '3일 이내 출고',
+    deliveryFee: '무료배송',
+  },
+};
