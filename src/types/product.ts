@@ -1,3 +1,7 @@
+export type ProductOptionType = {
+  [key: string]: string | number | null;
+};
+
 export type ProductDataType = {
   brandInfo: {
     name: string;

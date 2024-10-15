@@ -6,7 +6,7 @@ import BannerSection, {
 } from '@/components/main/bannerSection';
 import BoxSection, { BoxSectionSkeleton } from '@/components/main/boxSection';
 import ViewMoreButton from '@/components/main/viewMoreButton';
-import { fetchMainData } from '@/fetch/main';
+import { fetchMainData } from '@/fetch';
 import { Suspense } from 'react';
 
 export default function Home() {

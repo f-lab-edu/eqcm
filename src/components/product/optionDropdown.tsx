@@ -7,9 +7,22 @@ import cn from 'classnames';
 type Props = {
   optionName: string;
   list: string[];
+  selectedOption: string;
+  onClickOption: ({
+    optionType,
+    value,
+  }: {
+    optionType: string;
+    value: string;
+  }) => void;
 };
 
-const OptionDropdown = ({ optionName, list }: Props) => {
+const OptionDropdown = ({
+  optionName,
+  selectedOption,
+  list,
+  onClickOption,
+}: Props) => {
   const [isClicked, setClicked] = useState<boolean>(false);
 
   return (
@@ -18,7 +31,7 @@ const OptionDropdown = ({ optionName, list }: Props) => {
         onClick={() => setClicked(!isClicked)}
         className="flex items-center justify-between leading-[36px] border border-[#dcdfe6] pl-2 pr-4"
       >
-        {optionName} <Icons.dropdown />
+        {selectedOption ?? optionName} <Icons.dropdown />
       </p>
       <ul
         className={cn(
@@ -30,7 +43,10 @@ const OptionDropdown = ({ optionName, list }: Props) => {
           <li
             key={item}
             className="leading-8 px-2 cursor-pointer"
-            onClick={() => setClicked(false)}
+            onClick={() => {
+              onClickOption({ optionType: optionName, value: item });
+              setClicked(false);
+            }}
           >
             {item}
           </li>

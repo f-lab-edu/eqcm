@@ -2,7 +2,7 @@
 
 import React, { Suspense } from 'react';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { fetchProductData } from '@/fetch/main';
+import { fetchProductData } from '@/fetch';
 import BrandInfo, { BrandInfoSkeleton } from '@/components/product/brandInfo';
 import ProductImageSlider, {
   ProductImageSliderSkeleton,
@@ -69,7 +69,10 @@ const MainContent = () => {
           <ProductImageSlider imgSrc="/static/images/product-sample-image.jpg" />
           <div className="flex flex-col w-full">
             <ProductInfo data={data} />
-            <ProductOptions options={data.productInfo.options} />
+            <ProductOptions
+              price={data.productInfo.saleInfo.totalSalePrice}
+              options={data.productInfo.options}
+            />
             <ProductButtons />
           </div>
         </div>
