@@ -32,7 +32,7 @@ const MobileBannerSlider = ({ data }: Props) => {
         disabled={swiper?.realIndex === 0}
         className="absolute top-1/2 -translate-y-1/2 z-10 left-[10%] flex justify-center items-center size-10 rounded-full hover:border-zinc-100 hover:border disabled:opacity-[0.5] disabled:cursor-not-allowed"
       >
-        <Icons.slide_left_arrow fillWhite={true} />
+        <Icons.SlideLeftArrow fillWhite={true} />
       </button>
       <button
         type="button"
@@ -40,7 +40,7 @@ const MobileBannerSlider = ({ data }: Props) => {
         disabled={swiper?.realIndex === data.length - 1}
         className="absolute top-1/2 -translate-y-1/2 z-10 right-[10%] flex justify-center items-center size-10 rounded-full hover:border-zinc-100 hover:border disabled:opacity-[0.5] disabled:cursor-not-allowed"
       >
-        <Icons.slide_right_arrow fillWhite={true} />
+        <Icons.SlideRightArrow fillWhite={true} />
       </button>
 
       <Swiper

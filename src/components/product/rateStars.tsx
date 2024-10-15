@@ -17,13 +17,13 @@ const RateStars = ({ rate }: Props) => {
         .fill()
         .map((_, index) => (
           <span key={`full-${index}`} className="star full">
-            <Icons.full_star />
+            <Icons.FullStar />
           </span>
         ))}
 
       {hasHalfStar && (
         <span className="star half">
-          <Icons.half_star />
+          <Icons.HalfStar />
         </span>
       )}
 
@@ -31,7 +31,7 @@ const RateStars = ({ rate }: Props) => {
         .fill()
         .map((_, index) => (
           <span key={`empty-${index}`} className="star empty">
-            <Icons.empty_star />
+            <Icons.EmptyStar />
           </span>
         ))}
     </div>

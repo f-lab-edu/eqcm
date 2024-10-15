@@ -1,5 +1,5 @@
 export const Icons = {
-  my_page: () => (
+  MyPage: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -24,7 +24,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  my_like: () => (
+  MyLike: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -44,7 +44,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  shopping_bag: () => (
+  ShoppingBag: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -64,7 +64,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  login: () => (
+  Login: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -84,7 +84,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  logout: () => (
+  Logout: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -104,7 +104,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  search: () => (
+  Search: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="44"
@@ -124,7 +124,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  search_m: () => (
+  SearchMobile: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -144,7 +144,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  footer_arrow: () => (
+  FooterArrow: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 42 80"
@@ -160,7 +160,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  home_off: () => (
+  HomeOff: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -182,7 +182,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  home_on: () => (
+  HomeOn: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -202,7 +202,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  shop_off: () => (
+  ShopOff: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -220,7 +220,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  shop_on: () => (
+  ShopOn: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -239,7 +239,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  search_off: () => (
+  SearchOff: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -259,7 +259,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  search_on: () => (
+  SearchOn: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -280,7 +280,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  magazine_off: () => (
+  MagazineOff: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -300,7 +300,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  magazine_on: () => (
+  MagazineOn: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -321,7 +321,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  my_off: () => (
+  MyOff: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -341,7 +341,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  my_on: () => (
+  MyOn: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -362,7 +362,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  naver: () => (
+  Naver: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="14"
@@ -388,7 +388,7 @@ export const Icons = {
       </defs>
     </svg>
   ),
-  email: () => (
+  Email: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -402,7 +402,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  view_more_arrow: () => (
+  ViewMoreArrow: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="18"
@@ -422,7 +422,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  like_off: ({ fillWhite = false }: { fillWhite?: boolean }) => (
+  LikeOff: ({ fillWhite = false }: { fillWhite?: boolean }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -442,7 +442,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  like_on: () => (
+  LikeOn: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -462,7 +462,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  slide_left_arrow: ({ fillWhite = false }: { fillWhite?: boolean }) => (
+  SlideLeftArrow: ({ fillWhite = false }: { fillWhite?: boolean }) => (
     <svg
       width="24px"
       height="24px"
@@ -476,7 +476,7 @@ export const Icons = {
       />
     </svg>
   ),
-  slide_right_arrow: ({ fillWhite = false }: { fillWhite?: boolean }) => (
+  SlideRightArrow: ({ fillWhite = false }: { fillWhite?: boolean }) => (
     <svg
       width="24px"
       height="24px"
@@ -490,7 +490,7 @@ export const Icons = {
       />
     </svg>
   ),
-  check: ({ color }: { color?: string }) => (
+  Check: ({ color }: { color?: string }) => (
     <svg
       width="14px"
       height="14px"
@@ -505,7 +505,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  category_dropdown: () => (
+  CategoryDropdown: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -523,7 +523,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  detail_like_off: () => (
+  DetailLikeOff: () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
       <path
         d="M9 6.088C9 3.831 10.791 2 13 2s4 1.83 4 4.088c0 1.743-1.46 3.23-1.46 3.23L9 16 2.46 9.318S1 7.83 1 6.088C1 3.831 2.791 2 5 2s4 1.83 4 4.088z"
@@ -534,7 +534,7 @@ export const Icons = {
       />
     </svg>
   ),
-  detail_like_on: () => (
+  DetailLikeOn: () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
       <path
         d="M9 6.088C9 3.831 10.791 2 13 2s4 1.83 4 4.088c0 1.743-1.46 3.23-1.46 3.23L9 16 2.46 9.318S1 7.83 1 6.088C1 3.831 2.791 2 5 2s4 1.83 4 4.088z"
@@ -545,7 +545,7 @@ export const Icons = {
       />
     </svg>
   ),
-  coupon_download: () => (
+  CouponDownload: () => (
     <svg viewBox="0 0 9 9" width={12} height={12}>
       <g fill="#ffffff" fillRule="evenodd">
         <path fill="none" d="M0 0h9v9H0z" />
@@ -553,7 +553,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  tooltip: () => (
+  Tooltip: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -573,7 +573,7 @@ export const Icons = {
       />
     </svg>
   ),
-  dropdown: () => (
+  Dropdown: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 28 16"
@@ -590,7 +590,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  full_star: () => (
+  FullStar: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="10"
@@ -606,7 +606,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  half_star: () => (
+  HalfStar: () => (
     <i className="relative">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -640,7 +640,7 @@ export const Icons = {
       </svg>
     </i>
   ),
-  empty_star: () => (
+  EmptyStar: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="10"
@@ -656,7 +656,7 @@ export const Icons = {
       />
     </svg>
   ),
-  delete_option: () => (
+  DeleteOption: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 84 82"

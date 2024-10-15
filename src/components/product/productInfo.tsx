@@ -19,9 +19,9 @@ const ProductInfo = ({ data }: Props) => {
         <div className="flex justify-center items-center w-[85px] border-l-[1px] border-[#dcdfe6]">
           <div className="size-[26px] cursor-pointer">
             {data.productInfo.isLiked ? (
-              <Icons.detail_like_on />
+              <Icons.DetailLikeOn />
             ) : (
-              <Icons.detail_like_off />
+              <Icons.DetailLikeOff />
             )}
           </div>
         </div>
@@ -52,7 +52,7 @@ const ProductInfo = ({ data }: Props) => {
           className="flex items-center justify-around w-[94px] h-8 leading-8 text-[11px] bg-black text-white"
         >
           <span>쿠폰받기</span>
-          <Icons.coupon_download />
+          <Icons.CouponDownload />
         </button>
       </div>
       <div className="flex justify-between items-center border-y-[1px] border-[#dcdfe6] h-[60px] text-[#474747]">
@@ -66,13 +66,13 @@ const ProductInfo = ({ data }: Props) => {
           <span>
             {formatWithCommas(data.productInfo.saleInfo.totalSalePrice)}원
           </span>
-          {/* <Icons.view_more_arrow /> */}
+          {/* <Icons.ViewMoreArrow /> */}
         </div>
       </div>
       <ul className="flex flex-col gap-y-4 my-5 text-[13px]">
         <li className="flex">
           <p className="flex items-center gap-1 min-w-[110px]">
-            배송정보 <Icons.tooltip />
+            배송정보 <Icons.Tooltip />
           </p>
           <p className="text-[#375fff]">
             {data.deliveryInfo.estimatedDeliveryTime}
@@ -96,7 +96,7 @@ export const ProductInfoSkeleton = () => (
       <Skeleton style="w-full h-[24px] my-6 mr-[34px]" />
       <div className="flex justify-center items-center w-[85px] border-l-[1px] border-[#dcdfe6]">
         <div className="size-[26px]">
-          <Icons.detail_like_off />
+          <Icons.DetailLikeOff />
         </div>
       </div>
     </div>

@@ -16,12 +16,14 @@ const CategoryDropdown = ({ currentValue, list }: Props) => {
       className="relative"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
+      onFocus={() => setIsHover(true)}
+      onBlur={() => setIsHover(false)}
     >
       {isHover}
       <div className="flex gap-2 items-center">
         <span>{currentValue}</span>
         <div className="relative top-[-2px]">
-          <Icons.category_dropdown />
+          <Icons.CategoryDropdown />
         </div>
       </div>
       <ul

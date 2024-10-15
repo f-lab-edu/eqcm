@@ -16,7 +16,7 @@ const Menu = memo(function Menu() {
         ))}
       </ul>
       <button className="hidden xl:block">
-        <Icons.search />
+        <Icons.Search />
       </button>
     </nav>
   );

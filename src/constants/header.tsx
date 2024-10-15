@@ -28,24 +28,24 @@ export const MENUS: string[] = [
 
 export const DEFAULT_MENU: MyMenuItemType[] = [
   {
-    icon: <Icons.my_page />,
+    icon: <Icons.MyPage />,
     title: 'MY PAGE',
     link: '',
     style: 'hidden md:block',
   },
   {
-    icon: <Icons.my_like />,
+    icon: <Icons.MyLike />,
     title: 'MY LIKE',
     link: '',
     style: 'hidden md:block',
   },
-  { icon: <Icons.shopping_bag />, title: 'SHOPPING BAG', link: '', style: '' },
+  { icon: <Icons.ShoppingBag />, title: 'SHOPPING BAG', link: '', style: '' },
 ] as const;
 
 export const USER_STATUS_MENU: { [key: string]: MyMenuItemType } = {
-  LOGIN: { icon: <Icons.login />, title: 'LOGIN', link: '/login' },
+  LOGIN: { icon: <Icons.Login />, title: 'LOGIN', link: '/login' },
   LOGOUT: {
-    icon: <Icons.logout />,
+    icon: <Icons.Logout />,
     title: 'LOGOUT',
     link: '',
     callback: () => signOut(),

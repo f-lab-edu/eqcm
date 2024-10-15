@@ -240,7 +240,7 @@ const ProductOptions = ({ price, options }: Props) => {
                           });
                         }}
                       >
-                        <Icons.delete_option />
+                        <Icons.DeleteOption />
                       </button>
                     </div>
                   </div>

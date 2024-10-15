@@ -27,12 +27,13 @@ const OptionDropdown = ({
 
   return (
     <div className="relative mb-4 text-[13px] text-[#303033]">
-      <p
+      <button
+        type="button"
         onClick={() => setClicked(!isClicked)}
-        className="flex items-center justify-between leading-[36px] border border-[#dcdfe6] pl-2 pr-4"
+        className="flex w-full items-center justify-between leading-[36px] border border-[#dcdfe6] pl-2 pr-4"
       >
-        {selectedOption ?? optionName} <Icons.dropdown />
-      </p>
+        {selectedOption ?? optionName} <Icons.Dropdown />
+      </button>
       <ul
         className={cn(
           'absolute top-[36px] bg-white w-full border border-[#dcdfe6] z-[1]',

@@ -30,9 +30,9 @@ const BoxSliderItem = ({ product }: Props) => {
           className="absolute bottom-[10px] right-[10px] flex flex-col justify-center items-center text-[#a0a0a0]"
         >
           {product.likeStatus ? (
-            <Icons.like_on />
+            <Icons.LikeOn />
           ) : (
-            <Icons.like_off fillWhite={true} />
+            <Icons.LikeOff fillWhite={true} />
           )}
         </div>
       </div>

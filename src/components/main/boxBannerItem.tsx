@@ -40,7 +40,7 @@ const BoxBannerItem = ({ product }: Props) => {
         role="button"
         className="flex flex-col justify-center items-center min-w-[52px] text-[#a0a0a0]"
       >
-        {product.likeStatus ? <Icons.like_on /> : <Icons.like_off />}
+        {product.likeStatus ? <Icons.LikeOn /> : <Icons.LikeOff />}
         {formatLikesToK(product.likes)}
       </div>
     </Link>
