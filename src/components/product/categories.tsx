@@ -3,7 +3,6 @@ import CategoryDropdown from './categoryDropdown';
 import Skeleton from '../common/skeleton';
 
 const Categories = () => {
-  // TODO: category 데이터 형태
   return (
     <div className="flex gap-3 mt-[35px] mb-[5px] justify-center items-center text-[15px] font-semibold">
       <CategoryDropdown

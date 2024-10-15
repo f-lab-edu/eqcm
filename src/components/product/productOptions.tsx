@@ -212,7 +212,7 @@ const ProductOptions = ({ price, options }: Props) => {
                 index: number,
               ) => (
                 <li
-                  key={index}
+                  key={makeOptionName(option)}
                   className={cn(
                     'flex justify-between items-center py-1',
                     index !== state.selectedOptions.length - 1 &&

@@ -15,8 +15,8 @@ const RateStars = ({ rate }: Props) => {
     <div className="flex gap-[2px]">
       {Array(fullStars)
         .fill()
-        .map((_, index) => (
-          <span key={`full-${index}`} className="star full">
+        .map((_, idx) => (
+          <span key={`full-${idx}`} className="star full">
             <Icons.FullStar />
           </span>
         ))}
@@ -29,8 +29,8 @@ const RateStars = ({ rate }: Props) => {
 
       {Array(emptyStars)
         .fill()
-        .map((_, index) => (
-          <span key={`empty-${index}`} className="star empty">
+        .map((_, idx) => (
+          <span key={`empty-${idx}`} className="star empty">
             <Icons.EmptyStar />
           </span>
         ))}
