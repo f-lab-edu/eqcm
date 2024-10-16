@@ -8,9 +8,10 @@ import { PhoneJoinFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
 import { PhoneFormSchema } from '@/constants/common';
+import { formatPhoneNumber } from '@/util/format';
 
 type Props = {
-  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
+  onClickNextBtn: () => void;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
@@ -50,8 +51,8 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
 
     // TODO: 인증번호 확인 API 전송 후 응답에 따른 처리
     if (true) {
-      onChangeData('phone', data.phone);
-      onClickNextBtn(4);
+      onChangeData('phone', formatPhoneNumber(data.phone));
+      onClickNextBtn();
     }
   };
 

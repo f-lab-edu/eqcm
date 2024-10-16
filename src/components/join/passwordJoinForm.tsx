@@ -8,7 +8,7 @@ import NextButton from './nextButton';
 import OptionCheck from './optionCheck';
 
 type Props = {
-  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
+  onClickNextBtn: () => void;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
@@ -19,7 +19,7 @@ function PasswordJoinForm({ onClickNextBtn, onChangeData }: Props) {
 
   const onSubmit: SubmitHandler<PasswordJoinFormData> = (data) => {
     onChangeData('password', data.password);
-    onClickNextBtn(3);
+    onClickNextBtn();
   };
 
   const isPasswordLengthValid =

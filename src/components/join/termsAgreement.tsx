@@ -7,7 +7,7 @@ import CheckBox from './checkbox';
 import NextButton from './nextButton';
 
 type Props = {
-  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
+  onClickNextBtn: () => void;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
@@ -52,7 +52,7 @@ const TermsAgreement = ({ onClickNextBtn, onChangeData }: Props) => {
   const handleSubmit = useCallback(() => {
     onChangeData('term_marketing', checkStatus.marketing);
     onChangeData('term_ad', checkStatus.ad);
-    onClickNextBtn(1);
+    onClickNextBtn();
   }, [checkStatus.marketing, checkStatus.ad, onChangeData, onClickNextBtn]);
 
   return (

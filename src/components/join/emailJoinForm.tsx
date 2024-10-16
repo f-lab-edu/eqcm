@@ -7,7 +7,7 @@ import Input from '../common/input';
 import NextButton from './nextButton';
 
 type Props = {
-  onClickNextBtn: React.Dispatch<React.SetStateAction<number>>;
+  onClickNextBtn: () => void;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
 };
 
@@ -25,7 +25,7 @@ function EmailJoinForm({ onClickNextBtn, onChangeData }: Props) {
 
   const onSubmit: SubmitHandler<EmailJoinFormData> = (data) => {
     onChangeData('email', data.email);
-    onClickNextBtn(2);
+    onClickNextBtn();
   };
 
   return (
