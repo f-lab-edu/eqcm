@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
+import MSWProvider from '@/lib/msw';
 import AuthProvider from '@/lib/next-auth';
 import './globals.css';
 
@@ -61,7 +62,9 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${campton.variable} ${pretendard.variable}`}>
       <body className="relative flex flex-col justify-between h-dvh">
-        <AuthProvider>{children}</AuthProvider>
+        <MSWProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </MSWProvider>
       </body>
     </html>
   );
