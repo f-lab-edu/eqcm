@@ -10,23 +10,10 @@ import PasswordJoinForm from '@/components/join/passwordJoinForm';
 import PhoneJoinForm from '@/components/join/phoneJoinForm';
 import PersonalInfoForm from '@/components/join/personalInfoForm';
 import JoinSuccess from '@/components/join/joinSuccess';
-import { StepType, UserDataType } from '@/types/join';
+import { StepDataType, UserDataType } from '@/types/join';
 import { BaseResponse } from '@/types/response';
 
 const Join = memo(function Join() {
-  const [step, setStep] = useState(0);
-
-  const [userData, setUserData] = useState<UserDataType>({
-    term_marketing: false,
-    term_ad: false,
-    email: null,
-    password: null,
-    phone: null,
-    name: null,
-    gender: null,
-    birth: null,
-  });
-
   const mutation = useMutation({
     mutationFn: (): Promise<AxiosResponse<BaseResponse>> => {
       return axios.post<BaseResponse>(
@@ -62,8 +49,7 @@ const Join = memo(function Join() {
       );
     },
     onSuccess: () => {
-      console.log('join success');
-      setStep(5);
+      setStep(StepData.successStep);
     },
     onError: (e) => {
       console.error('join error', e);
@@ -78,39 +64,45 @@ const Join = memo(function Join() {
     );
   };
 
-  const StepData: StepType[] = [
-    {
+  const StepData: { [key: string]: StepDataType } = {
+    termsAgreementStep: {
       title: 'eqCM에 이용 약관에\n동의해 주세요',
       component: (
         <TermsAgreement
-          onClickNextBtn={setStep}
+          onClickNextBtn={() => setStep(StepData.emailInputStep)}
           onChangeData={handleUserData}
         />
       ),
     },
-    {
+    emailInputStep: {
       title: '로그인에 사용할\n아이디를 입력해 주세요.',
       component: (
-        <EmailJoinForm onClickNextBtn={setStep} onChangeData={handleUserData} />
+        <EmailJoinForm
+          onClickNextBtn={() => setStep(StepData.passwordInputStep)}
+          onChangeData={handleUserData}
+        />
       ),
     },
-    {
+    passwordInputStep: {
       title: '로그인에 사용할\n비밀번호를 입력해 주세요.',
       component: (
         <PasswordJoinForm
-          onClickNextBtn={setStep}
+          onClickNextBtn={() => setStep(StepData.phoneVerificationStep)}
           onChangeData={handleUserData}
         />
       ),
     },
-    {
+    phoneVerificationStep: {
       title: '본인인증을\n진행해 주세요',
       subtitle: '이미 가입한 계정이 있다면 알려드릴게요!',
       component: (
-        <PhoneJoinForm onClickNextBtn={setStep} onChangeData={handleUserData} />
+        <PhoneJoinForm
+          onClickNextBtn={() => setStep(StepData.personalInfoStep)}
+          onChangeData={handleUserData}
+        />
       ),
     },
-    {
+    personalInfoStep: {
       title: '이름과 성별, 생년월일을\n입력해 주세요.',
       component: (
         <PersonalInfoForm
@@ -119,20 +111,31 @@ const Join = memo(function Join() {
         />
       ),
     },
-    {
+    successStep: {
       title: '가입 완료!',
       subtitle: '가입을 축하해요!',
       component: <JoinSuccess />,
     },
-  ];
+  };
+
+  const [step, setStep] = useState(StepData.termsAgreementStep);
+
+  const [userData, setUserData] = useState<UserDataType>({
+    term_marketing: false,
+    term_ad: false,
+    email: null,
+    password: null,
+    phone: null,
+    name: null,
+    gender: null,
+    birth: null,
+  });
 
   return (
     <div className="flex flex-col w-full min-h-[650px] py-[50px] px-[20px] md:w-[400px] mx-auto md:px-0 md:pt-[43px] font-pretendard">
-      <p className="text-[30px] font-bold whitespace-pre-wrap">
-        {StepData[step].title}
-      </p>
-      {StepData[step].subtitle && <p>{StepData[step].subtitle}</p>}
-      <div className="h-full">{StepData[step].component}</div>
+      <p className="text-[30px] font-bold whitespace-pre-wrap">{step.title}</p>
+      {step.subtitle && <p>{step.subtitle}</p>}
+      <div className="h-full">{step.component}</div>
     </div>
   );
 });

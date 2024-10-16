@@ -8,6 +8,12 @@ import {
   PhoneJoinFormSchema,
 } from '@/constants/join';
 
+export type StepDataType = {
+  title: string;
+  subtitle?: string;
+  component: React.ReactNode;
+};
+
 export type GenderType = GENDER.male | GENDER.female;
 
 export type UserDataType = {
