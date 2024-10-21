@@ -32,9 +32,9 @@ const LoadingSkeletons = () => {
   return (
     <div className="w-full">
       <CategoriesSkeleton />
-      <div className="max-w-[1300px] m-auto pt-10 px-[50px]">
+      <div className="max-w-[1300px] m-auto md:pt-10 md:px-[50px]">
         <BrandInfoSkeleton />
-        <div className="flex gap-[45px]">
+        <div className="flex flex-col md:flex-row md:gap-[45px]">
           <ProductImageSliderSkeleton />
           <div className="flex flex-col w-full">
             <ProductInfoSkeleton />
@@ -58,14 +58,14 @@ const MainContent = () => {
     <div className="w-full">
       <Categories />
 
-      <div className="max-w-[1300px] m-auto pt-10 px-[50px]">
+      <div className="max-w-[1300px] m-auto md:pt-10 md:px-[50px]">
         <BrandInfo
           brandId={data.brandInfo.brandId}
           name={data.brandInfo.name}
           subCopy={data.brandInfo.subCopy}
         />
 
-        <div className="flex gap-[45px] font-pretendard">
+        <div className="flex flex-col md:flex-row md:gap-[45px] font-pretendard">
           <ProductImageSlider imgSrc="/static/images/product-sample-image.jpg" />
           <div className="flex flex-col w-full">
             <ProductInfo data={data} />

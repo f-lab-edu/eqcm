@@ -4,7 +4,7 @@ import Skeleton from '../common/skeleton';
 
 const Categories = () => {
   return (
-    <div className="flex gap-3 mt-[35px] mb-[5px] justify-center items-center text-[15px] font-semibold">
+    <div className="desktop-only-flex gap-3 mt-[35px] mb-[5px] justify-center items-center text-[15px] font-semibold">
       <CategoryDropdown
         currentValue="여성의류"
         list={['여성의류', '여성의류', '여성의류']}
@@ -21,7 +21,7 @@ const Categories = () => {
 };
 
 export const CategoriesSkeleton = () => (
-  <div className="flex gap-3 mt-[35px] mb-[5px] justify-center items-center">
+  <div className="desktop-only-flex gap-3 mt-[35px] mb-[5px] justify-center items-center">
     <Skeleton style="w-[100px] h-[20px]" />
     <span className="text-gray-400 text-[20px] font-light">/</span>
     <Skeleton style="w-[100px] h-[20px]" />

@@ -192,7 +192,7 @@ const ProductOptions = ({ price, options }: Props) => {
   };
 
   return (
-    <div className="my-5">
+    <div className="px-[20px] md:px-0 my-5">
       {options &&
         Object.entries(options).map(([key, value]) => (
           <OptionDropdown

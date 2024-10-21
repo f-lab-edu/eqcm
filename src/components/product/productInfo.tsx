@@ -11,12 +11,12 @@ type Props = {
 
 const ProductInfo = ({ data }: Props) => {
   return (
-    <div className="w-full border-t-2 border-black">
+    <div className="w-full px-[20px] md:px-0 md:border-t-2 md:border-black">
       <div className="flex justify-between">
         <p className="text-[20px] font-bold py-6 pr-[34px]">
           {data.productInfo.itemName}
         </p>
-        <div className="flex justify-center items-center w-[85px] border-l-[1px] border-[#dcdfe6]">
+        <div className="flex justify-center items-center md:w-[85px] md:border-l-[1px] md:border-[#dcdfe6]">
           <div className="size-[26px] cursor-pointer">
             {data.productInfo.isLiked ? (
               <Icons.DetailLikeOn />
@@ -26,7 +26,7 @@ const ProductInfo = ({ data }: Props) => {
           </div>
         </div>
       </div>
-      <div className="mb-6 flex items-center gap-2">
+      <div className="desktop-only-flex mb-6 items-center gap-2">
         <RateStars rate={data.productInfo.avgReviewPoint} />
         <span className="text-[11px] underline cursor-pointer">
           {data.productInfo.reviewCount}개 리뷰 보기
@@ -91,16 +91,16 @@ const ProductInfo = ({ data }: Props) => {
 };
 
 export const ProductInfoSkeleton = () => (
-  <div className="w-full border-t-2 border-black">
+  <div className="w-full px-[20px] md:px-0 md:border-t-2 md:border-black">
     <div className="flex justify-between">
       <Skeleton style="w-full h-[24px] my-6 mr-[34px]" />
-      <div className="flex justify-center items-center w-[85px] border-l-[1px] border-[#dcdfe6]">
+      <div className="flex justify-center items-center md:w-[85px] md:border-l-[1px] md:border-[#dcdfe6]">
         <div className="size-[26px]">
           <Icons.DetailLikeOff />
         </div>
       </div>
     </div>
-    <div className="mb-6 flex items-center gap-2">
+    <div className="desktop-only-flex mb-6 items-center gap-2">
       <Skeleton style="w-[100px] h-[20px]" />
     </div>
     <div className="flex justify-between mb-4">

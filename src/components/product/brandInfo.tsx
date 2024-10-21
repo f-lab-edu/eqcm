@@ -11,13 +11,15 @@ type Props = {
 
 const BrandInfo = ({ brandId, name, subCopy }: Props) => {
   return (
-    <div className="flex mb-4 pr-[80px]">
-      <Image
-        width={74}
-        height={74}
-        src="/static/images/brand-image-sample.jpg"
-        alt="brand image"
-      />
+    <div className="desktop-only-flex mb-4 pr-[80px]">
+      <div className="min-w-[74px]">
+        <Image
+          width={74}
+          height={74}
+          src="/static/images/brand-image-sample.jpg"
+          alt="brand image"
+        />
+      </div>
       <div className="pl-[14px]">
         <p className="text-[16px] font-bold">{name}</p>
         <p className="text-[13px]">{subCopy}</p>
@@ -33,7 +35,7 @@ const BrandInfo = ({ brandId, name, subCopy }: Props) => {
 };
 
 export const BrandInfoSkeleton = () => (
-  <div className="flex mb-4 pr-[80px]">
+  <div className="desktop-only-flex mb-4 pr-[80px]">
     <Skeleton style="size-[74px]" />
     <div className="flex flex-col gap-4 pl-[14px]">
       {[...Array(3)].map((_, idx) => (
