@@ -168,13 +168,7 @@ const ProductOptions = ({ price, options }: Props) => {
     });
   };
 
-  const onChangeCount = ({
-    index,
-    count,
-  }: {
-    index: number;
-    count: number;
-  }) => {
+  const onChangeCount = (index: number, count: number) => {
     dispatch({
       type: ProductActionType.CHANGE_COUNT,
       payload: { index, count },
@@ -222,9 +216,10 @@ const ProductOptions = ({ price, options }: Props) => {
                   <p className="font-semibold">{makeOptionName(option)}</p>
                   <div className="flex items-center">
                     <OptionStepper
-                      index={index}
                       number={option.count as number}
-                      onChangeCount={onChangeCount}
+                      onChangeCount={(count: number) =>
+                        onChangeCount(index, count)
+                      }
                     />
                     <div className="flex">
                       <span className="pl-5 pr-2 font-bold">

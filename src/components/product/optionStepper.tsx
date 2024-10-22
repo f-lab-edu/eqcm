@@ -1,12 +1,11 @@
 import React, { memo } from 'react';
 
 type Props = {
-  index: number;
   number: number;
-  onChangeCount: ({ index, count }: { index: number; count: number }) => void;
+  onChangeCount: (count: number) => void;
 };
 
-const OptionStepper = ({ index, number, onChangeCount }: Props) => {
+const OptionStepper = ({ number, onChangeCount }: Props) => {
   return (
     <div className="flex items-center justify-center border">
       <button
@@ -14,7 +13,7 @@ const OptionStepper = ({ index, number, onChangeCount }: Props) => {
         className="size-9"
         onClick={() => {
           if (number - 1 <= 0) return;
-          onChangeCount({ index, count: number - 1 });
+          onChangeCount(number - 1);
         }}
       >
         -
@@ -26,15 +25,13 @@ const OptionStepper = ({ index, number, onChangeCount }: Props) => {
           min={1}
           max={100}
           className="text-center"
-          onChange={(e) =>
-            onChangeCount({ index, count: parseInt(e.target.value) })
-          }
+          onChange={(e) => onChangeCount(parseInt(e.target.value))}
         />
       </div>
       <button
         type="button"
         className="size-9"
-        onClick={() => onChangeCount({ index, count: number + 1 })}
+        onClick={() => onChangeCount(number + 1)}
       >
         +
       </button>
