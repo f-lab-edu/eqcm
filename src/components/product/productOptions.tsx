@@ -46,16 +46,18 @@ const ProductOptions = ({ price, options }: Props) => {
     }, 0);
   };
 
+  type PayloadType = {
+    optionType?: keyof ProductOptionType;
+    value?: string | number;
+    index?: number;
+    count?: number;
+  };
+
   const reducer = (
     state,
     action: {
       type: ProductActionType;
-      payload: {
-        optionType?: keyof ProductOptionType;
-        value?: string | number;
-        index?: number;
-        count?: number;
-      };
+      payload: PayloadType;
     },
   ) => {
     switch (action.type) {
@@ -155,6 +157,10 @@ const ProductOptions = ({ price, options }: Props) => {
 
   const [state, dispatch] = useReducer(reducer, init(options));
 
+  const onChangeState = (type: ProductActionType, payload: PayloadType) => {
+    dispatch({ type, payload });
+  };
+
   const onClickOption = ({
     optionType,
     value,
@@ -162,17 +168,11 @@ const ProductOptions = ({ price, options }: Props) => {
     optionType: string;
     value: string;
   }) => {
-    dispatch({
-      type: ProductActionType.SELECT_OPTION,
-      payload: { optionType, value },
-    });
+    onChangeState(ProductActionType.SELECT_OPTION, { optionType, value });
   };
 
   const onChangeCount = (index: number, count: number) => {
-    dispatch({
-      type: ProductActionType.CHANGE_COUNT,
-      payload: { index, count },
-    });
+    onChangeState(ProductActionType.CHANGE_COUNT, { index, count });
   };
 
   const makeOptionName = (option: ProductOptionType) => {
