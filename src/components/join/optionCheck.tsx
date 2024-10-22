@@ -18,7 +18,7 @@ function OptionCheck({ checkOption, text, style }: Props) {
         checkOption && 'text-[#375fff]',
       )}
     >
-      <Icons.check color={checkOption ? '#375fff' : '#dcdfe6'} />
+      <Icons.Check color={checkOption ? '#375fff' : '#dcdfe6'} />
       <span>{text}</span>
     </div>
   );

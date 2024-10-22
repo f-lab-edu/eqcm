@@ -13,7 +13,7 @@ const LoginButtons = memo(function LoginButtons() {
         onClick={() => signIn('naver', { callbackUrl: '/' })}
         className="flex items-center justify-center gap-1 md:w-[400px] h-[52px] rounded bg-[#03c75a] text-white"
       >
-        <Icons.naver />
+        <Icons.Naver />
         네이버로 계속하기
       </button>
 
@@ -21,7 +21,7 @@ const LoginButtons = memo(function LoginButtons() {
         href="/login/email"
         className="flex items-center justify-center gap-1 md:w-[400px] h-[52px] rounded border border-[#000]"
       >
-        <Icons.email />
+        <Icons.Email />
         이메일로 계속하기
       </Link>
     </div>
