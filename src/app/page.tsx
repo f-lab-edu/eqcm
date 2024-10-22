@@ -62,10 +62,7 @@ function MainContent() {
             if (box.type === MainComponentsType.BOX_BANNER) {
               return <BoxBanner key={idx} data={box as BoxBannerType} />;
             }
-            if (box.type === MainComponentsType.BOX_SLIDER) {
-              return <BoxSlider key={idx} data={box as BoxSliderType} />;
-            }
-            return null;
+            return <BoxSlider key={idx} data={box as BoxSliderType} />;
           })}
         </BoxSection>
       </div>

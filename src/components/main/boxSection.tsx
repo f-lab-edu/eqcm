@@ -4,11 +4,7 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { BannerSkeleton } from './banner';
 import { BoxBannerSkeleton } from './boxBanner';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const BoxSection = ({ children }: Props) => {
+const BoxSection = ({ children }: React.PropsWithChildren) => {
   return (
     <section className="relative w-full md:w-[56%]">
       <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 719: 2 }}>
