@@ -18,6 +18,13 @@ enum ProductActionType {
   DELETE_OPTION = 'DELETE_OPTION',
 }
 
+type PayloadType = {
+  optionType?: keyof ProductOptionType;
+  value?: string | number;
+  index?: number;
+  count?: number;
+};
+
 let defaultOptions: ProductOptionType = {};
 
 const ProductOptions = ({ price, options }: Props) => {
@@ -44,13 +51,6 @@ const ProductOptions = ({ price, options }: Props) => {
       }
       return total;
     }, 0);
-  };
-
-  type PayloadType = {
-    optionType?: keyof ProductOptionType;
-    value?: string | number;
-    index?: number;
-    count?: number;
   };
 
   const reducer = (
