@@ -18,7 +18,7 @@ enum ProductActionType {
   DELETE_OPTION = 'DELETE_OPTION',
 }
 
-type PayloadType = {
+export type PayloadType = {
   optionType?: keyof ProductOptionType;
   value?: string | number;
   index?: number;
@@ -157,23 +157,12 @@ const ProductOptions = ({ price, options }: Props) => {
 
   const [state, dispatch] = useReducer(reducer, init(options));
 
-  const onChangeState = (type: ProductActionType, payload: PayloadType) => {
+  const onChangeState = (type: ProductActionType) => (payload: PayloadType) => {
     dispatch({ type, payload });
   };
 
-  const onClickOption = ({
-    optionType,
-    value,
-  }: {
-    optionType: string;
-    value: string;
-  }) => {
-    onChangeState(ProductActionType.SELECT_OPTION, { optionType, value });
-  };
-
-  const onChangeCount = (index: number, count: number) => {
-    onChangeState(ProductActionType.CHANGE_COUNT, { index, count });
-  };
+  const onClickOption = onChangeState(ProductActionType.SELECT_OPTION);
+  const onChangeCount = onChangeState(ProductActionType.CHANGE_COUNT);
 
   const makeOptionName = (option: ProductOptionType) => {
     const divide = ' - ';
@@ -218,7 +207,7 @@ const ProductOptions = ({ price, options }: Props) => {
                     <OptionStepper
                       number={option.count as number}
                       onChangeCount={(count: number) =>
-                        onChangeCount(index, count)
+                        onChangeCount({ index, count })
                       }
                     />
                     <div className="flex">

@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useState } from 'react';
+import { PayloadType } from './productOptions';
 import { Icons } from '../icons';
 import cn from 'classnames';
 
@@ -8,13 +9,7 @@ type Props = {
   optionName: string;
   list: string[];
   selectedOption: string;
-  onClickOption: ({
-    optionType,
-    value,
-  }: {
-    optionType: string;
-    value: string;
-  }) => void;
+  onClickOption: (payload: PayloadType) => void;
 };
 
 const OptionDropdown = ({
