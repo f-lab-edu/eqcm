@@ -118,6 +118,7 @@ export const ProductData = {
   productInfo: {
     itemId: 2734746,
     itemName: '헤어리 알파카 울 칼라리스 자켓 [BEIGE]',
+    itemImage: '/static/images/product-sample-image.jpg',
     isLiked: true,
     avgReviewPoint: 3.5,
     reviewCount: 3,
@@ -133,6 +134,6 @@ export const ProductData = {
   },
   deliveryInfo: {
     estimatedDeliveryTime: '3일 이내 출고',
-    deliveryFee: '무료배송',
+    deliveryFee: 'free',
   },
 };

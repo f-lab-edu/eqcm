@@ -11,6 +11,7 @@ export type ProductDataType = {
   productInfo: {
     itemId: number;
     itemName: string;
+    itemImage: string;
     isLiked: boolean;
     avgReviewPoint: number;
     reviewCount: number;

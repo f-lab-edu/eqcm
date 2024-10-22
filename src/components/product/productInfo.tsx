@@ -81,7 +81,11 @@ const ProductInfo = ({ data }: Props) => {
         <li className="flex">
           <p className="min-w-[110px]">배송비</p>
           <div>
-            <p className="text-[#375fff]">{data.deliveryInfo.deliveryFee}</p>
+            <p className="text-[#375fff]">
+              {data.deliveryInfo.deliveryFee === 'free'
+                ? '무료배송'
+                : `${data.deliveryInfo.deliveryFee}원`}
+            </p>
             제주/도서산간 추가 배송비 없음
           </div>
         </li>
