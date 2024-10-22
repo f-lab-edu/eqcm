@@ -27,7 +27,7 @@ const OptionStepper = ({ index, number, onChangeCount }: Props) => {
           max={100}
           className="text-center"
           onChange={(e) =>
-            onChangeCount({ index, count: parseFloat(e.target.value) })
+            onChangeCount({ index, count: parseInt(e.target.value) })
           }
         />
       </div>
