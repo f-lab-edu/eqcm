@@ -20,7 +20,7 @@ const MyMenu = memo(function MyMenu() {
       )}
 
       <li className="block xl:hidden cursor-pointer">
-        <Icons.search_m />
+        <Icons.SearchMobile />
       </li>
     </ul>
   );

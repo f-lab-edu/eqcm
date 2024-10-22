@@ -30,7 +30,7 @@ const BoxSlider = ({ data }: Props) => {
             disabled={swiper?.realIndex === 0}
             className="flex justify-center items-center size-9 bg-[#f4f4f4] rounded-full disabled:opacity-[0.5]"
           >
-            <Icons.slide_left_arrow />
+            <Icons.SlideLeftArrow />
           </button>
           <button
             type="button"
@@ -38,7 +38,7 @@ const BoxSlider = ({ data }: Props) => {
             disabled={swiper?.realIndex === data.products.length - 1}
             className="flex justify-center items-center size-9 bg-[#f4f4f4] rounded-full disabled:opacity-[0.5]"
           >
-            <Icons.slide_right_arrow />
+            <Icons.SlideRightArrow />
           </button>
         </div>
       </div>
