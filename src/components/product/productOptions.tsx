@@ -157,12 +157,12 @@ const ProductOptions = ({ price, options }: Props) => {
 
   const [state, dispatch] = useReducer(reducer, init(options));
 
-  const onChangeState = (type: ProductActionType) => (payload: PayloadType) => {
+  const attachType = (type: ProductActionType) => (payload: PayloadType) => {
     dispatch({ type, payload });
   };
 
-  const onClickOption = onChangeState(ProductActionType.SELECT_OPTION);
-  const onChangeCount = onChangeState(ProductActionType.CHANGE_COUNT);
+  const onClickOption = attachType(ProductActionType.SELECT_OPTION);
+  const onChangeCount = attachType(ProductActionType.CHANGE_COUNT);
 
   const makeOptionName = (option: ProductOptionType) => {
     const divide = ' - ';
