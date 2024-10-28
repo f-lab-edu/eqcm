@@ -24,8 +24,8 @@ export type CartDataType = {
       deliveryFee: number;
     };
   }[];
-  deliveryFeeFreeCount: number;
-  totalOrderAmount: number;
-  totalDeliveryFee: number;
-  totalPayment: number;
+  deliveryFeeFreeCount?: number;
+  totalOrderAmount?: number;
+  totalDeliveryFee?: number;
+  totalPayment?: number;
 };
