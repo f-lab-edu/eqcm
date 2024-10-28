@@ -6,6 +6,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 import ShoppingStepIndicator from '@/components/common/shoppingStepIndicator';
 import OptionStepper from '@/components/product/optionStepper';
+import LoadingSpinner from '@/components/common/loadingSpinner';
 import { OPTION_NAME } from '@/constants/cart';
 import { formatWithCommas } from '@/utils/format';
 import { CartData } from '@/mocks/data';
@@ -25,8 +26,11 @@ const Cart = () => {
 
 const LoadingContent = () => {
   return (
-    <div className="px-[50px] pb-[200px]">
+    <div className="flex flex-col items-center justify-center px-[50px] pb-[200px]">
       <ShoppingStepIndicator step="SHOPPING_BAG" />
+      <div className="my-[100px]">
+        <LoadingSpinner />
+      </div>
     </div>
   );
 };
