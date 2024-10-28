@@ -16,3 +16,9 @@ export const PhoneFormSchema = z
   .refine((phone) => /^\d{10,11}$/.test(phone), {
     message: '유효한 휴대폰 번호를 입력하세요',
   });
+
+export const SHOPPING_STEP = {
+  SHOPPING_BAG: '01 SHOPPING BAG',
+  ORDER: '02 ORDER',
+  ORDER_CONFIRM: '03 ORDER CONFIRM',
+};
