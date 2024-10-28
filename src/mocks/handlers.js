@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw';
-import { MainData, ProductData } from './data';
+import { MainData, ProductData, CartData } from './data';
 
 export const handlers = [
   http.get('/main', () => {
@@ -7,5 +7,8 @@ export const handlers = [
   }),
   http.get('/product', () => {
     return HttpResponse.json(ProductData);
+  }),
+  http.get('/cart', () => {
+    return HttpResponse.json(CartData);
   }),
 ];
