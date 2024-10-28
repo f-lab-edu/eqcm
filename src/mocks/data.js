@@ -192,5 +192,5 @@ export const CartData = {
   deliveryFeeFreeCount: 1,
   totalOrderAmount: 341248,
   totalDeliveryFee: 0,
-  totalPayment: 341248
+  totalPayment: 341248,
 };
