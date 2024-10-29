@@ -1,8 +1,13 @@
 'use client';
 
-import React, { memo, Suspense, useCallback } from 'react';
+import React, { memo, Suspense, useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import {
+  useMutation,
+  useQueryClient,
+  useSuspenseQuery,
+} from '@tanstack/react-query';
 import cn from 'classnames';
 import ShoppingStepIndicator from '@/components/common/shoppingStepIndicator';
 import OptionStepper from '@/components/product/optionStepper';
@@ -11,13 +16,27 @@ import { OPTION_NAME } from '@/constants/cart';
 import { formatWithCommas } from '@/utils/format';
 import { CartData } from '@/mocks/data';
 import { Icons } from '@/components/icons';
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { fetchCartData } from '@/fetch';
+import { deleteCartItems, fetchCartData, updateCartItem } from '@/fetch';
 import { CartDataType } from '@/types/cart';
 import { Options } from '@/types/product';
 
 type Props = {
   data: CartDataType;
+};
+
+type ItemTableProps = Props & {
+  allCheckedItems: number[];
+  selectedItems: number[];
+  setSelectedItems: React.Dispatch<React.SetStateAction<number[]>>;
+};
+
+type TotalPriceTableProps = Props & {
+  itemCount: number;
+};
+
+type CheckBoxProps = {
+  checked: boolean;
+  onChange: () => void;
 };
 
 const Cart = () => {
@@ -74,13 +93,42 @@ const EmptyCart = memo(function EmptyCart() {
 });
 
 const CartItems = memo(function CartItems({ data }: Props) {
+  const queryClient = useQueryClient();
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [allCheckedItems, setAllCheckedItems] = useState<number[]>([]);
+
+  useEffect(() => {
+    const itemIds = data.items.map((item) => item.cartItemId);
+    setAllCheckedItems(itemIds);
+    setSelectedItems(itemIds);
+  }, [data.items]);
+
+  const deleteItemsMutation = useMutation({
+    mutationFn: (cartItemIds: number[]) => deleteCartItems(cartItemIds),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['cart'] });
+    },
+  });
+
   return (
     <div>
-      <ItemTable data={data} />
+      <ItemTable
+        data={data}
+        allCheckedItems={allCheckedItems}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
 
       <div className="flex justify-between items-center text-[15px] mt-[30px]">
         <div>
-          <button className="w-[130px] h-[42px] border">선택상품 삭제</button>
+          <button
+            className="w-[130px] h-[42px] border"
+            onClick={() => {
+              deleteItemsMutation.mutate(selectedItems);
+            }}
+          >
+            선택상품 삭제
+          </button>
           <button className="w-[130px] h-[42px] ml-5 border">
             품절상품 삭제
           </button>
@@ -88,7 +136,7 @@ const CartItems = memo(function CartItems({ data }: Props) {
         <p>장바구니는 최대 100개의 상품을 담을 수 있습니다.</p>
       </div>
 
-      <TotalPriceTable data={data} />
+      <TotalPriceTable data={data} itemCount={selectedItems.length} />
 
       <div className="h-[72px] text-center text-[26px] font-[600]">
         <Link href={'/'}>
@@ -112,18 +160,60 @@ const CartItems = memo(function CartItems({ data }: Props) {
   );
 });
 
-const ItemTable = ({ data }: Props) => {
+const ItemTable = ({
+  data,
+  allCheckedItems,
+  selectedItems,
+  setSelectedItems,
+}: ItemTableProps) => {
+  const queryClient = useQueryClient();
+  const isAllChecked = data.items.length === selectedItems.length;
+
   const getOptionName = useCallback((options: Record<Options, string>) => {
     return Object.entries(options)
       .map(([key, value]) => `${OPTION_NAME[key as Options]} ${value}`)
       .join(', ');
   }, []);
 
+  const onChangeCheckItem = useCallback(
+    (id: number) => {
+      if (selectedItems.includes(id)) {
+        const newSelectedItems = selectedItems.filter((_id) => _id !== id);
+        setSelectedItems(newSelectedItems);
+      } else {
+        setSelectedItems((prev) => [...prev, id]);
+      }
+    },
+    [selectedItems, setSelectedItems],
+  );
+
+  const updateItemMutation = useMutation({
+    mutationFn: ({
+      cartItemId,
+      count,
+    }: {
+      cartItemId: number;
+      count: number;
+    }) => updateCartItem(cartItemId, count),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['cart'] });
+    },
+  });
+
+  const updateItemCount = (cartItemId: number, count: number) => {
+    updateItemMutation.mutate({ cartItemId, count });
+  };
+
   return (
     <table className="w-full border-t-[4px] border-b-[1px] border-black">
       <thead>
         <tr className="h-[74px]">
-          <CheckBox />
+          <CheckBox
+            checked={isAllChecked}
+            onChange={() =>
+              setSelectedItems(isAllChecked ? [] : allCheckedItems)
+            }
+          />
           {['상품 정보', '수량', '주문 금액', '배송비'].map((title, idx) => (
             <th
               className={cn(
@@ -143,7 +233,10 @@ const ItemTable = ({ data }: Props) => {
       <tbody>
         {data.items.map((item, idx) => (
           <tr key={item.cartItemId}>
-            <CheckBox />
+            <CheckBox
+              checked={selectedItems.includes(item.cartItemId)}
+              onChange={() => onChangeCheckItem(item.cartItemId)}
+            />
             <td className="relative align-middle py-[30px] pr-[60px] border-b border-r">
               <div className="flex gap-[25px]">
                 <Link
@@ -184,13 +277,15 @@ const ItemTable = ({ data }: Props) => {
                   </p>
                 </div>
               </div>
-              <DeleteButton />
+              <DeleteButton cartItemId={item.cartItemId} />
             </td>
             <td className="align-middle py-[30px] border-b border-r text-center">
               <div className="w-[108px] m-auto">
                 <OptionStepper
                   number={item.productInfo.count}
-                  onChangeCount={() => {}}
+                  onChangeCount={(count: number) =>
+                    updateItemCount(item.cartItemId, count)
+                  }
                 />
               </div>
             </td>
@@ -228,8 +323,27 @@ const ItemTable = ({ data }: Props) => {
   );
 };
 
-const TotalPriceTable = ({ data }: Props) => {
+const TotalPriceTable = ({ data, itemCount }: TotalPriceTableProps) => {
   const PriceTableHeader = ['총 주문금액', '총 배송비', '총 결제금액'];
+
+  const calculateOrderSummary = useCallback(() => {
+    let totalOrderAmount = 0,
+      totalDeliveryFee = 0;
+
+    data.items.forEach((item) => {
+      totalOrderAmount +=
+        item.productInfo.saleInfo.totalSalePrice * item.productInfo.count;
+      totalDeliveryFee += item.productInfo.deliveryFee;
+    });
+
+    return {
+      totalOrderAmount,
+      totalDeliveryFee,
+      totalPayment: totalOrderAmount + totalDeliveryFee,
+    };
+  }, [data.items]);
+
+  const priceData = calculateOrderSummary();
 
   return (
     <div className="relative my-[120px]">
@@ -250,12 +364,11 @@ const TotalPriceTable = ({ data }: Props) => {
           <tr className="h-[149px] text-center text-[32px] font-semibold">
             <td className="table-cell relative">
               <p>
-                {data.totalOrderAmount &&
-                  formatWithCommas(data.totalOrderAmount)}
+                {formatWithCommas(priceData.totalOrderAmount)}
                 <span className="text-[17px]">원</span>
               </p>
               <p className="absolute left-1/2 bottom-[30px] -translate-x-1/2 block text-[14px]">
-                {/* 선택한 아이템 개수로 표시해야함 */}총 {data.items.length}개
+                총 {itemCount}개
               </p>
               <div className="absolute top-1/2 -translate-y-1/2 -right-[15px] size-[30px] bg-black rounded-full">
                 <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 inline-block w-1/2 h-[3px] bg-white" />
@@ -264,8 +377,7 @@ const TotalPriceTable = ({ data }: Props) => {
             </td>
             <td className="table-cell relative">
               <p>
-                {data.totalDeliveryFee &&
-                  formatWithCommas(data.totalDeliveryFee)}
+                {formatWithCommas(priceData.totalDeliveryFee)}
                 <span className="text-[17px]">원</span>
               </p>
               <div className="absolute top-1/2 -translate-y-1/2 -right-[15px] size-[30px] bg-black rounded-full">
@@ -275,7 +387,7 @@ const TotalPriceTable = ({ data }: Props) => {
             </td>
             <td className="table-cell">
               <p>
-                {data.totalPayment && formatWithCommas(data.totalPayment)}
+                {formatWithCommas(priceData.totalPayment)}
                 <span className="text-[17px]">원</span>
               </p>
             </td>
@@ -286,17 +398,15 @@ const TotalPriceTable = ({ data }: Props) => {
   );
 };
 
-const CheckBox = () => {
+const CheckBox = ({ checked, onChange }: CheckBoxProps) => {
   return (
     <td className="table-cell align-middle border-b">
-      <label key={''} htmlFor={''}>
+      <label className="cursor-pointer">
         <input
           type="checkbox"
           className="hidden peer"
-          name={''}
-          id={''}
-          // onChange={() => onClick(id)}
-          checked={true}
+          onChange={onChange}
+          checked={checked}
         />
         <div className="flex items-center justify-center w-[24px] h-[24px] border-[1px] border-[#dcdfe6] peer-checked:bg-black">
           <Icons.Check style="size-[20px]" />
@@ -306,9 +416,21 @@ const CheckBox = () => {
   );
 };
 
-const DeleteButton = () => {
+const DeleteButton = ({ cartItemId }: { cartItemId: number }) => {
+  const queryClient = useQueryClient();
+
+  const deleteItemMutation = useMutation({
+    mutationFn: (cartItemId: number) => deleteCartItems([cartItemId]),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['cart'] });
+    },
+  });
+
   return (
-    <div className="absolute top-6 right-6 border w-[24px] h-[24px] cursor-pointer hover:bg-slate-100 ">
+    <div
+      className="absolute top-6 right-6 border w-[24px] h-[24px] cursor-pointer hover:bg-slate-100"
+      onClick={() => deleteItemMutation.mutate(cartItemId)}
+    >
       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 w-3/4 h-[1px] bg-[#A0A0A0]" />
       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45 w-3/4 h-[1px] bg-[#A0A0A0]" />
     </div>

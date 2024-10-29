@@ -138,7 +138,7 @@ export const ProductData = {
   },
 };
 
-export const CartData = {
+export let CartData = {
   items: [
     {
       cartItemId: 1234,
@@ -190,7 +190,4 @@ export const CartData = {
     },
   ],
   deliveryFeeFreeCount: 1,
-  totalOrderAmount: 341248,
-  totalDeliveryFee: 0,
-  totalPayment: 341248,
 };
