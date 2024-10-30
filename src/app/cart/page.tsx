@@ -522,7 +522,7 @@ const TotalPriceTable = ({ data, itemCount }: TotalPriceTableProps) => {
               <span className="text-[24px] font-semibold">
                 {formatWithCommas(price)}
               </span>
-              원
+              {'원'}
             </dd>
           </dl>
         ))}
@@ -567,13 +567,14 @@ const DeleteButton = memo(function DeleteButton({
   });
 
   return (
-    <div
+    <button
+      type="button"
       className="absolute top-6 right-6 border w-[24px] h-[24px] cursor-pointer hover:bg-slate-100"
       onClick={() => deleteItemMutation.mutate(cartItemId)}
     >
       <span className="absolute-center rotate-45 w-3/4 h-[1px] bg-[#A0A0A0]" />
       <span className="absolute-center -rotate-45 w-3/4 h-[1px] bg-[#A0A0A0]" />
-    </div>
+    </button>
   );
 });
 

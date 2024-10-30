@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 const LoadingSpinner = () => {
   return (
-    <div role="status">
+    <div>
       <svg
         aria-hidden="true"
         className="w-8 h-8 text-gray-200 animate-spin dark:text-black fill-[#ff4800]"
