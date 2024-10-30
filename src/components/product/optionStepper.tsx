@@ -10,7 +10,7 @@ const OptionStepper = ({ number, onChangeCount }: Props) => {
     <div className="flex items-center justify-center border">
       <button
         type="button"
-        className="size-9"
+        className="size-[30px] md:size-9"
         onClick={() => {
           if (number - 1 <= 0) return;
           onChangeCount(number - 1);
@@ -18,7 +18,7 @@ const OptionStepper = ({ number, onChangeCount }: Props) => {
       >
         -
       </button>
-      <div className="flex items-center justify-center size-9 border-x">
+      <div className="box-content flex items-center justify-center size-[30px] md:size-9 border-x">
         <input
           type="number"
           value={String(number)}
@@ -30,7 +30,7 @@ const OptionStepper = ({ number, onChangeCount }: Props) => {
       </div>
       <button
         type="button"
-        className="size-9"
+        className="size-[30px] md:size-9"
         onClick={() => onChangeCount(number + 1)}
       >
         +

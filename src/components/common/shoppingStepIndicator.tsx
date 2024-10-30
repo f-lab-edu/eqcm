@@ -9,7 +9,7 @@ type Props = {
 
 const ShoppingStepIndicator = ({ step }: Props) => {
   return (
-    <div className="flex gap-2 my-[70px] justify-center font-campton text-[15px] font-[500] text-[#E4E4E4]">
+    <div className="desktop-only-flex gap-2 my-[70px] justify-center font-campton text-[15px] font-[500] text-[#E4E4E4]">
       {Object.entries(SHOPPING_STEP).map(([key, value], idx) => (
         <>
           <div key={key} className={cn(step === key && 'text-black')}>
