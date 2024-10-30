@@ -36,13 +36,13 @@ const BoxBannerItem = ({ product }: Props) => {
           </p>
         </div>
       </div>
-      <div
-        role="button"
+      <button
+        type="button"
         className="flex flex-col justify-center items-center min-w-[52px] text-[#a0a0a0]"
       >
         {product.likeStatus ? <Icons.LikeOn /> : <Icons.LikeOff />}
         {formatLikesToK(product.likes)}
-      </div>
+      </button>
     </Link>
   );
 };

@@ -24,10 +24,9 @@ const BoxBanner = ({ data }: Props) => {
         <p className="font-bold text-[22px]">{data.title}</p>
         <p className="text-[15px]">{data.subtitle}</p>
       </Link>
-      {data.products &&
-        data.products.map((product: ProductType) => (
-          <BoxBannerItem key={product.productId} product={product} />
-        ))}
+      {data.products?.map((product: ProductType) => (
+        <BoxBannerItem key={product.productId} product={product} />
+      ))}
     </div>
   );
 };
