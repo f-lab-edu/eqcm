@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Skeleton from '../common/skeleton';
-import { randomUUID } from 'crypto';
 
 type Props = {
   brandId: number;
@@ -39,8 +38,8 @@ export const BrandInfoSkeleton = () => (
   <div className="desktop-only-flex mb-4 pr-[80px]">
     <Skeleton style="size-[74px]" />
     <div className="flex flex-col gap-4 pl-[14px]">
-      {[...Array(3)].map(() => (
-        <Skeleton key={randomUUID()} style="w-[100px] h-[10px]" />
+      {[...Array(3)].map((_, idx) => (
+        <Skeleton key={`brand-${idx}`} style="w-[100px] h-[10px]" />
       ))}
     </div>
   </div>
