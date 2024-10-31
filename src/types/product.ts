@@ -3,7 +3,7 @@ import { OPTION_NAME } from '@/constants/cart';
 export type Options = keyof typeof OPTION_NAME;
 
 export type ProductOptionType = {
-  [key in Options]: string | number | null;
+  [key: string]: string | number | null;
 };
 
 export type ProductDataType = {
@@ -25,7 +25,7 @@ export type ProductDataType = {
       totalSalePrice: number;
     };
     options: {
-      [key in Options]: string[];
+      [key: string]: string[];
     };
   };
   deliveryInfo: {
