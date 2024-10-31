@@ -37,8 +37,20 @@ body {
   @apply hidden md:flex;
 }
 
+.desktop-only-table { 
+  @apply hidden md:table;
+}
+
 .mobile-only {
   @apply block md:hidden;
+}
+
+.mobile-only-flex {
+  @apply flex md:hidden;
+}
+
+.absolute-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
 }
 
 input {

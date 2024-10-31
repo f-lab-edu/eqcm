@@ -137,3 +137,57 @@ export const ProductData = {
     deliveryFee: 'free',
   },
 };
+
+export let CartData = {
+  items: [
+    {
+      cartItemId: 1234,
+      isSoldOut: false,
+      brandInfo: {
+        brandId: 26590,
+        brandName: '드로우핏 우먼',
+      },
+      productInfo: {
+        itemId: 2734746,
+        itemName: '헤어리 알파카 울 칼라리스 자켓 [BEIGE]',
+        itemImage: '/static/images/product-sample-image.jpg',
+        saleInfo: {
+          consumerPrice: 248000,
+          totalSalePercent: 40,
+          totalSalePrice: 170624,
+        },
+        selectedOptions: {
+          size: 'S',
+          color: 'white',
+        },
+        count: 1,
+        deliveryFee: 3000,
+      },
+    },
+    {
+      cartItemId: 1235,
+      isSoldOut: false,
+      brandInfo: {
+        brandId: 26590,
+        brandName: '드로우핏 우먼',
+      },
+      productInfo: {
+        itemId: 2734746,
+        itemName: '헤어리 알파카 울 칼라리스 자켓 [BEIGE]',
+        itemImage: '/static/images/product-sample-image.jpg',
+        saleInfo: {
+          consumerPrice: 248000,
+          totalSalePercent: 40,
+          totalSalePrice: 170624,
+        },
+        selectedOptions: {
+          size: 'M',
+          color: 'pink',
+        },
+        count: 1,
+        deliveryFee: 0,
+      },
+    },
+  ],
+  deliveryFeeFreeCount: 1,
+};
