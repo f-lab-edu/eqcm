@@ -60,7 +60,7 @@ export const productOptionsSlice = createSlice({
         state.selectedOptions = updatedSelectedOptions;
       }
 
-      Object.keys(state.currentOption).map((key) => {
+      Object.keys(state.currentOption).forEach((key) => {
         state.currentOption[key] = null;
       });
     },
