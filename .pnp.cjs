@@ -31,6 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@reduxjs/toolkit", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.3.0"],\
           ["@tanstack/react-query", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:5.56.2"],\
           ["@types/node", "npm:20.16.5"],\
+          ["@types/numeral", "npm:2.0.5"],\
           ["@types/prop-types", "npm:15.7.13"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
@@ -45,6 +46,7 @@ const RAW_RUNTIME_STATE =
           ["msw", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.4.9"],\
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["next-auth", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.24.7"],\
+          ["numeral", "npm:2.0.6"],\
           ["postcss", "npm:8.4.45"],\
           ["prettier", "npm:3.3.3"],\
           ["prop-types", "npm:15.8.1"],\
@@ -740,6 +742,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/node", "npm:22.7.4"],\
           ["undici-types", "npm:6.19.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/numeral", [\
+      ["npm:2.0.5", {\
+        "packageLocation": "../../../../.yarn/berry/cache/@types-numeral-npm-2.0.5-5ee1a717c4-10c0.zip/node_modules/@types/numeral/",\
+        "packageDependencies": [\
+          ["@types/numeral", "npm:2.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1912,6 +1923,7 @@ const RAW_RUNTIME_STATE =
           ["@reduxjs/toolkit", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.3.0"],\
           ["@tanstack/react-query", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:5.56.2"],\
           ["@types/node", "npm:20.16.5"],\
+          ["@types/numeral", "npm:2.0.5"],\
           ["@types/prop-types", "npm:15.7.13"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
@@ -1926,6 +1938,7 @@ const RAW_RUNTIME_STATE =
           ["msw", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.4.9"],\
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["next-auth", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.24.7"],\
+          ["numeral", "npm:2.0.6"],\
           ["postcss", "npm:8.4.45"],\
           ["prettier", "npm:3.3.3"],\
           ["prop-types", "npm:15.8.1"],\
@@ -4195,6 +4208,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/normalize-path-npm-3.0.0-658ba7d77f-10c0.zip/node_modules/normalize-path/",\
         "packageDependencies": [\
           ["normalize-path", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["numeral", [\
+      ["npm:2.0.6", {\
+        "packageLocation": "../../../../.yarn/berry/cache/numeral-npm-2.0.6-2c27ceaa3c-10c0.zip/node_modules/numeral/",\
+        "packageDependencies": [\
+          ["numeral", "npm:2.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\

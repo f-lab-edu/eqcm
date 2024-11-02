@@ -547,6 +547,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/numeral@npm:^2":
+  version: 2.0.5
+  resolution: "@types/numeral@npm:2.0.5"
+  checksum: 10c0/b18766cc97e79b5c59130ce1d5d5ad8b9287e1efd5ecac402e8a64e45c50aea8c8940c9974358983036d1abbed365a08f7f4d11b8af16874a5d4d0edce9aa4d4
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.12
   resolution: "@types/prop-types@npm:15.7.12"
@@ -1480,6 +1487,7 @@ __metadata:
     "@reduxjs/toolkit": "npm:^2.3.0"
     "@tanstack/react-query": "npm:^5.56.2"
     "@types/node": "npm:^20"
+    "@types/numeral": "npm:^2"
     "@types/prop-types": "npm:^15"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
@@ -1494,6 +1502,7 @@ __metadata:
     msw: "npm:^2.4.9"
     next: "npm:14.2.9"
     next-auth: "npm:^4.24.7"
+    numeral: "npm:^2.0.6"
     postcss: "npm:^8"
     prettier: "npm:^3.3.3"
     prop-types: "npm:^15.8.1"
@@ -3402,6 +3411,13 @@ __metadata:
   version: 3.0.0
   resolution: "normalize-path@npm:3.0.0"
   checksum: 10c0/e008c8142bcc335b5e38cf0d63cfd39d6cf2d97480af9abdbe9a439221fd4d749763bab492a8ee708ce7a194bb00c9da6d0a115018672310850489137b3da046
+  languageName: node
+  linkType: hard
+
+"numeral@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "numeral@npm:2.0.6"
+  checksum: 10c0/5ed008d3fae05cfa4986b77a85ca10bff29ae6e1fa41a04cce05ea21f08a8a104226f88868930e2a94e3239708d6985d111b5d1291e8b9a3049ffc5365c332d4
   languageName: node
   linkType: hard
 

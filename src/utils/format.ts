@@ -1,5 +1,7 @@
+import numeral from 'numeral';
+
 export const formatWithCommas = (price: number) => {
-  return price.toLocaleString();
+  return numeral(price).format('0,0');
 };
 
 export const formatLikesToK = (count: number) => {
