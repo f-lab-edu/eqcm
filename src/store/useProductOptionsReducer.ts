@@ -3,30 +3,25 @@ import { ProductOptionType } from '@/types/product';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type initialStateType = {
-  defaultOptions: ProductOptionType;
   currentOption: ProductOptionType;
   selectedOptions: ProductOptionType[];
 };
 
 const initialState: initialStateType = {
-  defaultOptions: {}, // 초기화 ex) {size: null, color: null}
   currentOption: {}, // 현재 선택된 옵션
   selectedOptions: [], // 선택 완료된 옵션들
 };
 
-export const useProductOptionsReducer = createSlice({
+export const productOptionsSlice = createSlice({
   name: 'productOption',
   initialState,
   reducers: {
     optionInit: (state, action: PayloadAction<ProductOptionType>) => {
-      state.defaultOptions = action.payload;
       state.currentOption = action.payload;
     },
     selectOption: (state, action: PayloadAction<PayloadType>) => {
       const { optionType, value } = action.payload;
       if (!optionType || !value) return;
-
-      console.log(action.payload);
 
       // 선택한 옵션에 값 추가
       state.currentOption = {
@@ -51,17 +46,11 @@ export const useProductOptionsReducer = createSlice({
 
       // 동일 옵션으로 선택된게 있다면 수량 추가
       if (existingOptionIndex !== -1) {
-        state.selectedOptions = state.selectedOptions.map(
-          (option: ProductOptionType, index: number) => {
-            if (
-              index === existingOptionIndex &&
-              typeof option.count === 'number'
-            ) {
-              return { ...option, count: option.count + 1 };
-            }
-            return option;
-          },
-        );
+        state.selectedOptions[existingOptionIndex] = {
+          ...state.selectedOptions[existingOptionIndex],
+          count:
+            (state.selectedOptions[existingOptionIndex].count as number) + 1,
+        };
         // 동일 옵션으로 선택된게 없다면 수량 1로 초기화하여 추가
       } else {
         const updatedSelectedOptions = [
@@ -71,17 +60,18 @@ export const useProductOptionsReducer = createSlice({
         state.selectedOptions = updatedSelectedOptions;
       }
 
-      state.currentOption = state.defaultOptions;
+      Object.keys(state.currentOption).map((key) => {
+        state.currentOption[key] = null;
+      });
     },
     changeCount: (state, action: PayloadAction<PayloadType>) => {
-      state.selectedOptions = state.selectedOptions.map(
-        (option: ProductOptionType, index: number) => {
-          if (index === action.payload.index) {
-            return { ...option, count: action.payload.count };
-          }
-          return option;
-        },
-      ) as ProductOptionType[];
+      const { index, count } = action.payload;
+      if (!index || !count) return;
+
+      state.selectedOptions[index] = {
+        ...state.selectedOptions[index],
+        count,
+      };
     },
     deleteOption: (state, action: PayloadAction<PayloadType>) => {
       state.selectedOptions = state.selectedOptions.filter(

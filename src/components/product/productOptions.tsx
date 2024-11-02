@@ -1,12 +1,11 @@
-import React, { memo, useEffect, useReducer, useState } from 'react';
-import { PayloadAction } from '@reduxjs/toolkit';
+import React, { memo, useMemo, useReducer } from 'react';
 import cn from 'classnames';
 import OptionDropdown from './optionDropdown';
 import OptionStepper from './optionStepper';
 import Skeleton from '../common/skeleton';
-import { useProductOptionsReducer } from '@/store/useProductOptionsReducer';
+import { productOptionsSlice } from '@/store/useProductOptionsReducer';
 import { formatWithCommas } from '@/utils/format';
-import { ProductDataType, ProductOptionType } from '@/types/product';
+import { Options, ProductDataType, ProductOptionType } from '@/types/product';
 import { Icons } from '../icons';
 
 type Props = {
@@ -15,26 +14,33 @@ type Props = {
 };
 
 export type PayloadType = {
-  optionType?: string;
+  optionType?: Options;
   value?: string | number;
   index?: number;
   count?: number;
 };
 
 const ProductOptions = ({ price, options }: Props) => {
-  const { getInitialState, reducer, actions } = useProductOptionsReducer;
-  const [state, dispatch] = useReducer(reducer, getInitialState());
-  const [totalPrice, setTotalPrice] = useState(0);
+  const { reducer, actions } = productOptionsSlice;
+  const [state, dispatch] = useReducer(reducer, options, (options) => {
+    const initialOptions: ProductOptionType = {};
 
-  const dispatchWithAction =
-    (actionCreator: (payload: PayloadType) => PayloadAction<PayloadType>) =>
-    (payload: PayloadType) => {
-      dispatch(actionCreator(payload));
+    Object.keys(options).forEach((optionKey) => {
+      initialOptions[optionKey] = null;
+    });
+
+    return {
+      currentOption: initialOptions,
+      selectedOptions: [],
     };
+  });
 
-  const onClickOption = dispatchWithAction(actions.selectOption);
-  const onChangeCount = dispatchWithAction(actions.changeCount);
-  const onClickDelete = dispatchWithAction(actions.deleteOption);
+  const onClickOption = (payload: PayloadType) =>
+    dispatch(actions.selectOption(payload));
+  const onChangeCount = (payload: PayloadType) =>
+    dispatch(actions.changeCount(payload));
+  const onClickDelete = (payload: PayloadType) =>
+    dispatch(actions.deleteOption(payload));
 
   const makeOptionName = (option: ProductOptionType) => {
     const divide = ' - ';
@@ -46,27 +52,16 @@ const ProductOptions = ({ price, options }: Props) => {
       .join(divide);
   };
 
-  useEffect(() => {
-    const initialOptions: ProductOptionType = {};
-
-    Object.keys(options).forEach((optionKey) => {
-      initialOptions[optionKey] = null;
-    });
-
-    dispatch(actions.optionInit(initialOptions));
-  }, [actions, options]);
-
-  useEffect(() => {
-    const updateTotalPrice = () => {
-      return state.selectedOptions.reduce((total, option) => {
+  const totalPrice = useMemo(
+    () =>
+      state.selectedOptions.reduce((total: number, option) => {
         if (typeof option.count === 'number') {
           return total + (price * option.count || 0);
         }
         return total;
-      }, 0);
-    };
-    setTotalPrice(updateTotalPrice);
-  }, [price, state.selectedOptions]);
+      }, 0),
+    [price, state.selectedOptions],
+  );
 
   return (
     <div className="px-[20px] md:px-0 my-5">
