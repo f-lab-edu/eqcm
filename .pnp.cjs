@@ -28,8 +28,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@hookform/resolvers", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:3.9.0"],\
+          ["@reduxjs/toolkit", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.3.0"],\
           ["@tanstack/react-query", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:5.56.2"],\
           ["@types/node", "npm:20.16.5"],\
+          ["@types/numeral", "npm:2.0.5"],\
           ["@types/prop-types", "npm:15.7.13"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
@@ -44,6 +46,7 @@ const RAW_RUNTIME_STATE =
           ["msw", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.4.9"],\
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["next-auth", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.24.7"],\
+          ["numeral", "npm:2.0.6"],\
           ["postcss", "npm:8.4.45"],\
           ["prettier", "npm:3.3.3"],\
           ["prop-types", "npm:15.8.1"],\
@@ -588,6 +591,36 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@reduxjs/toolkit", [\
+      ["npm:2.3.0", {\
+        "packageLocation": "../../../../.yarn/berry/cache/@reduxjs-toolkit-npm-2.3.0-ef088f27ef-10c0.zip/node_modules/@reduxjs/toolkit/",\
+        "packageDependencies": [\
+          ["@reduxjs/toolkit", "npm:2.3.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.3.0", {\
+        "packageLocation": "./.yarn/__virtual__/@reduxjs-toolkit-virtual-746161afca/5/.yarn/berry/cache/@reduxjs-toolkit-npm-2.3.0-ef088f27ef-10c0.zip/node_modules/@reduxjs/toolkit/",\
+        "packageDependencies": [\
+          ["@reduxjs/toolkit", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.3.0"],\
+          ["@types/react", "npm:18.3.5"],\
+          ["@types/react-redux", null],\
+          ["immer", "npm:10.1.1"],\
+          ["react", "npm:18.3.1"],\
+          ["react-redux", null],\
+          ["redux", "npm:5.0.1"],\
+          ["redux-thunk", "virtual:746161afca8a6fa59dd93c3aa9c1bac7171a856c7cc92ef38712dd56c9bc293bb7d8822398fc41e05af3038e5cbaf032839c35c7b1521803eafb66f44bee20a7#npm:3.1.0"],\
+          ["reselect", "npm:5.1.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-redux",\
+          "@types/react",\
+          "react-redux",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@rtsao/scc", [\
       ["npm:1.1.0", {\
         "packageLocation": "../../../../.yarn/berry/cache/@rtsao-scc-npm-1.1.0-f4ba9ceb2c-10c0.zip/node_modules/@rtsao/scc/",\
@@ -709,6 +742,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/node", "npm:22.7.4"],\
           ["undici-types", "npm:6.19.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/numeral", [\
+      ["npm:2.0.5", {\
+        "packageLocation": "../../../../.yarn/berry/cache/@types-numeral-npm-2.0.5-5ee1a717c4-10c0.zip/node_modules/@types/numeral/",\
+        "packageDependencies": [\
+          ["@types/numeral", "npm:2.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1878,8 +1920,10 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["eqcm", "workspace:."],\
           ["@hookform/resolvers", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:3.9.0"],\
+          ["@reduxjs/toolkit", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.3.0"],\
           ["@tanstack/react-query", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:5.56.2"],\
           ["@types/node", "npm:20.16.5"],\
+          ["@types/numeral", "npm:2.0.5"],\
           ["@types/prop-types", "npm:15.7.13"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
@@ -1894,6 +1938,7 @@ const RAW_RUNTIME_STATE =
           ["msw", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:2.4.9"],\
           ["next", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:14.2.9"],\
           ["next-auth", "virtual:fab99ab653819c31700118e3551051ec2498dddb808f51896150d7d12ac371c264b5fa46a662ab7fea4ee02c7e8cf37d0e46b047c0fd340fb8234dee7ca27815#npm:4.24.7"],\
+          ["numeral", "npm:2.0.6"],\
           ["postcss", "npm:8.4.45"],\
           ["prettier", "npm:3.3.3"],\
           ["prop-types", "npm:15.8.1"],\
@@ -4167,6 +4212,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["numeral", [\
+      ["npm:2.0.6", {\
+        "packageLocation": "../../../../.yarn/berry/cache/numeral-npm-2.0.6-2c27ceaa3c-10c0.zip/node_modules/numeral/",\
+        "packageDependencies": [\
+          ["numeral", "npm:2.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["oauth", [\
       ["npm:0.9.15", {\
         "packageLocation": "../../../../.yarn/berry/cache/oauth-npm-0.9.15-a6aae972bc-10c0.zip/node_modules/oauth/",\
@@ -4879,6 +4933,37 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["redux", [\
+      ["npm:5.0.1", {\
+        "packageLocation": "../../../../.yarn/berry/cache/redux-npm-5.0.1-f8e6b1cb23-10c0.zip/node_modules/redux/",\
+        "packageDependencies": [\
+          ["redux", "npm:5.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["redux-thunk", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../.yarn/berry/cache/redux-thunk-npm-3.1.0-6a8fdd3211-10c0.zip/node_modules/redux-thunk/",\
+        "packageDependencies": [\
+          ["redux-thunk", "npm:3.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:746161afca8a6fa59dd93c3aa9c1bac7171a856c7cc92ef38712dd56c9bc293bb7d8822398fc41e05af3038e5cbaf032839c35c7b1521803eafb66f44bee20a7#npm:3.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/redux-thunk-virtual-66e1e50df0/5/.yarn/berry/cache/redux-thunk-npm-3.1.0-6a8fdd3211-10c0.zip/node_modules/redux-thunk/",\
+        "packageDependencies": [\
+          ["redux-thunk", "virtual:746161afca8a6fa59dd93c3aa9c1bac7171a856c7cc92ef38712dd56c9bc293bb7d8822398fc41e05af3038e5cbaf032839c35c7b1521803eafb66f44bee20a7#npm:3.1.0"],\
+          ["@types/redux", null],\
+          ["redux", "npm:5.0.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/redux",\
+          "redux"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["reflect.getprototypeof", [\
       ["npm:1.0.6", {\
         "packageLocation": "../../../../.yarn/berry/cache/reflect.getprototypeof-npm-1.0.6-b33819c756-10c0.zip/node_modules/reflect.getprototypeof/",\
@@ -4931,6 +5016,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/requires-port-npm-1.0.0-fd036b488a-10c0.zip/node_modules/requires-port/",\
         "packageDependencies": [\
           ["requires-port", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["reselect", [\
+      ["npm:5.1.1", {\
+        "packageLocation": "../../../../.yarn/berry/cache/reselect-npm-5.1.1-667568f51c-10c0.zip/node_modules/reselect/",\
+        "packageDependencies": [\
+          ["reselect", "npm:5.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
