@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { EmailLoginType, JoinBodyType, SocialLoginType } from '@/types/join';
+import {
+  EmailLoginType,
+  SocialJoinBodyType,
+  SocialLoginType,
+} from '@/types/join';
 import { LoginResponse } from '@/types/response';
 
 export async function fetchNaverAgreement(accessToken: string) {
@@ -18,7 +22,7 @@ export async function fetchNaverAgreement(accessToken: string) {
   }
 }
 
-export async function fetchSocialJoin(body: JoinBodyType) {
+export async function fetchSocialJoin(body: SocialJoinBodyType) {
   try {
     const response = await axios.post<LoginResponse>(
       process.env.NEXT_PUBLIC_API_SERVER + '/join/social',

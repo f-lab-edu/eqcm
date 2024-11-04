@@ -2,7 +2,7 @@
 
 import { memo, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 import { produce } from 'immer';
 import TermsAgreement from '@/components/join/termsAgreement';
 import EmailJoinForm from '@/components/join/emailJoinForm';
@@ -10,43 +10,41 @@ import PasswordJoinForm from '@/components/join/passwordJoinForm';
 import PhoneJoinForm from '@/components/join/phoneJoinForm';
 import PersonalInfoForm from '@/components/join/personalInfoForm';
 import JoinSuccess from '@/components/join/joinSuccess';
+import { fetchEmailJoin } from '@/fetch/join';
 import { StepDataType, UserDataType } from '@/types/join';
 import { BaseResponse } from '@/types/response';
 
 const Join = memo(function Join() {
   const mutation = useMutation({
     mutationFn: (): Promise<AxiosResponse<BaseResponse>> => {
-      return axios.post<BaseResponse>(
-        process.env.NEXT_PUBLIC_API_SERVER + '/join/email',
-        {
-          joinInfo: {
-            email: userData.email,
-            name: userData.name,
-            gender: userData.gender,
-            birthday: userData.birth,
-            phoneNumber: userData.phone,
-          },
-          termsAgreements: [
-            {
-              type: 'SERVICE',
-              agreeYn: 'Y',
-            },
-            {
-              type: 'PRIVACY',
-              agreeYn: 'Y',
-            },
-            {
-              type: 'MARKETING',
-              agreeYn: userData.term_marketing ? 'Y' : 'N',
-            },
-            {
-              type: 'ADVERTISING',
-              agreeYn: userData.term_ad ? 'Y' : 'N',
-            },
-          ],
-          password: userData.password,
+      return fetchEmailJoin({
+        joinInfo: {
+          email: userData.email,
+          name: userData.name,
+          gender: userData.gender,
+          birthday: userData.birth,
+          phoneNumber: userData.phone,
         },
-      );
+        termsAgreements: [
+          {
+            type: 'SERVICE',
+            agreeYn: 'Y',
+          },
+          {
+            type: 'PRIVACY',
+            agreeYn: 'Y',
+          },
+          {
+            type: 'MARKETING',
+            agreeYn: userData.term_marketing ? 'Y' : 'N',
+          },
+          {
+            type: 'ADVERTISING',
+            agreeYn: userData.term_ad ? 'Y' : 'N',
+          },
+        ],
+        password: userData.password,
+      });
     },
     onSuccess: () => {
       setStep(StepData.successStep);

@@ -42,17 +42,26 @@ export type TermsAgreementListType = {
   detail?: string;
 };
 
-export type JoinBodyType = {
-  joinInfo: {
-    email: string | undefined;
-    gender: string;
-    name: string | undefined;
-    birthday: string;
-    phoneNumber: string | undefined;
-  };
+type JoinInfoType = {
+  email: string | null;
+  gender: string | null;
+  name: string | null;
+  birthday: string | null;
+  phoneNumber: string | null;
+};
+
+type JoinBodyType = {
+  joinInfo: JoinInfoType;
+  termsAgreements: { type: string; agreeYn: string }[];
+};
+
+export type EmailJoinBodyType = JoinBodyType & {
+  password: string | null;
+};
+
+export type SocialJoinBodyType = JoinBodyType & {
   socialProviderType: string;
   socialId: string;
-  termsAgreements: never[];
 };
 
 export type SocialLoginType = {
