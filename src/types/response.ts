@@ -9,3 +9,7 @@ export interface LoginResponse extends BaseResponse {
     refreshToken: string;
   };
 }
+
+export interface DataResponse extends BaseResponse {
+  data: string;
+}

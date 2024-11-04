@@ -1,12 +1,16 @@
 'use client';
 
 import { memo, useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { AxiosResponse } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PhoneJoinFormData, UserDataType } from '@/types/join';
 import { PhoneJoinFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
+import { BaseResponse } from '@/types/response';
+import { fetchSendOTP, fetchVerifyOTP } from '@/fetch/join';
 import { PhoneFormSchema } from '@/constants/common';
 import { formatPhoneNumber } from '@/util/format';
 
@@ -29,6 +33,47 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
     resolver: zodResolver(PhoneJoinFormSchema),
   });
 
+  const sendOtp = useMutation({
+    mutationFn: (phoneNumber: string): Promise<AxiosResponse<BaseResponse>> => {
+      return fetchSendOTP({ phoneNumber: formatPhoneNumber(phoneNumber) });
+    },
+    onSuccess: () => {
+      setIsSendMessage(true);
+    },
+    onError: () => {
+      setError('phone', {
+        type: 'phone',
+        message: '인증번호 발급이 실패했습니다. 다시 시도해주세요.',
+      });
+    },
+  });
+
+  const verifyOtp = useMutation({
+    mutationFn: ({
+      phoneNumber,
+      otp,
+    }: {
+      phoneNumber: string;
+      otp: number;
+    }): Promise<AxiosResponse<BaseResponse>> => {
+      return fetchVerifyOTP({
+        phoneNumber: formatPhoneNumber(phoneNumber),
+        otp,
+      });
+    },
+    onSuccess: () => {
+      const phoneValue = getValues('phone');
+      onChangeData('phone', formatPhoneNumber(phoneValue));
+      onClickNextBtn();
+    },
+    onError: () => {
+      setError('phone', {
+        type: 'phone',
+        message: '인증번호가 올바르지 않습니다.',
+      });
+    },
+  });
+
   const onClickSendBtn = () => {
     const phoneValue = getValues('phone');
     const result = PhoneFormSchema.safeParse(phoneValue);
@@ -42,18 +87,14 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
     }
     clearErrors('phone');
 
-    // TODO: 인증번호 요청 API 전송
-    setIsSendMessage(true);
+    sendOtp.mutate(phoneValue);
   };
 
   const onSubmit: SubmitHandler<PhoneJoinFormData> = (data) => {
-    console.log('submit');
-
-    // TODO: 인증번호 확인 API 전송 후 응답에 따른 처리
-    if (true) {
-      onChangeData('phone', formatPhoneNumber(data.phone));
-      onClickNextBtn();
-    }
+    verifyOtp.mutate({
+      phoneNumber: formatPhoneNumber(data.phone),
+      otp: parseInt(data.validNumber),
+    });
   };
 
   return (
@@ -91,12 +132,12 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
           <>
             <label className="mb-1 font-medium">인증번호 입력</label>
             <Input
-              placeholder="6자리 숫자 입력"
+              placeholder="4자리 숫자 입력"
               style={errors['validNumber'] ? 'border-[#ff4800]' : ''}
               register={register('validNumber', {
                 required: true,
               })}
-              maxLength={6}
+              maxLength={4}
             />
             {errors && (
               <span className="mt-1 text-[13px] text-[#ff4800]">
