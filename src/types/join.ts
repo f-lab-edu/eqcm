@@ -43,11 +43,11 @@ export type TermsAgreementListType = {
 };
 
 type JoinInfoType = {
-  email: string | null;
-  gender: string | null;
-  name: string | null;
-  birthday: string | null;
-  phoneNumber: string | null;
+  email: string | null | undefined;
+  gender: string | null | undefined;
+  name: string | null | undefined;
+  birthday: string | null | undefined;
+  phoneNumber: string | null | undefined;
 };
 
 type JoinBodyType = {
