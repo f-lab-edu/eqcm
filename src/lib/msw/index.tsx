@@ -17,10 +17,6 @@ export function MockProvider({ children }: { children: React.ReactNode }) {
     }
 
     enableApiMocking();
-
-    // if (process.env.NODE_ENV === 'test') {
-    //   enableApiMocking();
-    // }
   }, []);
 
   if (!isMocking) {
