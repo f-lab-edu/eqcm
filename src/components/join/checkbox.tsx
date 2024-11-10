@@ -34,7 +34,7 @@ const CheckBox = memo(function CheckBox({
         checked={check}
       />
       <div className="flex items-center justify-center w-[18px] h-[18px] border-[1px] border-[#dcdfe6] peer-checked:bg-black">
-        <Icons.check />
+        <Icons.Check />
       </div>
       <div className="flex justify-between w-full">
         <p>{text}</p>

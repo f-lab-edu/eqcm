@@ -20,3 +20,9 @@ export const PhoneFormSchema = z
 export const SOCIAL_PROVIDER = {
   NAVER: 'NAVER',
 };
+
+export const SHOPPING_STEP = {
+  SHOPPING_BAG: '01 SHOPPING BAG',
+  ORDER: '02 ORDER',
+  ORDER_CONFIRM: '03 ORDER CONFIRM',
+};

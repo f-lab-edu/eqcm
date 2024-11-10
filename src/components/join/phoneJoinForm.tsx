@@ -12,7 +12,7 @@ import NextButton from './nextButton';
 import { BaseResponse } from '@/types/response';
 import { fetchSendOTP, fetchVerifyOTP } from '@/fetch/join';
 import { PhoneFormSchema } from '@/constants/common';
-import { formatPhoneNumber } from '@/util/format';
+import { formatPhoneNumber } from '@/utils/format';
 
 type Props = {
   onClickNextBtn: () => void;
