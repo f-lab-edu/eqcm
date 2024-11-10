@@ -13,3 +13,5 @@ export interface LoginResponse extends BaseResponse {
 export interface DataResponse extends BaseResponse {
   data: string;
 }
+
+// export interface ProductResponse {}

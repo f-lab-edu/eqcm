@@ -2,34 +2,45 @@ import { OPTION_NAME } from '@/constants/cart';
 
 export type Options = keyof typeof OPTION_NAME;
 
+interface Option {
+  id: number;
+  name: string;
+}
+
+export interface OptionGroupType {
+  id: number;
+  name: string;
+  options: Option[];
+}
+
+export interface TransformedOptionsType {
+  [key: string]: string[];
+}
+
 export type ProductOptionType = {
   [key: string]: string | number | null;
 };
 
 export type ProductDataType = {
-  brandInfo: {
+  category: {
+    id: number;
+    name: string;
+  };
+  brand: {
+    id: number;
     name: string;
     subCopy: string;
-    brandId: number;
+    logoUrl: string;
   };
-  productInfo: {
-    itemId: number;
-    itemName: string;
+  product: {
+    id: number;
+    name: string;
     itemImage: string;
-    isLiked: boolean;
-    avgReviewPoint: number;
-    reviewCount: number;
-    saleInfo: {
-      consumerPrice: number;
-      totalSalePercent: number;
-      totalSalePrice: number;
-    };
-    options: {
-      [key: string]: string[];
-    };
+    price: number;
+    optionGroups: OptionGroupType[];
   };
-  deliveryInfo: {
-    estimatedDeliveryTime: string;
-    deliveryFee: 'free' | number;
+  shipping: {
+    estimatedTime: string;
+    fee: number;
   };
 };

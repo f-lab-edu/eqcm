@@ -2,7 +2,8 @@
 
 import React, { Suspense } from 'react';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { fetchProductData } from '@/fetch';
+
+import { fetchProduct } from '@/fetch/product';
 import BrandInfo, { BrandInfoSkeleton } from '@/components/product/brandInfo';
 import ProductImageSlider, {
   ProductImageSliderSkeleton,
@@ -19,11 +20,16 @@ import ProductInfo, {
 import ProductButtons, {
   ProductButtonsSkeleton,
 } from '@/components/product/productButtons';
+import { OptionGroupType, TransformedOptionsType } from '@/types/product';
 
-export default function Product() {
+type Props = {
+  params: { id: string };
+};
+
+export default function Product({ params }: Props) {
   return (
     <Suspense fallback={<LoadingSkeletons />}>
-      <MainContent />
+      <MainContent id={params.id} />
     </Suspense>
   );
 }
@@ -47,12 +53,28 @@ const LoadingSkeletons = () => {
   );
 };
 
-const MainContent = () => {
+type MainContentProps = {
+  id: string;
+};
+
+const MainContent = ({ id }: MainContentProps) => {
   const { data } = useSuspenseQuery({
-    queryKey: [`product`],
-    queryFn: fetchProductData,
+    queryKey: [`products/${id}`],
+    queryFn: () => fetchProduct(id),
     staleTime: 60000,
   });
+
+  function transformOptionGroupsToOptions(
+    optionGroups: OptionGroupType[],
+  ): TransformedOptionsType {
+    const options: TransformedOptionsType = {};
+
+    optionGroups.forEach((group) => {
+      options[group.name] = group.options.map((option) => option.name);
+    });
+
+    return options;
+  }
 
   return (
     <div className="w-full">
@@ -60,18 +82,21 @@ const MainContent = () => {
 
       <div className="max-w-[1300px] m-auto md:pt-10 md:px-[50px]">
         <BrandInfo
-          brandId={data.brandInfo.brandId}
-          name={data.brandInfo.name}
-          subCopy={data.brandInfo.subCopy}
+          brandId={data.brand.id}
+          name={data.brand.name}
+          subCopy={data.brand.subCopy}
+          thumbnail={data.brand.logoUrl}
         />
 
         <div className="flex flex-col md:flex-row md:gap-[45px] font-pretendard">
-          <ProductImageSlider imgSrc={data.productInfo.itemImage} />
+          <ProductImageSlider imgSrc={data.product.itemImage} />
           <div className="flex flex-col w-full">
             <ProductInfo data={data} />
             <ProductOptions
-              price={data.productInfo.saleInfo.totalSalePrice}
-              options={data.productInfo.options}
+              price={data.product.price}
+              options={transformOptionGroupsToOptions(
+                data.product.optionGroups,
+              )}
             />
             <ProductButtons />
           </div>

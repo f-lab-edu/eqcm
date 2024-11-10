@@ -7,6 +7,8 @@ type Props = {
 };
 
 const ProductImageSlider = ({ imgSrc }: Props) => {
+  const imageSrc = imgSrc ?? '/static/images/fallback-image.jpg';
+
   return (
     <div className="relative w-full max-w-[564px]">
       <Image
@@ -14,7 +16,7 @@ const ProductImageSlider = ({ imgSrc }: Props) => {
         width={0}
         height={0}
         className="w-[100%] h-[auto] rounded"
-        src={imgSrc}
+        src={imageSrc}
         alt="product"
       />
     </div>

@@ -1,13 +1,13 @@
 import { http, HttpResponse } from 'msw';
-import { MainData, ProductData, CartData } from './data';
+import { MainData, CartData } from './data';
 
 export const handlers = [
   http.get('/main', () => {
     return HttpResponse.json(MainData);
   }),
-  http.get('/product', () => {
-    return HttpResponse.json(ProductData);
-  }),
+  // http.get(`/products/:id`, () => {
+  //   return HttpResponse.json(ProductData);
+  // }),
   http.get('/cart', () => {
     return HttpResponse.json(CartData);
   }),
