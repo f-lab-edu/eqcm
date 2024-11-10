@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 import { memo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,7 +17,8 @@ const EmailLoginForm = memo(function EmailLoginForm() {
   });
 
   const onSubmit: SubmitHandler<EmailLoginFormData> = (data) => {
-    console.log('submit', data);
+    const { email, password } = data;
+    signIn('credentials', { email, password, callbackUrl: '/' });
   };
 
   return (
@@ -25,7 +27,7 @@ const EmailLoginForm = memo(function EmailLoginForm() {
       className="flex flex-col gap-5 pt-[60px] text-[14px]"
     >
       {EmailLoginFieldList.map(({ type, name, title, placeholder }) => (
-        <div key="title" className="flex flex-col">
+        <div key={title} className="flex flex-col">
           <label className="mb-1 font-medium">{title}</label>
           <Input
             type={type}

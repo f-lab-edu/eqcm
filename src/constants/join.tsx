@@ -88,10 +88,7 @@ export const PasswordJoinFormSchema = z
 
 export const PhoneValidNumberFormSchema = z
   .string()
-  .min(6, { message: '인증번호를 입력하세요.' })
-  .refine((validNumber) => /^\d{6}$/.test(validNumber), {
-    message: '인증번호는 6자리 숫자입니다.',
-  });
+  .min(4, { message: '인증번호를 입력하세요.' });
 
 export const PhoneJoinFormSchema = z.object({
   phone: PhoneFormSchema,

@@ -8,6 +8,12 @@ import {
   PhoneJoinFormSchema,
 } from '@/constants/join';
 
+export type StepDataType = {
+  title: string;
+  subtitle?: string;
+  component: React.ReactNode;
+};
+
 export type GenderType = GENDER.male | GENDER.female;
 
 export type UserDataType = {
@@ -34,6 +40,39 @@ export type TermsAgreementListType = {
   required: boolean;
   text: string;
   detail?: string;
+};
+
+type JoinInfoType = {
+  email: string | null | undefined;
+  gender: string | null | undefined;
+  name: string | null | undefined;
+  birthday: string | null | undefined;
+  phoneNumber: string | null | undefined;
+};
+
+type JoinBodyType = {
+  joinInfo: JoinInfoType;
+  termsAgreements: { type: string; agreeYn: string }[];
+};
+
+export type EmailJoinBodyType = JoinBodyType & {
+  password: string | null;
+};
+
+export type SocialJoinBodyType = JoinBodyType & {
+  socialProviderType: string;
+  socialId: string;
+};
+
+export type SocialLoginType = {
+  email: string;
+  socialProviderType: string;
+  socialId: string;
+};
+
+export type EmailLoginType = {
+  email: string;
+  password: string;
 };
 
 export type EmailJoinFormData = z.infer<typeof EmailJoinFormSchema>;

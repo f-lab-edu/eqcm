@@ -17,6 +17,10 @@ export const PhoneFormSchema = z
     message: '유효한 휴대폰 번호를 입력하세요',
   });
 
+export const SOCIAL_PROVIDER = {
+  NAVER: 'NAVER',
+};
+
 export const SHOPPING_STEP = {
   SHOPPING_BAG: '01 SHOPPING BAG',
   ORDER: '02 ORDER',

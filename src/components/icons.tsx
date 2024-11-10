@@ -372,7 +372,7 @@ export const Icons = {
       viewBox="0 0 14 14"
       fill="none"
     >
-      <g clip-path="url(#clip0_13943_649)">
+      <g clipPath="url(#clip0_13943_649)">
         <path
           d="M9.24387 7.44339L4.57223 0.700293H0.700195V13.3003H4.75652V6.55614L9.42816 13.3003H13.3002V0.700293H9.24387V7.44339Z"
           fill="white"
