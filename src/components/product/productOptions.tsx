@@ -5,12 +5,16 @@ import OptionStepper from './optionStepper';
 import Skeleton from '../common/skeleton';
 import { productOptionsSlice } from '@/store/useProductOptionsReducer';
 import { formatWithCommas } from '@/utils/format';
-import { Options, ProductDataType, ProductOptionType } from '@/types/product';
+import {
+  Options,
+  ProductOptionType,
+  TransformedOptionsType,
+} from '@/types/product';
 import { Icons } from '../icons';
 
 type Props = {
   price: number;
-  options: ProductDataType['productInfo']['options'];
+  options: TransformedOptionsType;
 };
 
 export type PayloadType = {

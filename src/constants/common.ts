@@ -26,3 +26,6 @@ export const SHOPPING_STEP = {
   ORDER: '02 ORDER',
   ORDER_CONFIRM: '03 ORDER CONFIRM',
 };
+
+export const API_BASE_URL =
+  process.env.NODE_ENV === 'test' ? '' : process.env.NEXT_PUBLIC_API_SERVER;

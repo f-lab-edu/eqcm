@@ -7,18 +7,16 @@ type Props = {
   brandId: number;
   name: string;
   subCopy: string;
+  thumbnail: string;
 };
 
-const BrandInfo = ({ brandId, name, subCopy }: Props) => {
+const BrandInfo = ({ brandId, name, subCopy, thumbnail }: Props) => {
+  const imageSrc = thumbnail ?? '/static/images/fallback_image.jpg';
+
   return (
     <div className="desktop-only-flex mb-4 pr-[80px]">
       <div className="min-w-[74px]">
-        <Image
-          width={74}
-          height={74}
-          src="/static/images/brand-image-sample.jpg"
-          alt="brand image"
-        />
+        <Image width={74} height={74} src={imageSrc} alt="brand image" />
       </div>
       <div className="pl-[14px]">
         <p className="text-[16px] font-bold">{name}</p>
