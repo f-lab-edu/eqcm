@@ -492,7 +492,13 @@ export const Icons = {
       />
     </svg>
   ),
-  Check: ({ style, color = '#dcdfe6' }: { style: string; color?: string }) => (
+  Check: ({
+    style = 'size-[20px]',
+    color = '#dcdfe6',
+  }: {
+    style: string;
+    color?: string;
+  }) => (
     <svg
       viewBox="0 0 24 24"
       fill="none"

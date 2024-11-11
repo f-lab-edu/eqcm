@@ -64,12 +64,6 @@ export type SocialJoinBodyType = JoinBodyType & {
   socialId: string;
 };
 
-export type SocialLoginType = {
-  email: string;
-  socialProviderType: string;
-  socialId: string;
-};
-
 export type EmailLoginType = {
   email: string;
   password: string;

@@ -16,7 +16,7 @@ import { BaseResponse } from '@/types/response';
 
 const Join = memo(function Join() {
   const mutation = useMutation({
-    mutationFn: (): Promise<AxiosResponse<BaseResponse>> => {
+    mutationFn: () => {
       return fetchEmailJoin({
         joinInfo: {
           email: userData.email,

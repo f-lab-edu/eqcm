@@ -1,24 +1,34 @@
 import Link from 'next/link';
-import { signIn } from 'next-auth/react';
 import { memo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+
+import Input from '../common/input';
+import { useEmailLogin } from '@/hooks/auth';
 import { EmailLoginFieldList, LoginFormSchema } from '@/constants/login';
 import { EmailLoginFormData } from '@/types/login';
-import Input from '../common/input';
+import { EmailLoginType } from '@/types/join';
 
 const EmailLoginForm = memo(function EmailLoginForm() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<EmailLoginFormData>({
     resolver: zodResolver(LoginFormSchema),
   });
 
-  const onSubmit: SubmitHandler<EmailLoginFormData> = (data) => {
-    const { email, password } = data;
-    signIn('credentials', { email, password, callbackUrl: '/' });
+  const mutateEmailLogin = useEmailLogin((message: string)=>{setError('password', {
+    type: 'validate',
+    message
+  })});
+
+  const onSubmit: SubmitHandler<EmailLoginFormData> = (
+    data: EmailLoginType,
+  ) => {
+    const result = mutateEmailLogin.mutate(data);
+    console.log(result);
   };
 
   return (

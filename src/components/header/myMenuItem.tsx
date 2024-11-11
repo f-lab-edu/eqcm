@@ -4,9 +4,10 @@ import { memo } from 'react';
 
 type Props = {
   menu: MyMenuItemType;
+  onClick?: () => void
 };
 
-const MyMenuItem = memo(function MyMenuItem({ menu }: Props) {
+const MyMenuItem = memo(function MyMenuItem({ menu, onClick }: Props) {
   return (
     <li className={`hidden md:block ${menu?.style}`}>
       {menu.callback ? (
