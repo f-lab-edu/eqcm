@@ -1,10 +1,11 @@
-import { MyMenuItemType } from '@/types/header';
 import Link from 'next/link';
 import { memo } from 'react';
 
+import { MyMenuItemType } from '@/types/header';
+
 type Props = {
   menu: MyMenuItemType;
-  onClick?: () => void
+  onClick?: () => void;
 };
 
 const MyMenuItem = memo(function MyMenuItem({ menu, onClick }: Props) {
@@ -13,7 +14,7 @@ const MyMenuItem = memo(function MyMenuItem({ menu, onClick }: Props) {
       {menu.callback ? (
         <button
           type="button"
-          onClick={menu.callback}
+          onClick={() => onClick && onClick()}
           className="flex gap-1 items-center"
         >
           {menu.icon}
