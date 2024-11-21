@@ -51,8 +51,8 @@ type JoinInfoType = {
 };
 
 type JoinBodyType = {
-  joinInfo: JoinInfoType;
-  termsAgreements: { type: string; agreeYn: string }[];
+  joinInfoVo: JoinInfoType;
+  termsAgreementVos: { type: string; agreeYn: string }[];
 };
 
 export type EmailJoinBodyType = JoinBodyType & {
