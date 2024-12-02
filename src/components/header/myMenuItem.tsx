@@ -14,7 +14,7 @@ const MyMenuItem = memo(function MyMenuItem({ menu, onClick }: Props) {
       {menu.callback ? (
         <button
           type="button"
-          onClick={() => onClick && onClick()}
+          onClick={() => onClick?.()}
           className="flex gap-1 items-center"
         >
           {menu.icon}
