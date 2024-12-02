@@ -6,7 +6,7 @@ type HttpMethod = 'get' | 'post' | 'put' | 'delete';
 
 export async function fetchData<T>(
   url: string,
-  method: HttpMethod,
+  method: HttpMethod = 'get',
   body?: object,
 ): Promise<T> {
   try {

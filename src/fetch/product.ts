@@ -1,13 +1,13 @@
-import { API_BASE_URL } from '@/constants/common';
+import { fetchData } from '.';
+import { DataResponse } from './../types/response';
 import { ProductDataType } from '@/types/product';
-import axios from 'axios';
 
 export async function fetchProduct(id: string) {
   try {
-    const response = await axios.get<ProductDataType>(
-      API_BASE_URL + `/products/${id}`,
+    const result = await fetchData<DataResponse<ProductDataType>>(
+      `/products/${id}`,
     );
-    return response.data;
+    return result.data;
   } catch (error) {
     throw new Error('Failed to fetch product');
   }
