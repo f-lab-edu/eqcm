@@ -45,7 +45,7 @@ function MainContent() {
   });
 
   return (
-    <div className="flex-1 font-pretendard">
+    <main className="flex-1 font-pretendard">
       <div className="flex flex-col md:flex-row">
         <BannerSection data={data.banners} />
         <BoxSection>
@@ -67,6 +67,6 @@ function MainContent() {
         </BoxSection>
       </div>
       <ViewMoreButton />
-    </div>
+    </main>
   );
 }
