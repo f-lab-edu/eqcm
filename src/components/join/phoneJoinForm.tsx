@@ -2,14 +2,12 @@
 
 import { memo, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { AxiosResponse } from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PhoneJoinFormData, UserDataType } from '@/types/join';
 import { PhoneJoinFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
-import { BaseResponse } from '@/types/response';
 import { fetchSendOTP, fetchVerifyOTP } from '@/fetch/join';
 import { PhoneFormSchema } from '@/constants/common';
 import { formatPhoneNumber } from '@/utils/format';
@@ -34,7 +32,7 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
   });
 
   const sendOtp = useMutation({
-    mutationFn: (phoneNumber: string): Promise<AxiosResponse<BaseResponse>> => {
+    mutationFn: (phoneNumber: string) => {
       return fetchSendOTP({ phoneNumber: formatPhoneNumber(phoneNumber) });
     },
     onSuccess: () => {
@@ -42,7 +40,7 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
     },
     onError: () => {
       setError('phone', {
-        type: 'phone',
+        type: 'validate',
         message: '인증번호 발급이 실패했습니다. 다시 시도해주세요.',
       });
     },
@@ -55,7 +53,7 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
     }: {
       phoneNumber: string;
       otp: number;
-    }): Promise<AxiosResponse<BaseResponse>> => {
+    }) => {
       return fetchVerifyOTP({
         phoneNumber: formatPhoneNumber(phoneNumber),
         otp,
@@ -67,8 +65,8 @@ function PhoneJoinForm({ onClickNextBtn, onChangeData }: Props) {
       onClickNextBtn();
     },
     onError: () => {
-      setError('phone', {
-        type: 'phone',
+      setError('validNumber', {
+        type: 'validNumber',
         message: '인증번호가 올바르지 않습니다.',
       });
     },

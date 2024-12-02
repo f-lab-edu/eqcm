@@ -51,8 +51,8 @@ type JoinInfoType = {
 };
 
 type JoinBodyType = {
-  joinInfo: JoinInfoType;
-  termsAgreements: { type: string; agreeYn: string }[];
+  joinInfoVo: JoinInfoType;
+  termsAgreementVos: { type: string; agreeYn: string }[];
 };
 
 export type EmailJoinBodyType = JoinBodyType & {
@@ -60,12 +60,6 @@ export type EmailJoinBodyType = JoinBodyType & {
 };
 
 export type SocialJoinBodyType = JoinBodyType & {
-  socialProviderType: string;
-  socialId: string;
-};
-
-export type SocialLoginType = {
-  email: string;
   socialProviderType: string;
   socialId: string;
 };

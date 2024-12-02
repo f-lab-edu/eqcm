@@ -1,18 +1,20 @@
-import { MyMenuItemType } from '@/types/header';
 import Link from 'next/link';
 import { memo } from 'react';
 
+import { MyMenuItemType } from '@/types/header';
+
 type Props = {
   menu: MyMenuItemType;
+  onClick?: () => void;
 };
 
-const MyMenuItem = memo(function MyMenuItem({ menu }: Props) {
+const MyMenuItem = memo(function MyMenuItem({ menu, onClick }: Props) {
   return (
     <li className={`hidden md:block ${menu?.style}`}>
       {menu.callback ? (
         <button
           type="button"
-          onClick={menu.callback}
+          onClick={() => onClick?.()}
           className="flex gap-1 items-center"
         >
           {menu.icon}

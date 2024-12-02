@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import MSWProvider from '@/lib/msw';
-import AuthProvider from '@/lib/next-auth';
+import AuthProvider from '@/components/authProvider';
 import './globals.css';
 
 export const metadata: Metadata = {

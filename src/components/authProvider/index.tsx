@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
-import { SessionProvider } from 'next-auth/react';
+import React, { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useSetAtom } from 'jotai';
 
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import BottomMenu from '@/components/bottomMenu';
+import { checkLoginStatus, isLoggedInAtom } from '@/store/auth';
 
 interface Props {
   children: React.ReactNode;
@@ -15,14 +16,18 @@ interface Props {
 const queryClient = new QueryClient();
 
 const AuthProvider = ({ children }: Props) => {
+  const setIsLoggedIn = useSetAtom(isLoggedInAtom);
+
+  useEffect(() => {
+    setIsLoggedIn(checkLoginStatus());
+  }, [setIsLoggedIn]);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <SessionProvider>
-        <Header />
-        {children}
-        <Footer />
-        <BottomMenu />
-      </SessionProvider>
+      <Header />
+      {children}
+      <Footer />
+      <BottomMenu />
     </QueryClientProvider>
   );
 };

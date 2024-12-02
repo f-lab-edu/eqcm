@@ -1,11 +1,14 @@
 import { memo } from 'react';
-import { useSession } from 'next-auth/react';
-import { Icons } from '../icons';
-import { DEFAULT_MENU, USER_STATUS_MENU } from '@/constants/header';
+import { useAtomValue } from 'jotai';
+
 import MyMenuItem from './myMenuItem';
+import { isLoggedInAtom } from '@/store/auth';
+import { useLogout } from '@/hooks/auth';
+import { DEFAULT_MENU, USER_STATUS_MENU } from '@/constants/header';
+import { Icons } from '../icons';
 
 const MyMenu = memo(function MyMenu() {
-  const { data: session } = useSession();
+  const isLoggedIn = useAtomValue(isLoggedInAtom);
 
   return (
     <ul className="flex gap-4 text-[10px] font-base">
@@ -13,8 +16,8 @@ const MyMenu = memo(function MyMenu() {
         <MyMenuItem key={menu.title} menu={menu} />
       ))}
 
-      {session ? (
-        <MyMenuItem menu={USER_STATUS_MENU.LOGOUT} />
+      {isLoggedIn ? (
+        <MyMenuItem menu={USER_STATUS_MENU.LOGOUT} onClick={useLogout} />
       ) : (
         <MyMenuItem menu={USER_STATUS_MENU.LOGIN} />
       )}

@@ -2,7 +2,6 @@
 
 import { memo, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { AxiosResponse } from 'axios';
 import { produce } from 'immer';
 import TermsAgreement from '@/components/join/termsAgreement';
 import EmailJoinForm from '@/components/join/emailJoinForm';
@@ -12,20 +11,19 @@ import PersonalInfoForm from '@/components/join/personalInfoForm';
 import JoinSuccess from '@/components/join/joinSuccess';
 import { fetchEmailJoin } from '@/fetch/join';
 import { StepDataType, UserDataType } from '@/types/join';
-import { BaseResponse } from '@/types/response';
 
 const Join = memo(function Join() {
   const mutation = useMutation({
-    mutationFn: (): Promise<AxiosResponse<BaseResponse>> => {
+    mutationFn: () => {
       return fetchEmailJoin({
-        joinInfo: {
+        joinInfoVo: {
           email: userData.email,
           name: userData.name,
           gender: userData.gender,
           birthday: userData.birth,
           phoneNumber: userData.phone,
         },
-        termsAgreements: [
+        termsAgreementVos: [
           {
             type: 'SERVICE',
             agreeYn: 'Y',
