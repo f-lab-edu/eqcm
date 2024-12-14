@@ -1,4 +1,4 @@
-import { GENDER } from './../constants/join';
+import { JOIN_STEP, GENDER } from './../constants/join';
 import { z } from 'zod';
 import {
   AGREEMENT_CHECK_IDS,
@@ -7,6 +7,8 @@ import {
   PersonalInfoFormSchema,
   PhoneJoinFormSchema,
 } from '@/constants/join';
+
+export type JoinStepType = keyof typeof JOIN_STEP;
 
 export type StepDataType = {
   title: string;

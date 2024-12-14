@@ -1,27 +1,61 @@
 import { memo } from 'react';
+import { useMutation } from '@tanstack/react-query';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { format } from 'date-fns';
+
 import { PersonalInfoFormData, UserDataType } from '@/types/join';
 import { GenderFieldList, PersonalInfoFormSchema } from '@/constants/join';
 import Input from '../common/input';
 import NextButton from './nextButton';
-import { UseMutationResult } from '@tanstack/react-query';
-import { AxiosResponse } from 'axios';
-import { BaseResponse } from '@/types/response';
-import { format } from 'date-fns';
+import { fetchEmailJoin } from '@/fetch/join';
 
 type Props = {
+  userData: UserDataType;
+  onClickNextBtn: () => void;
   onChangeData: (id: keyof UserDataType, value: boolean | string) => void;
-  requestJoin: UseMutationResult<
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    AxiosResponse<BaseResponse, any>,
-    Error,
-    void,
-    unknown
-  >;
 };
 
-function PersonalInfoForm({ onChangeData, requestJoin }: Props) {
+function PersonalInfoForm({ userData, onClickNextBtn, onChangeData }: Props) {
+  const mutation = useMutation({
+    mutationFn: () => {
+      return fetchEmailJoin({
+        joinInfoVo: {
+          email: userData.email,
+          name: userData.name,
+          gender: userData.gender,
+          birthday: userData.birth,
+          phoneNumber: userData.phone,
+        },
+        termsAgreementVos: [
+          {
+            type: 'SERVICE',
+            agreeYn: 'Y',
+          },
+          {
+            type: 'PRIVACY',
+            agreeYn: 'Y',
+          },
+          {
+            type: 'MARKETING',
+            agreeYn: userData.term_marketing ? 'Y' : 'N',
+          },
+          {
+            type: 'ADVERTISING',
+            agreeYn: userData.term_ad ? 'Y' : 'N',
+          },
+        ],
+        password: userData.password,
+      });
+    },
+    onSuccess: () => {
+      onClickNextBtn();
+    },
+    onError: (e) => {
+      console.error('join error', e);
+    },
+  });
+
   const {
     watch,
     register,
@@ -39,7 +73,7 @@ function PersonalInfoForm({ onChangeData, requestJoin }: Props) {
     onChangeData('name', data.name);
     onChangeData('gender', data.gender);
     onChangeData('birth', format(new Date(data.birth), 'yyyy-MM-dd'));
-    requestJoin.mutate();
+    mutation.mutate();
   };
 
   return (

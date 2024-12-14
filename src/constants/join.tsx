@@ -7,6 +7,15 @@ import {
 import { InputFieldType } from '@/types/common';
 import { EmailFormSchema, PasswordFormSchema, PhoneFormSchema } from './common';
 
+export const JOIN_STEP = {
+  TERMS_AGREEMENT: 'termsAgreementStep',
+  EMAIL_INPUT: 'emailInputStep',
+  PASSWORD_INPUT: 'passwordInputStep',
+  PHONE_VERIFICATION: 'phoneVerificationStep',
+  PERSONAL_INFO: 'personalInfoStep',
+  SUCCESS: 'successStep',
+} as const;
+
 export const AGREEMENT_CHECK_IDS = {
   all: 'all',
   age: 'age',
