@@ -3,16 +3,24 @@ import { BaseResponse } from '@/types/response';
 import { fetchData } from '.';
 
 export async function fetchEmailJoin(body: EmailJoinBodyType) {
-  return fetchData<BaseResponse>('/join/email', 'post', body);
+  return fetchData<BaseResponse>({ url: '/join/email', method: 'post', body });
 }
 
 export async function fetchSendOTP(body: { phoneNumber: string }) {
-  return fetchData<BaseResponse>('/join/send/otp/phone', 'post', body);
+  return fetchData<BaseResponse>({
+    url: '/join/send/otp/phone',
+    method: 'post',
+    body,
+  });
 }
 
 export async function fetchVerifyOTP(body: {
   phoneNumber: string;
   otp: number;
 }) {
-  return fetchData<BaseResponse>('/join/verify/otp/phone', 'post', body);
+  return fetchData<BaseResponse>({
+    url: '/join/verify/otp/phone',
+    method: 'post',
+    body,
+  });
 }
