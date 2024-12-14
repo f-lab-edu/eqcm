@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-export const formatWithCommas = (price: number) => {
+export const formatWonPrice = (price: number) => {
   return numeral(price).format('0,0');
 };
 

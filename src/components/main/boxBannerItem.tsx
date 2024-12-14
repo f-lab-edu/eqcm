@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductType } from '@/types/main';
-import { formatLikesToK, formatWithCommas } from '@/utils/format';
+import { formatLikesToK, formatWonPrice } from '@/utils/format';
 import Skeleton from '../common/skeleton';
 import { Icons } from '../icons';
 
@@ -32,7 +32,7 @@ const BoxBannerItem = ({ product }: Props) => {
             <span className="text-[#ff4800]">
               {product.discountPercentage}%
             </span>
-            {formatWithCommas(product.productPrice)}
+            {formatWonPrice(product.productPrice)}
           </p>
         </div>
       </div>
