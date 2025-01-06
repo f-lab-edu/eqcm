@@ -46,6 +46,6 @@ export const USER_STATUS_MENU: { [key: string]: MyMenuItemType } = {
   LOGOUT: {
     icon: <Icons.Logout />,
     title: 'LOGOUT',
-    link: '',
+    link: '/',
   },
 } as const;

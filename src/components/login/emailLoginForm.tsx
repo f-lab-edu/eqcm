@@ -19,10 +19,12 @@ const EmailLoginForm = memo(function EmailLoginForm() {
     resolver: zodResolver(LoginFormSchema),
   });
 
-  const mutateEmailLogin = useEmailLogin((message: string)=>{setError('password', {
-    type: 'validate',
-    message
-  })});
+  const mutateEmailLogin = useEmailLogin((message: string) => {
+    setError('password', {
+      type: 'validate',
+      message,
+    });
+  });
 
   const onSubmit: SubmitHandler<EmailLoginFormData> = (
     data: EmailLoginType,

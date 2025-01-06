@@ -7,13 +7,13 @@ import { useNaverLogin } from '@/hooks/auth';
 import { Icons } from '../icons';
 
 const LoginButtons = memo(function LoginButtons() {
-  const mutateNaverLogin = useNaverLogin((message) => alert(message));
+  const mutateNaverLogin = useNaverLogin();
 
   return (
     <div className="flex flex-col gap-[8px] pt-[80px] pb-[30px] text-[14px] font-bold">
       <button
         type="button"
-        onClick={() => mutateNaverLogin.mutate()}
+        onClick={mutateNaverLogin.mutate}
         className="flex items-center justify-center gap-1 md:w-[400px] h-[52px] rounded bg-[#03c75a] text-white"
       >
         <Icons.Naver />
