@@ -111,19 +111,31 @@
 
 ```bash
 ├── app
-│   ├── fonts
-│   │   └── campton
+│   ├── cart
 │   ├── join
 │   ├── login
 │   │   └── email
 │   └── product
 │       └── [id]
 ├── components
+│   ├── authProvider
+│   ├── bottomMenu
+│   ├── common
+│   ├── footer
+│   ├── header
+│   ├── join
+│   ├── login
+│   ├── main
+│   └── product
 ├── constants
 ├── fetch
+├── fonts
+│   └── campton
+├── hooks
 ├── lib
 │   └── msw
 ├── mocks
+├── store
 ├── types
 └── utils
 ```
