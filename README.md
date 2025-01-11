@@ -74,7 +74,7 @@
 
 
 ### [홈 화면](https://github.com/f-lab-edu/eqcm/pull/21)
-![메인 페이지](https://private-user-images.githubusercontent.com/48057629/371808450-a3853983-90c8-4b1a-b582-60cc52b19c56.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzYxODEyODIsIm5iZiI6MTczNjE4MDk4MiwicGF0aCI6Ii80ODA1NzYyOS8zNzE4MDg0NTAtYTM4NTM5ODMtOTBjOC00YjFhLWI1ODItNjBjYzUyYjE5YzU2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTA2VDE2Mjk0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWVlNjU5NDc2YTVkODdkZmIzZjhiYjJiYzJjZGY3ZjUwMGY2N2FkMDQ3ZGUwZjMyMmFjZDQ5Mjg3ZDJkYzNhZmUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.e6KCNMF9V9Sw6289oWf-jjxBE41RCz-h32giL6K_Nz0)
+![메인 페이지](https://i.ibb.co/PFsfhDM/home.png)
 
 ### [로그인](https://github.com/f-lab-edu/eqcm/pull/22)
 ![로그인](https://i.ibb.co/BrP2VgP/2025-01-07-1-35-24.png)
@@ -83,7 +83,7 @@
 ![회원가입](https://i.ibb.co/jrNTVJj/2025-01-07-1-36-59.png)
 
 ### [장바구니](https://github.com/f-lab-edu/eqcm/pull/26)
-![장바구니](https://private-user-images.githubusercontent.com/48057629/380680171-c4801aa0-cd01-4517-9c56-ec09e743976f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzYxODEzNzgsIm5iZiI6MTczNjE4MTA3OCwicGF0aCI6Ii80ODA1NzYyOS8zODA2ODAxNzEtYzQ4MDFhYTAtY2QwMS00NTE3LTljNTYtZWMwOWU3NDM5NzZmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTA2VDE2MzExOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTcxY2ViNjExN2E3MzYwYzc5MWYxMzU4OWQ5NGJjNmU5YTIzMTkyNDVkYzJhMGUyMGUxYzBjZTNiMDExYmRkNTQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.xfggffhiveMlLMooiT8m-yq0YADo6-HnWOk7gj0P5Eg)
+![장바구니](https://i.ibb.co/JtKxHtV/cart.png)
 
 <br />
 
