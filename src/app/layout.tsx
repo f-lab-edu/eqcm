@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const pretendard = localFont({
-  src: './fonts/PretendardVariable.woff2',
+  src: '../fonts/PretendardVariable.woff2',
   display: 'swap',
   weight: '45 920',
   variable: '--font-pretendard',
@@ -20,32 +20,32 @@ const pretendard = localFont({
 const campton = localFont({
   src: [
     {
-      path: './fonts/campton/CamptonThin.otf',
+      path: '../fonts/campton/CamptonThin.otf',
       weight: '200',
       style: 'normal',
     },
     {
-      path: './fonts/campton/CamptonThinItalic.otf',
+      path: '../fonts/campton/CamptonThinItalic.otf',
       weight: '200',
       style: 'italic',
     },
     {
-      path: './fonts/campton/CamptonBook.otf',
+      path: '../fonts/campton/CamptonBook.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './fonts/campton/CamptonMedium.otf',
+      path: '../fonts/campton/CamptonMedium.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: './fonts/campton/CamptonSemiBold.otf',
+      path: '../fonts/campton/CamptonSemiBold.otf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: './fonts/campton/CamptonBold.otf',
+      path: '../fonts/campton/CamptonBold.otf',
       weight: '700',
       style: 'normal',
     },

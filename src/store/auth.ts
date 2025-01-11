@@ -12,12 +12,12 @@ function isTokenExpired(token: string) {
 
 export const checkLoginStatus = () => {
   const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
-  if (accessToken && isTokenExpired(accessToken)) {
+  if (!accessToken) return false;
+
+  if (isTokenExpired(accessToken)) {
     // Refresh Token API 요청
-  } else {
-    return true;
   }
-  return false;
+  return true;
 };
 
 export const authTokenManager = {

@@ -4,11 +4,17 @@ import axios from 'axios';
 
 type HttpMethod = 'get' | 'post' | 'put' | 'delete';
 
-export async function fetchData<T>(
-  url: string,
-  method: HttpMethod = 'get',
-  body?: object,
-): Promise<T> {
+type fetchDataParams = {
+  url: string;
+  method?: HttpMethod;
+  body?: object;
+};
+
+export async function fetchData<T>({
+  url,
+  method = 'get',
+  body,
+}: fetchDataParams): Promise<T> {
   try {
     const config = {
       method,

@@ -13,7 +13,7 @@ import ShoppingStepIndicator from '@/components/common/shoppingStepIndicator';
 import OptionStepper from '@/components/product/optionStepper';
 import LoadingSpinner from '@/components/common/loadingSpinner';
 import { OPTION_NAME } from '@/constants/cart';
-import { formatWithCommas } from '@/utils/format';
+import { formatWonPrice } from '@/utils/format';
 import { CartData } from '@/mocks/data';
 import { Icons } from '@/components/icons';
 import { deleteCartItems, fetchCartData, updateCartItem } from '@/fetch';
@@ -304,16 +304,12 @@ const ItemTable = ({
                       {item.productInfo.itemName}
                     </Link>
                     <p className="text-[13px]">
-                      {formatWithCommas(
-                        item.productInfo.saleInfo.consumerPrice,
-                      )}
+                      {formatWonPrice(item.productInfo.saleInfo.consumerPrice)}
                       원
                     </p>
                     <p className="text-[13px] text-[#ff4800]">
                       [{item.productInfo.saleInfo.totalSalePercent}%]{' '}
-                      {formatWithCommas(
-                        item.productInfo.saleInfo.totalSalePrice,
-                      )}
+                      {formatWonPrice(item.productInfo.saleInfo.totalSalePrice)}
                       원
                     </p>
                     <p className="text-[12px]">
@@ -335,7 +331,7 @@ const ItemTable = ({
               </td>
               <td className="align-middle py-[30px] border-b border-r text-center">
                 <p className="text-[22px] font-bold">
-                  {formatWithCommas(item.productInfo.saleInfo.totalSalePrice)}
+                  {formatWonPrice(item.productInfo.saleInfo.totalSalePrice)}
                   <span className="text-[18px] font-semibold">원</span>
                 </p>
                 <button className="w-[86px] h-[44px] mt-[16px] bg-black text-white text-[14px] rounded font-bold">
@@ -356,7 +352,7 @@ const ItemTable = ({
                   rowSpan={CartData.deliveryFeeFreeCount}
                 >
                   <p className="text-[15px] font-semibold">
-                    {formatWithCommas(item.productInfo.deliveryFee)}원
+                    {formatWonPrice(item.productInfo.deliveryFee)}원
                   </p>
                 </td>
               )}
@@ -393,13 +389,11 @@ const ItemTable = ({
                     {item.productInfo.itemName}
                   </Link>
                   <p className="text-[13px]">
-                    {formatWithCommas(item.productInfo.saleInfo.consumerPrice)}
-                    원
+                    {formatWonPrice(item.productInfo.saleInfo.consumerPrice)}원
                   </p>
                   <p className="text-[13px] text-[#ff4800]">
                     [{item.productInfo.saleInfo.totalSalePercent}%]{' '}
-                    {formatWithCommas(item.productInfo.saleInfo.totalSalePrice)}
-                    원
+                    {formatWonPrice(item.productInfo.saleInfo.totalSalePrice)}원
                   </p>
                   <p className="text-[12px]">
                     옵션 : {getOptionName(item.productInfo.selectedOptions)}
@@ -427,7 +421,7 @@ const ItemTable = ({
               </div>
               <div className="flex justify-between items-center mt-[16px]">
                 <p className="text-[22px] font-bold">
-                  {formatWithCommas(item.productInfo.saleInfo.totalSalePrice)}
+                  {formatWonPrice(item.productInfo.saleInfo.totalSalePrice)}
                   <span className="text-[18px] font-semibold">원</span>
                 </p>
                 <button className="w-[86px] h-[44px] bg-black text-white text-[14px] rounded font-bold">
@@ -483,7 +477,7 @@ const TotalPriceTable = ({ data, itemCount }: TotalPriceTableProps) => {
           <tr className="h-[149px] text-center text-[32px] font-semibold">
             <td className="relative">
               <p>
-                {formatWithCommas(priceData.totalOrderAmount)}
+                {formatWonPrice(priceData.totalOrderAmount)}
                 <span className="text-[17px]">원</span>
               </p>
               <p className="absolute left-1/2 bottom-[30px] -translate-x-1/2 block text-[14px]">
@@ -492,12 +486,12 @@ const TotalPriceTable = ({ data, itemCount }: TotalPriceTableProps) => {
               <PlusIcon />
             </td>
             <td className="relative">
-              {formatWithCommas(priceData.totalDeliveryFee)}
+              {formatWonPrice(priceData.totalDeliveryFee)}
               <span className="text-[17px]">원</span>
               <EqualIcon />
             </td>
             <td>
-              {formatWithCommas(priceData.totalPayment)}
+              {formatWonPrice(priceData.totalPayment)}
               <span className="text-[17px]">원</span>
             </td>
           </tr>
@@ -520,7 +514,7 @@ const TotalPriceTable = ({ data, itemCount }: TotalPriceTableProps) => {
             <dt className="text-[#999]">{title}</dt>
             <dd className={cn(title === '총 결제금액' && 'text-[#ff4800]')}>
               <span className="text-[24px] font-semibold">
-                {formatWithCommas(price)}
+                {formatWonPrice(price)}
               </span>
               {'원'}
             </dd>

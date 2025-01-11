@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductType } from '@/types/main';
-import { formatWithCommas } from '@/utils/format';
+import { formatWonPrice } from '@/utils/format';
 import { Icons } from '../icons';
 
 type Props = {
@@ -41,15 +41,15 @@ const BoxSliderItem = ({ product }: Props) => {
         <p className="text-[12px] truncate">{product.product}</p>
         <p className="text-[14px] flex gap-[2px] font-bold">
           <span className="text-[#ff4800]">{product.discountPercentage}%</span>
-          {formatWithCommas(product.productPrice)}
+          {formatWonPrice(product.productPrice)}
         </p>
         <div className="flex gap-1 text-[10px] text-[#a0a0a0] break-words flex-wrap">
           <span className="whitespace-nowrap">
-            ♥ {formatWithCommas(product.likes)}
+            ♥ {formatWonPrice(product.likes)}
           </span>
           <span className="whitespace-nowrap">
             ★ {product.rate} (
-            {product.reviews && formatWithCommas(product.reviews)})
+            {product.reviews && formatWonPrice(product.reviews)})
           </span>
         </div>
       </div>

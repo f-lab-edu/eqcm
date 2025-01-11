@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import Skeleton from '../common/skeleton';
 import { ProductDataType } from '@/types/product';
-import { formatWithCommas } from '@/utils/format';
+import { formatWonPrice } from '@/utils/format';
 import { Icons } from '../icons';
 
 type Props = {
@@ -40,11 +40,11 @@ const ProductInfo = ({ data }: Props) => {
             {/* <span className="mr-[2px] text-[#ff4800]">
               {data.product.saleInfo.totalSalePercent}%
             </span> */}
-            <span>{formatWithCommas(data.product.price)}</span>
+            <span>{formatWonPrice(data.product.price)}</span>
             <span className="text-[16px]">원</span>
           </div>
           <div className="text-[13px] text-[#a0a0a0] line-through">
-            {/* {formatWithCommas(data.product.saleInfo.consumerPrice)}원 */}
+            {/* {formatWonPrice(data.product.saleInfo.consumerPrice)}원 */}
           </div>
         </div>
         {/* <button
@@ -64,7 +64,7 @@ const ProductInfo = ({ data }: Props) => {
             {data.product.saleInfo.totalSalePercent}%
           </span>
           <span>
-            {formatWithCommas(data.product.saleInfo.totalSalePrice)}원
+            {formatWonPrice(data.product.saleInfo.totalSalePrice)}원
           </span>
           <Icons.ViewMoreArrow /> 
         </div>
@@ -82,7 +82,7 @@ const ProductInfo = ({ data }: Props) => {
             <p className="text-[#375fff]">
               {data.shipping.fee === 0
                 ? '무료배송'
-                : `${formatWithCommas(data.shipping.fee)}원`}
+                : `${formatWonPrice(data.shipping.fee)}원`}
             </p>
             {/* 제주/도서산간 추가 배송비 없음 */}
           </div>

@@ -4,7 +4,7 @@ import OptionDropdown from './optionDropdown';
 import OptionStepper from './optionStepper';
 import Skeleton from '../common/skeleton';
 import { productOptionsSlice } from '@/store/useProductOptionsReducer';
-import { formatWithCommas } from '@/utils/format';
+import { formatWonPrice } from '@/utils/format';
 import {
   Options,
   ProductOptionType,
@@ -105,7 +105,7 @@ const ProductOptions = ({ price, options }: Props) => {
                     />
                     <div className="flex">
                       <span className="pl-5 pr-2 font-bold">
-                        {formatWithCommas(price)}원
+                        {formatWonPrice(price)}원
                       </span>
                       <button
                         type="button"
@@ -123,7 +123,7 @@ const ProductOptions = ({ price, options }: Props) => {
           <div className="flex items-center ml-auto pt-4 pb-2">
             <span className="text-[14px] mr-[10px]">총 상품 금액</span>
             <span className="text-[#ff4800] text-[24px] font-bold">
-              {formatWithCommas(totalPrice)}
+              {formatWonPrice(totalPrice)}
             </span>
             <span className="text-[#ff4800]">원</span>
           </div>
