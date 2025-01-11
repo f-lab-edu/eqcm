@@ -74,7 +74,7 @@
 
 
 ### [홈 화면](https://github.com/f-lab-edu/eqcm/pull/21)
-![메인 페이지](https://i.ibb.co/PFsfhDM/home.png)
+![메인](https://i.ibb.co/GWRkZnt/2025-01-11-9-14-25.png)
 
 ### [로그인](https://github.com/f-lab-edu/eqcm/pull/22)
 ![로그인](https://i.ibb.co/BrP2VgP/2025-01-07-1-35-24.png)
