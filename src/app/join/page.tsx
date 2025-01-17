@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import { produce } from 'immer';
 
 import TermsAgreement from '@/components/join/termsAgreement';
@@ -11,7 +11,7 @@ import PersonalInfoForm from '@/components/join/personalInfoForm';
 import JoinSuccess from '@/components/join/joinSuccess';
 import { JoinStepType, StepDataType, UserDataType } from '@/types/join';
 
-const Join = memo(function Join() {
+const Join = () => {
   const [userData, setUserData] = useState<UserDataType>({
     term_marketing: false,
     term_ad: false,
@@ -95,6 +95,6 @@ const Join = memo(function Join() {
       <div className="h-full">{step.component}</div>
     </div>
   );
-});
+};
 
 export default Join;
