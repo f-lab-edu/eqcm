@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import cn from 'classnames';
+
 import { ShoppingStepType } from '@/types/common';
 import { SHOPPING_STEP } from '@/constants/common';
 
@@ -22,4 +23,4 @@ const ShoppingStepIndicator = ({ step }: Props) => {
   );
 };
 
-export default ShoppingStepIndicator;
+export default memo(ShoppingStepIndicator);

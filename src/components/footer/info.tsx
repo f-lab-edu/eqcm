@@ -1,7 +1,6 @@
 import { INFO_MENU_LIST } from '@/constants/footer';
-import { memo } from 'react';
 
-const Info = memo(function Info() {
+const Info = () => {
   return (
     <div className="relative flex">
       <div className="leading-6">
@@ -61,6 +60,6 @@ const Info = memo(function Info() {
       </div>
     </div>
   );
-});
+};
 
 export default Info;

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import cn from 'classnames';
 
 type Props = {
@@ -15,4 +16,4 @@ const Skeleton = ({ width, height, style }: Props) => {
   );
 };
 
-export default Skeleton;
+export default memo(Skeleton);
