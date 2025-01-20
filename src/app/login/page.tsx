@@ -1,8 +1,7 @@
-import { memo } from 'react';
 import LoginButtons from '@/components/login/loginButtons';
 import LoginHelpMenu from '@/components/login/loginHelpMenu';
 
-const Login = memo(function Login() {
+const Login = function Login() {
   return (
     <div className="w-full py-[50px] px-[20px] md:w-[400px] mx-auto md:px-0 md:pt-[30px] md:pb-[80px] md:text-center font-pretendard">
       <p className="text-[30px] font-bold">
@@ -14,6 +13,6 @@ const Login = memo(function Login() {
       <LoginHelpMenu />
     </div>
   );
-});
+};
 
 export default Login;

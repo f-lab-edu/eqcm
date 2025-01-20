@@ -1,12 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { memo } from 'react';
 
 import { useNaverLogin } from '@/hooks/auth';
 import { Icons } from '../icons';
 
-const LoginButtons = memo(function LoginButtons() {
+const LoginButtons = () => {
   const mutateNaverLogin = useNaverLogin();
 
   return (
@@ -29,6 +28,6 @@ const LoginButtons = memo(function LoginButtons() {
       </Link>
     </div>
   );
-});
+};
 
 export default LoginButtons;

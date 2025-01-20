@@ -1,5 +1,6 @@
+'use client';
+
 import Link from 'next/link';
-import { memo } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -9,7 +10,7 @@ import { EmailLoginFieldList, LoginFormSchema } from '@/constants/login';
 import { EmailLoginFormData } from '@/types/login';
 import { EmailLoginType } from '@/types/join';
 
-const EmailLoginForm = memo(function EmailLoginForm() {
+const EmailLoginForm = () => {
   const {
     register,
     handleSubmit,
@@ -72,6 +73,6 @@ const EmailLoginForm = memo(function EmailLoginForm() {
       </div>
     </form>
   );
-});
+};
 
 export default EmailLoginForm;

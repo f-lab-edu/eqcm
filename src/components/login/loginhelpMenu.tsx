@@ -1,8 +1,7 @@
-import { memo } from 'react';
 import { LOGIN_HELP_MENU_LIST } from '@/constants/login';
 import { LoginMenuType } from '@/types/login';
 
-const LoginHelpMenu = memo(function LoginHelpMenu() {
+const LoginHelpMenu = () => {
   return (
     <ul className="flex justify-center gap-[30px] text-[#a0a0a0] text-[14px]">
       {LOGIN_HELP_MENU_LIST.map(({ text, link }: LoginMenuType) => (
@@ -15,6 +14,6 @@ const LoginHelpMenu = memo(function LoginHelpMenu() {
       ))}
     </ul>
   );
-});
+};
 
 export default LoginHelpMenu;

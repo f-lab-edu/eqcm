@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { AGREEMENT_CHECK_IDS, TERMS_AGREEMENT_LIST } from '@/constants/join';
 import { UserDataType } from '@/types/join';
 import CheckBox from './checkbox';
@@ -84,4 +84,4 @@ const TermsAgreement = ({ onClickNextBtn, onChangeData }: Props) => {
   );
 };
 
-export default TermsAgreement;
+export default memo(TermsAgreement);

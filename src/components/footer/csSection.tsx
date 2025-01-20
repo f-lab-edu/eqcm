@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { memo } from 'react';
+
 import CsButton from './csButton';
 import { FOOTER_SNS_LIST } from '@/constants/footer';
 
-const CsSection = memo(function CsSection() {
+const CsSection = () => {
   return (
     <div className="hidden md:flex flex-col gap-2">
       <div className="font-pretendard">
@@ -31,6 +31,6 @@ const CsSection = memo(function CsSection() {
       </div>
     </div>
   );
-});
+};
 
 export default CsSection;

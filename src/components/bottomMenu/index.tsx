@@ -1,11 +1,11 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { memo } from 'react';
 import cn from 'classnames';
+
 import { BOTTOM_MENUS } from '@/constants/bottomMenu';
 
-const BottomMenu = memo(function BottomMenu() {
+const BottomMenu = function BottomMenu() {
   const path = usePathname();
 
   return (
@@ -30,6 +30,6 @@ const BottomMenu = memo(function BottomMenu() {
       </ul>
     </nav>
   );
-});
+};
 
 export default BottomMenu;

@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import MenuItem from './menuItem';
 import {
   NOTICE_LIST,
@@ -8,7 +7,7 @@ import {
   MY_ORDER_MENU_LIST,
 } from '@/constants/footer';
 
-const Menus = memo(function Menu() {
+const Menus = () => {
   return (
     <div className="hidden md:flex mt-[17px] pt-[9px] pb-[6px] border-y-[1px]">
       <MenuItem title="NOTICE" list={NOTICE_LIST} style="flex-1 pr-[30px]" />
@@ -20,6 +19,6 @@ const Menus = memo(function Menu() {
       </div>
     </div>
   );
-});
+};
 
 export default Menus;

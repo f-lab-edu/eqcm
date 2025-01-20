@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 
-export function MockProvider({ children }: { children: React.ReactNode }) {
+export function MSWProvider({ children }: { children: React.ReactNode }) {
   const [isMocking, setIsMocking] = useState(false);
   const isWorkerStarted = useRef(false);
 
@@ -26,4 +26,4 @@ export function MockProvider({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-export default MockProvider;
+export default MSWProvider;
