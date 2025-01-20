@@ -1,6 +1,9 @@
+import axios from 'axios';
+
 import { MainDataType } from '@/types/main';
 import { CartDataType } from '@/types/cart';
-import axios from 'axios';
+import { ProductDataType } from '@/types/product';
+import { ProductData } from '@/mocks/data';
 
 type HttpMethod = 'get' | 'post' | 'put' | 'delete';
 
@@ -36,6 +39,12 @@ export async function fetchData<T>({
 
 export const fetchMainData = async (): Promise<MainDataType> => {
   return fetch('/main').then((response) => response.json());
+};
+
+export const fetchProductData = async (
+  id: string,
+): Promise<ProductDataType> => {
+  return new Promise((resolve) => resolve(ProductData));
 };
 
 export const fetchCartData = async (): Promise<CartDataType> => {

@@ -1,80 +1,55 @@
-'use client';
+import { Metadata } from 'next';
 
-import React, { Suspense } from 'react';
-import { useSuspenseQuery } from '@tanstack/react-query';
+import BrandInfo from '@/components/product/brandInfo';
+import ProductImageSlider from '@/components/product/productImageSlider';
+import Categories from '@/components/product/categories';
+import ProductInfo from '@/components/product/productInfo';
+import ProductButtons from '@/components/product/productButtons';
 
-import { fetchProduct } from '@/fetch/product';
-import BrandInfo, { BrandInfoSkeleton } from '@/components/product/brandInfo';
-import ProductImageSlider, {
-  ProductImageSliderSkeleton,
-} from '@/components/product/productImageSlider';
-import Categories, {
-  CategoriesSkeleton,
-} from '@/components/product/categories';
-import ProductOptions, {
-  ProductOptionsSkeleton,
-} from '@/components/product/productOptions';
-import ProductInfo, {
-  ProductInfoSkeleton,
-} from '@/components/product/productInfo';
-import ProductButtons, {
-  ProductButtonsSkeleton,
-} from '@/components/product/productButtons';
-import { OptionGroupType, TransformedOptionsType } from '@/types/product';
+import { fetchProductData } from '@/fetch';
 
 type Props = {
   params: { id: string };
 };
 
-export default function Product({ params }: Props) {
-  return (
-    <Suspense fallback={<LoadingSkeletons />}>
-      <MainContent id={params.id} />
-    </Suspense>
-  );
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const product = await fetchProductData(params.id);
+
+  return {
+    metadataBase: new URL('http://localhost:3000'),
+    alternates: {
+      canonical: `/product/${params.id}`,
+    },
+    title: product.product.name,
+    description: `${product.product.price}원`,
+    openGraph: {
+      title: product.product.name,
+      description: `${product.product.price}원`,
+      siteName: 'eqcm',
+      locale: 'ko_KR',
+      type: 'website',
+      url: `http://localhost:3000/product/${params.id}`,
+      images: {
+        url: product.product.itemImage,
+      },
+    },
+  };
 }
 
-const LoadingSkeletons = () => {
-  return (
-    <div className="w-full">
-      <CategoriesSkeleton />
-      <div className="max-w-[1300px] m-auto md:pt-10 md:px-[50px]">
-        <BrandInfoSkeleton />
-        <div className="flex flex-col md:flex-row md:gap-[45px]">
-          <ProductImageSliderSkeleton />
-          <div className="flex flex-col w-full">
-            <ProductInfoSkeleton />
-            <ProductOptionsSkeleton />
-            <ProductButtonsSkeleton />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+export default async function Product({ params }: Props) {
+  const data = await fetchProductData(params.id);
 
-type MainContentProps = {
-  id: string;
-};
+  // function transformOptionGroupsToOptions(
+  //   optionGroups: OptionGroupType[],
+  // ): TransformedOptionsType {
+  //   const options: TransformedOptionsType = {};
 
-const MainContent = ({ id }: MainContentProps) => {
-  const { data } = useSuspenseQuery({
-    queryKey: [`products/${id}`],
-    queryFn: () => fetchProduct(id),
-    staleTime: 60000,
-  });
+  //   optionGroups.forEach((group) => {
+  //     options[group.name] = group.options.map((option) => option.name);
+  //   });
 
-  function transformOptionGroupsToOptions(
-    optionGroups: OptionGroupType[],
-  ): TransformedOptionsType {
-    const options: TransformedOptionsType = {};
-
-    optionGroups.forEach((group) => {
-      options[group.name] = group.options.map((option) => option.name);
-    });
-
-    return options;
-  }
+  //   return options;
+  // }
 
   return (
     <div className="w-full">
@@ -92,16 +67,16 @@ const MainContent = ({ id }: MainContentProps) => {
           <ProductImageSlider imgSrc={data.product.itemImage} />
           <div className="flex flex-col w-full">
             <ProductInfo data={data} />
-            <ProductOptions
+            {/* <ProductOptions
               price={data.product.price}
               options={transformOptionGroupsToOptions(
                 data.product.optionGroups,
               )}
-            />
+            /> */}
             <ProductButtons />
           </div>
         </div>
       </div>
     </div>
   );
-};
+}

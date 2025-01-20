@@ -1,3 +1,5 @@
+'use client';
+
 import React, { memo, useMemo, useReducer } from 'react';
 import cn from 'classnames';
 import OptionDropdown from './optionDropdown';
