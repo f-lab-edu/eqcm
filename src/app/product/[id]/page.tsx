@@ -16,7 +16,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = await fetchProductData(params.id);
 
   return {
-    metadataBase: new URL('http://localhost:3000'),
     alternates: {
       canonical: `/product/${params.id}`,
     },
