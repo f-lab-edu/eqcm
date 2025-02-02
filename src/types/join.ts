@@ -35,10 +35,8 @@ export type StepType = {
   component: JSX.Element;
 };
 
-export type AGREEMENT_CHECK_IDS_TYPE = keyof typeof AGREEMENT_CHECK_IDS;
-
 export type TermsAgreementListType = {
-  id: AGREEMENT_CHECK_IDS_TYPE;
+  id: AGREEMENT_CHECK_IDS;
   required: boolean;
   text: string;
   detail?: string;

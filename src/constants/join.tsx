@@ -7,23 +7,23 @@ import {
 import { InputFieldType } from '@/types/common';
 import { EmailFormSchema, PasswordFormSchema, PhoneFormSchema } from './common';
 
-export const JOIN_STEP = {
-  TERMS_AGREEMENT: 'termsAgreementStep',
-  EMAIL_INPUT: 'emailInputStep',
-  PASSWORD_INPUT: 'passwordInputStep',
-  PHONE_VERIFICATION: 'phoneVerificationStep',
-  PERSONAL_INFO: 'personalInfoStep',
-  SUCCESS: 'successStep',
-} as const;
+export enum JOIN_STEP {
+  TERMS_AGREEMENT,
+  EMAIL_INPUT,
+  PASSWORD_INPUT,
+  PHONE_VERIFICATION,
+  PERSONAL_INFO,
+  SUCCESS,
+}
 
-export const AGREEMENT_CHECK_IDS = {
-  all: 'all',
-  age: 'age',
-  term: 'term',
-  privacy: 'privacy',
-  marketing: 'marketing',
-  ad: 'ad',
-} as const;
+export enum AGREEMENT_CHECK_IDS {
+  all = 'all',
+  age = 'age',
+  term = 'term',
+  privacy = 'privacy',
+  marketing = 'marketing',
+  ad = 'ad',
+}
 
 export enum GENDER {
   male = 'MALE',
